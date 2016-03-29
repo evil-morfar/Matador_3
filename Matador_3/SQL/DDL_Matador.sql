@@ -23,10 +23,10 @@ create table players(
 	id 			int auto_increment not null,
     game_id 	int not null,
     player_name	varchar(20),
-    account 	int,
+    account 	int(7),
     jailcards 	int(1),
 	color		varchar(10),
-    position	int(2) check(position <= 40) && check(position > 0),
+    position	int(2) check(position <= 40 && position > 0),
     primary key(id, game_id),
     foreign key (game_id) references games(id)
 );
