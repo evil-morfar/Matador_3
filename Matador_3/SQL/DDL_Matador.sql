@@ -31,21 +31,21 @@ create table players(
 
 create table player_properties(
 	field_id	int,
+    game_id		int,
+    player_id	int,
     num_houses	int,
     num_hotels	int,
     field_type	varchar(10),
-    player_id	int,
-    game_id		int,
-    primary key (field_id),
+    primary key (field_id, game_id),
 	foreign key (player_id) references players(id),
     foreign key (game_id) references games(id)
 
 );
 
 create table bank(
+	game_id			int,
 	houses_left		int,
     hotels_left		int,
-    game_id			int,
     primary key(game_id),
     foreign key(game_id) references games(id)
 );
