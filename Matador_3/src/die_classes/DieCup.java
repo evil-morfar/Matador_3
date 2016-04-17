@@ -1,10 +1,10 @@
 package die_classes;
 
-/**
+/**************************************************************
  * 
  * @author Henrik
  * @return Simulates the Diecup with 2 dices
- */
+ *************************************************************/
 
 public class DieCup {
 
@@ -33,25 +33,25 @@ public class DieCup {
 
 	// 
 
-	/**
+	/******************************************************************
 	 * 
-	 * @return check if facevalues are identical
-	 */
-	
+	 * @return check if facevalues are identical, returns 0 if not
+	 * 
+	 ***************************************************************/
+
 	public int isDoubles() {
 		if (die1.getFaceValue()==die2.getFaceValue()) {
 			return die1.getFaceValue();
 		}else {
 			return 0;
-
 		}
 	}
 
-	/**
+	/***********************************************
 	 * 
 	 * @return returns sum of the dice rolled
-	 */
-	
+	 *********************************************/
+
 	public int roll() {
 		return die1.roll() + die2.roll();
 	}
