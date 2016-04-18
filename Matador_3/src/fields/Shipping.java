@@ -1,10 +1,9 @@
+package fields;
+
 /**
  * The Ownable Field of type Shipping. There's 4 of these in a standard Monopoly game.
  * @author Nichlas N. Pilemand
  */
-
-package fields;
-
 public class Shipping extends AbstractOwnable {
 	
 	private static final String FIELD_TYPE = "Shipping";

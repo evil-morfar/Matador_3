@@ -3,8 +3,8 @@ package fields;
 import desktop_codebehind.Player;
 
 /**
- * @author Nichlas N. Pilemand
- *
+ * Superclass for Ownable Fields.
+ * @author Henrik 
  */
 public abstract class AbstractOwnable extends AbstractFields {
 

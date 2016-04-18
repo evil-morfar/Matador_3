@@ -1,10 +1,9 @@
+package fields;
 /**
  * The Ownable Field of type Territory - the common buyable field in a Monopoly game.
- * @author Nichlas N. Pilemand, 2016
+ * @see Territory#Territory(String, int, int[])
+ * @author Nichlas N. Pilemand
  */
-
-package fields;
-
 public class Territory extends AbstractOwnable {
 	
 	private static final String FIELD_TYPE = "Territory";

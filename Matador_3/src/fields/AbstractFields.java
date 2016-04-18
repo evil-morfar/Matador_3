@@ -1,13 +1,10 @@
-/**
- * Super class for every field in the game
- */
 package fields;
 
 import desktop_codebehind.Player;
 
 /**
- * @author Nichlas N. Pilemand
- *
+ * Super class for every field in the game
+ * @author Henrik *
  */
 public abstract class AbstractFields {
 

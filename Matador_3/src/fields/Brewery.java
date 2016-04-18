@@ -1,10 +1,9 @@
+package fields;
+
 /**
  * Ownable Field of the brewery type. Normally 2 of these in a standard Monopoly game.
  * @author Nichlas N. Pilemand
  */
-
-package fields;
-
 public class Brewery extends AbstractOwnable {
 	
 	private static final String FIELD_TYPE = "Brewery";
@@ -29,7 +28,7 @@ public class Brewery extends AbstractOwnable {
 	 * Controls what happens when a player lands on a Brewery type Field.
 	 * @param player The player landing on the field.
 	 * @param lastRoll The sum of the last dice roll - used to determine rent.
-	 * @see AbstractOwnable
+	 * @see Brewery#Brewery(String, int, int)
 	 */
 	public void landOnField(Player player, int lastRoll){
 		Player owner = this.getOwner();

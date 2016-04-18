@@ -1,11 +1,11 @@
-/**
- * The NonOwnable Field, Chance. Several of these exists in a standard Monopoly game.
- * @author Nichlas N. Pilemand
- */
 package fields;
 
 import desktop_codebehind.Player;
 
+/**
+ * The NonOwnable Field, Chance. Several of these exists in a standard Monopoly game.
+ * @author Nichlas N. Pilemand
+ */
 public class Chance extends AbstractNonOwnables {
 	
 	private static final String FIELD_TYPE = "Chance";

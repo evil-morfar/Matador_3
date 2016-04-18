@@ -1,9 +1,8 @@
 package fields;
 
 /** 
- * 
+ * Superclass for NonOwnable Fields
  * @author Henrik
- *
  */
 
 public abstract class AbstractNonOwnables extends AbstractFields {

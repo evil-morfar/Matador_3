@@ -1,11 +1,11 @@
-/**
- * The NonOwnable Field, FlatTax. There's only 1 of these on a standard Monopoly game.
- * @author Nichlas N. Pilemand
- */
 package fields;
 
 import desktop_codebehind.Player;
 
+/**
+ * The NonOwnable Field, FlatTax. There's only 1 of these on a standard Monopoly game.
+ * @author Nichlas N. Pilemand
+ */
 public class FlatTax extends AbstractNonOwnables {
 	
 	private static final String FIELD_TYPE = "Tax";
