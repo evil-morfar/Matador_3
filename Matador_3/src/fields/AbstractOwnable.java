@@ -19,6 +19,11 @@ public abstract class AbstractOwnable extends AbstractFields {
 		
 	}
 	
+	public void clearOwner() {
+		this.owner = null;
+	}
+	
+	
 	
 	/**
 	 * @return true if owned, otherwise false
