@@ -56,7 +56,7 @@ public class Territory extends AbstractOwnable {
 	 * @see AbstractOwnable
 	 */
 	public void landOnField(Player player){
-		Player owner = super.getOwner();
+		Player owner = this.getOwner();
 		if (owner != player) {
 			//TODO do stuff
 		}
