@@ -3,6 +3,8 @@
  */
 package fields;
 
+import desktop_codebehind.Player;
+
 /**
  * @author Nichlas N. Pilemand
  *
@@ -40,4 +42,5 @@ public abstract class AbstractFields {
 	public String toString() {
 		return "Field #" +"fieldtype"+ ", name = " +name;
 	}
+
 }
