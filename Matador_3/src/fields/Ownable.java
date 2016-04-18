@@ -4,7 +4,7 @@ package fields;
  * @author Nichlas N. Pilemand
  *
  */
-public class Ownable extends Field {
+public class Ownable extends AbstractFields {
 
 	protected int price;
 	protected Player owner;
