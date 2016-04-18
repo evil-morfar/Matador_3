@@ -25,6 +25,11 @@ public abstract class AbstractFields {
 		this.fieldType = fieldType;
 	}
 	
+	/********************************************************************
+	 * abstract method which will be inherited in subclasses
+	 * @param landOnField
+	 *********************************************************************'*/
+	
 	public abstract void landOnField(Player player);
 	
 	// Getters
@@ -40,7 +45,7 @@ public abstract class AbstractFields {
 	// String to string 
 	
 	public String toString() {
-		return "Field #" +"fieldtype"+ ", name = " +name;
+		return "Field #" +"fieldType"+ ", name = " +name;
 	}
 
 }
