@@ -4,14 +4,19 @@ package fields;
  * @author Nichlas N. Pilemand
  *
  */
-public class Ownable extends AbstractFields {
+public abstract class AbstractOwnable extends AbstractFields {
 
 	protected int price;
 	protected Player owner;
 	
-	public Ownable(int id, String name, int price) {
-		super(id, name);
+	public AbstractOwnable(String name, String fieldType, int price) {
+		super(fieldType, name);
 		this.price = price;
+	}
+	
+	@Override 
+	public void landOnField(Player player) {
+		
 	}
 	
 	

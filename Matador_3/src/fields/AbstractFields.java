@@ -23,6 +23,8 @@ public abstract class AbstractFields {
 		this.fieldType = fieldType;
 	}
 	
+	public abstract void landOnField(Player player);
+	
 	// Getters
 	
 	public String getName(){
