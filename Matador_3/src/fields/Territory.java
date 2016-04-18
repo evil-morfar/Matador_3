@@ -12,6 +12,17 @@ public class Territory extends AbstractOwnable {
 	private int numHouses = 0;
 	private boolean hasHotel = false;
 
+	/**
+	 * Creates a Ownable Field of type Territory. Rent is calculated according to
+	 * number of hotels, houses and owned territories of the same color.
+	 * @param name Name of the Field
+	 * @param price Price of buying the Field
+	 * @param rent Array, size 6.
+	 * Indexes: 	<p>0 = rent without houses</p>
+	 * 				<p>1-4 = rent with 1-4 houses</p>
+	 * 				<p>5 = rent with hotel</p>
+	 * @see AbstractOwnable
+	 */
 	public Territory(String name, int price, int[] rent) {
 		super(name, FIELD_TYPE, price);
 		this.rent = rent;
