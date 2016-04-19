@@ -32,11 +32,11 @@ create table players(
 );
 
 create table player_properties(
-	field_id	int(40),
+	field_id	int(2) check (field_id > 0 && field_id <= 40),
     game_id		int,
     player_id	int,
-    num_houses	int(4),
-    num_hotels	int(1),
+    num_houses	int(1) check (num_houses <= 4 && num_houses >= 0),
+    num_hotels	int(1) check (num_hotels = 0 || num_hotels = 1),
     field_type	varchar(10),
     primary key (field_id, game_id),
 	foreign key (player_id) references players(id),
