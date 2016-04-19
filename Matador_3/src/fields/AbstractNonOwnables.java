@@ -1,5 +1,7 @@
 package fields;
 
+import game_entities.Player;
+
 /** 
  * Superclass for NonOwnable Fields
  * @author Henrik
@@ -11,8 +13,9 @@ public abstract class AbstractNonOwnables extends AbstractFields {
 		super(name, fieldType);
 	}
 
-	@Override public void landOnfield(Player player) {
+	@Override
+	public void landOnfield(Player player) {
 		
 	}
-	
+
 }

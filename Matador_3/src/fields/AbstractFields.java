@@ -1,6 +1,6 @@
 package fields;
 
-import desktop_codebehind.Player;
+import game_entities.Player;
 
 /**
  * Super class for every field in the game
@@ -44,5 +44,6 @@ public abstract class AbstractFields {
 	public String toString() {
 		return "Field #" +"fieldType"+ ", name = " +name;
 	}
+
 
 }

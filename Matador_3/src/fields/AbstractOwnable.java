@@ -1,6 +1,6 @@
 package fields;
 
-import desktop_codebehind.Player;
+import game_entities.Player;
 
 /**
  * Superclass for Ownable Fields.
@@ -28,10 +28,10 @@ public abstract class AbstractOwnable extends AbstractFields {
 
 			if(player.getBalance()>price) {
 
-				if(//player accepts on gui)
-						player.withdraw(price);
-						owner = player;
-						// buy successful message				
+				if(//player accepts on gui))
+						)player.withdrawBalance(price);
+				owner = player;
+				// buy successful message				
 
 			} else // not bought message 
 
