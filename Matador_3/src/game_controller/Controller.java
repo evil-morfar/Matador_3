@@ -11,9 +11,18 @@ public class Controller {
 	public enum GameState{NAME_STATE, PLAY_STATE, WIN_STATE}; 
 
 	private int turnNumber;
-
+	
 	private DieCup_Interface dieCup; 
+	private GUI_boundary output;
 
+	
+	
+	//Constructor
+	public Controller(){
+		dieCup = DiceCup;
+		//output = insert output class here
+	}
+	
 
 	public void run(){
 
@@ -40,6 +49,11 @@ public class Controller {
 	private void playstate(){
 
 	}
+	
+	private void winstate(){
+	}
+	}
+	
 }
 
 
