@@ -9,8 +9,8 @@ import game_entities.Player;
 
 public abstract class AbstractNonOwnables extends AbstractFields {
 
-	public AbstractNonOwnables(String name, String fieldType) {
-		super(name, fieldType);
+	public AbstractNonOwnables(int fieldID, String name, String fieldType) {
+		super(fieldID, name, fieldType);
 	}
 
 	
