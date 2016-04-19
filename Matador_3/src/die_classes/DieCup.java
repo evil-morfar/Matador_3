@@ -56,5 +56,11 @@ public class DieCup {
 		return die1.roll() + die2.roll();
 	}
 
+	public int[] getDice(){
+		int[] dice = {getDie1(), getDie2()};
+		return dice;
+		
+	}
+	
 
 }
