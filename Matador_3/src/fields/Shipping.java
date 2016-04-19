@@ -21,7 +21,7 @@ public class Shipping extends AbstractOwnable {
 	 * @see AbstractOwnable
 	 */
 	public Shipping(int id, String name, int price, int rent) {
-		super(name, FIELD_TYPE, price);
+		super(id, name, FIELD_TYPE, price);
 		this.rent = rent;		
 	}
 	
