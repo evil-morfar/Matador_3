@@ -14,6 +14,12 @@ public class Account {
 		return balance;
 	}
 	
+public void setBalance(int value){
+		
+		balance =value;
+
+}
+
 	public void deposit(int value){
 	
 		balance = balance + value;
