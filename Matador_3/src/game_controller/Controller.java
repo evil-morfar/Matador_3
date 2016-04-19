@@ -9,32 +9,37 @@ public class Controller {
 
 	//evt add flerer sub state under PLAY_STATE
 	public enum GameState{NAME_STATE, PLAY_STATE, WIN_STATE}; 
-	
+
 	private int turnNumber;
-	
+
 	private DieCup_Interface dieCup; 
-	
-	private Board gameboard;
-	
-	
-	
-	
-	dieCup = new DieCup(); 
-	output = new GUI_boundary();
-	
-	
-	
+
+
 	public void run(){
+
 		while(true){
 			switch(state){
-			
-			
+			case NAME_STATE: namestate();
+			break;
+			case PLAY_STATE: playstate();
+			break;
+			case PLAY_STATE2: playstate2();
+			break;
+			case PLAY_STATE3: playstate3();
+			break;
+			case WIN_STATE: winstate();
+			break;
 			}
-			
-			
-			
-			
 		}
 	}
 
+	private void namestate(){
+
+	}
+
+	private void playstate(){
+
+	}
 }
+
+
