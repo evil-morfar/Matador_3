@@ -13,7 +13,7 @@ public abstract class AbstractFields {
 	protected int fieldID;
 	
 	/**
-	 * 
+	 * @param fieldID the ID of the field, used to corporate with the Database
 	 * @param name name of the field 
 	 * @param fieldType The type of field 
 	 */
