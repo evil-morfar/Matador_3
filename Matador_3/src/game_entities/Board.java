@@ -13,8 +13,13 @@ import fields.*;
  */
 public class Board {
 	
-	private static final String CSV_FILE = "/fields/fieldData.csv";
-	private AbstractFields[] fields; 
+	private static final String CSV_FILE = "src/fields/fieldData.csv";
+	public AbstractFields[] fields; 
+	
+	public Board(){
+		this.fields = new AbstractFields[40];
+		createFields();
+	}
 	
 	
 	/**
@@ -22,7 +27,7 @@ public class Board {
 	 */
 	private void createFields() {
 		String line = "";
-		String splitBy = ",";
+		String splitBy = ";";
 		BufferedReader br = null;
 		
 		try {
@@ -37,7 +42,8 @@ public class Board {
 				 * 3 - 9: Rent prices, and more
 				 * 10: House price
 				 */
-				
+				for(int x =0; x <field.length;x++)
+					System.out.println(field[x]);
 				switch(field[1]) {
 				case "Territory":
 					fields[i] = new Territory(field[2], 
