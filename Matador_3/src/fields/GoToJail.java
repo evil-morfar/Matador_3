@@ -1,6 +1,6 @@
 package fields;
 
-import desktop_codebehind.Player;
+import game_entities.Player;
 
 /**
  * NonOwnable Field that moves a player to the jail when landed on.

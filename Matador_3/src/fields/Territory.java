@@ -1,4 +1,7 @@
 package fields;
+
+import game_entities.Player;
+
 /**
  * The Ownable Field of type Territory - the common buyable field in a Monopoly game.
  * @see Territory#Territory(String, int, int[])
