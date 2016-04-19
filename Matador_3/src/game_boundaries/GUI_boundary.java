@@ -1,5 +1,7 @@
 package game_boundaries;
 
-public class GUI_boundary {
+public class GUI_boundary implements Interface {
 
+	
+	
 }
