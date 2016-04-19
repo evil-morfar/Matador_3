@@ -13,11 +13,12 @@ public class FlatTax extends AbstractNonOwnables {
 
 	/**
 	 * Creates an object of the FlatTax type. The tax to be payed is a flat amount.
+	 * @param id The id of the field.
 	 * @param name The name of the Field.
 	 * @param amount The amount to pay.
 	 */
-	public FlatTax(String name, int amount) {
-		super(name, FIELD_TYPE);
+	public FlatTax(int id, String name, int amount) {
+		super(id, name, FIELD_TYPE);
 		this.amount = amount;
 	}
 

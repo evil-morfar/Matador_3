@@ -13,10 +13,11 @@ public class Chance extends AbstractNonOwnables {
 	/**
 	 * Creates a NonOwnable Field of type Chance. Used to give random cards
 	 * to players during a game.
+	 * @param id The id of the field.
 	 */
-	public Chance() {
+	public Chance(int id) {
 		// Name and fieldType is the same.
-		super(FIELD_TYPE, FIELD_TYPE);
+		super(id, FIELD_TYPE, FIELD_TYPE);
 	}
 
 	/**

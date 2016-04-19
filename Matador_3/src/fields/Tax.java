@@ -15,12 +15,13 @@ public class Tax extends AbstractNonOwnables {
 	/**
 	 * Creates a NonOwnable Field of type Tax. This field requires a player to pay
 	 * a percentage of their balance, or a flat amount.
+	 * @param id The id of the field.
 	 * @param name Name of the Field.
 	 * @param amount The flat amount to pay.
 	 * @param percent The percentage of a player balance to pay.
 	 */
-	public Tax(String name, int amount, int percent) {
-		super(name, FIELD_TYPE);
+	public Tax(int id, String name, int amount, int percent) {
+		super(id, name, FIELD_TYPE);
 		this.amount = amount;
 		this.percent = percent;
 	}

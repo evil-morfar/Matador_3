@@ -14,13 +14,14 @@ public class Shipping extends AbstractOwnable {
 	/**
 	 * Creates an object of the Shipping class. Rent is calculated with
 	 * 2^numberOfOwnedShips * rent.
+	 * @param id The id of the field.
 	 * @param name Name of the field.
 	 * @param price Price of buying the field.
 	 * @param rent Base rent of the field.
 	 * @see AbstractOwnable
 	 */
-	public Shipping(String name, int price, int rent) {
-		super(name, FIELD_TYPE, price);
+	public Shipping(int id, String name, int price, int rent) {
+		super(id, name, FIELD_TYPE, price);
 		this.rent = rent;		
 	}
 	
