@@ -13,7 +13,14 @@ public class Player {
 	private Account account;
 
 
-	
+	/**
+	 * 
+	 * @param name
+	 * @param startingBalance
+	 * @param color
+	 * @param position
+	 * @param PlayerID
+	 */
 	public Player(String name, int startingBalance, String color, int position, int PlayerID){
 		this.name = name;
 		this.account = new Account(startingBalance);
@@ -21,6 +28,10 @@ public class Player {
 		this.position = position;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String getName(){
 		return name;
 	}
@@ -42,6 +53,11 @@ public class Player {
 		
 	}
 	
+	/**
+	 * Withdraws an amount from the players balance.
+	 * @param value The amount to withdraw.
+	 * @see Player#depositBalance(int)
+	 */
 	public void withdrawBalance(int value){
 		 this.account.withdraw(value);
 		
