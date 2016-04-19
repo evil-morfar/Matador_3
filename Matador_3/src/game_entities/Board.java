@@ -6,12 +6,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import fields.*;
 
+/**
+ * Creates a Monopoly board.
+ * @author Nichlas N. Pilemand
+ *
+ */
 public class Board {
 	
 	private static final String CSV_FILE = "/fields/fieldData.csv";
 	private AbstractFields[] fields; 
 	
 	
+	/**
+	 * Creates fields based on the input .csv file
+	 */
 	private void createFields() {
 		String line = "";
 		String splitBy = ",";
