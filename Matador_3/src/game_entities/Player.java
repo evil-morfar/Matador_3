@@ -25,6 +25,9 @@ public class Player {
 		return name;
 	}
 
+	public int getBalance(){
+		return this.account.getBalance();
+	}
 
 	public void setPosition(int position){
 		this.position = position;		
@@ -40,7 +43,7 @@ public class Player {
 	}
 	
 	public void withdrawBalance(int value){
-		this.account.withdraw(value);
+		 this.account.withdraw(value);
 		
 	}
 	
