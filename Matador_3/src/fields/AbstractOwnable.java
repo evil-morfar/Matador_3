@@ -14,22 +14,29 @@ public abstract class AbstractOwnable extends AbstractFields {
 	public AbstractOwnable(String name, String fieldType, int price) {
 		super(fieldType, name);
 		this.price = price;
+		this.owner = null;
 	}
 
 	/********************************************************* 
 	 * @param Herited method from superclass AbstractFields
 	 ******************************************************''''*/
-	
+
 	@Override 
 	public void landOnField(Player player) {
-	
+
 		if(this.owner==null){
+
 			if(player.getBalance()>price) {
-				// prompt to gui and if yes withdraw
-			
+
+				if(//player accepts on gui)
+						player.withdraw(price);
+						owner = player;
+						// buy successful message				
+
 			} else // not bought message 
+
 		} else // not enough balance message 
-	
+
 	}
 
 	public void clearOwner() {
@@ -56,13 +63,13 @@ public abstract class AbstractOwnable extends AbstractFields {
 	public void setOwner(Player owner) {
 		this.owner = owner;
 	}
-	
+
 	@Override
 	public String toString(){
 		String str = super.toString() + ", price=" + price;
 		if(owner != null)
 			str += ", owner=" + owner.getName();
-		
+
 		return str;
 	}	
 }
