@@ -41,6 +41,10 @@ public abstract class AbstractFields {
 		return fieldType;
 	}
 	
+	public int getFieldID() {
+		return fieldID;
+	}
+	
 	// String to string 
 	
 	public String toString() {
