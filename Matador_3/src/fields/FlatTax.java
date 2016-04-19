@@ -1,6 +1,6 @@
 package fields;
 
-import desktop_codebehind.Player;
+import game_entities.Player;
 
 /**
  * The NonOwnable Field, FlatTax. There's only 1 of these on a standard Monopoly game.
@@ -27,7 +27,7 @@ public class FlatTax extends AbstractNonOwnables {
 	 * @param player The player landing on the field.
 	 */
 	public void landOnField(Player player) {
-		player.changeBalance(-this.amount);
+		player.withdrawBalance(this.amount);
 		//TODO consider error handling.
 	}
 

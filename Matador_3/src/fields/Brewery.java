@@ -1,5 +1,7 @@
 package fields;
 
+import game_entities.Player;
+
 /**
  * Ownable Field of the brewery type. Normally 2 of these in a standard Monopoly game.
  * @author Nichlas N. Pilemand

@@ -1,6 +1,6 @@
 package fields;
 
-import desktop_codebehind.Player;
+import game_entities.Player;
 
 /**
  * The NonOwnable Field, Chance. Several of these exists in a standard Monopoly game.

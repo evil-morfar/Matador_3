@@ -1,6 +1,6 @@
 package fields;
 
-import desktop_codebehind.Player;
+import game_entities.Player;
 /**
  * An Empty NonOwnable Field for a Monopoly game.
  * @author Nichlas N. Pilemand

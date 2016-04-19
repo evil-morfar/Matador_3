@@ -1,6 +1,6 @@
 package game_entities;
 
-import game.entities.Balance;
+import game_entities.Account;
 
 public class Player {
 	
@@ -14,12 +14,12 @@ public class Player {
 
 
 	/**
-	 * 
-	 * @param name
-	 * @param startingBalance
-	 * @param color
-	 * @param position
-	 * @param PlayerID
+	 * Constructor for the Player class
+	 * @param name, the players name
+	 * @param startingBalance, the amount of starting credits for a player
+	 * @param color, the color type the player will display on the gameboard
+	 * @param position, what field # the player is currently on 
+	 * @param PlayerID, ID to identify the player
 	 */
 	public Player(String name, int startingBalance, String color, int position, int PlayerID){
 		this.name = name;
@@ -28,10 +28,7 @@ public class Player {
 		this.position = position;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
+	
 	public String getName(){
 		return name;
 	}
@@ -62,6 +59,11 @@ public class Player {
 		 this.account.withdraw(value);
 		
 	}
+	
+	/**
+	 * Tells if a player has lost the game 
+	 * @param isBroke, true/false
+	 */
 	
 	public void setIsBroke(boolean isBroke){
 		this.broke = isBroke;
