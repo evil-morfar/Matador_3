@@ -13,8 +13,8 @@ public abstract class AbstractFields {
 	
 	/**
 	 * 
-	 * @param name
-	 * @param fieldType
+	 * @param name name of the field 
+	 * @param fieldType The type of field 
 	 */
 	
 	public AbstractFields(String name, String fieldType){
@@ -24,7 +24,7 @@ public abstract class AbstractFields {
 	
 	/********************************************************************
 	 * abstract method which will be inherited in subclasses
-	 * @param landOnField
+	 * @param landOnField THe method to be called when a player moves and lands on a field, different for all classes 
 	 *********************************************************************'*/
 	
 	public abstract void landOnField(Player player);
