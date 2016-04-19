@@ -10,6 +10,7 @@ public abstract class AbstractFields {
 
 	protected String name = "";
 	protected String fieldType = "";
+	protected int fieldID;
 	
 	/**
 	 * 
@@ -17,9 +18,10 @@ public abstract class AbstractFields {
 	 * @param fieldType The type of field 
 	 */
 	
-	public AbstractFields(String name, String fieldType){
+	public AbstractFields(int fieldID, String name, String fieldType){
 		this.name = name;
 		this.fieldType = fieldType;
+		this.fieldID = fieldID;
 	}
 	
 	/********************************************************************

@@ -11,8 +11,8 @@ public abstract class AbstractOwnable extends AbstractFields {
 	protected int price;
 	protected Player owner;
 
-	public AbstractOwnable(String name, String fieldType, int price) {
-		super(fieldType, name);
+	public AbstractOwnable(int fieldID, String name, String fieldType, int price) {
+		super(fieldID,fieldType, name);
 		this.price = price;
 		this.owner = null;
 	}
