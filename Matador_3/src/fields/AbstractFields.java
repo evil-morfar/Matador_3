@@ -48,7 +48,7 @@ public abstract class AbstractFields {
 	// String to string 
 	
 	public String toString() {
-		return "Field #" +"fieldType"+ ", name = " +name;
+		return "Field #" +fieldID+ "(" + fieldType + "), " + name = " +name;
 	}
 
 
