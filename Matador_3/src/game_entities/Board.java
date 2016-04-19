@@ -17,7 +17,7 @@ public class Board {
 	public AbstractFields[] fields; 
 	
 	public Board(){
-		this.fields = new AbstractFields[40];
+		this.fields = new AbstractFields[41];
 		createFields();
 	}
 	
@@ -42,8 +42,6 @@ public class Board {
 				 * 3 - 9: Rent prices, and more
 				 * 10: House price
 				 */
-				for(int x =0; x <field.length;x++)
-					System.out.println(field[x]);
 				switch(field[1]) {
 				case "Territory":
 					fields[i] = new Territory(field[2], 
@@ -81,8 +79,7 @@ public class Board {
 					fields[i] = new GoToJail(field[2]);
 					break;
 				default:
-					//Should never happen?
-					System.out.println("Switch defaulted!");
+					//First line is headers. Nothing should happen here.
 				}
 				
 				i++;
@@ -105,6 +102,10 @@ public class Board {
 				}
 		}
 		
+	}
+	
+	public AbstractFields[] getFields() {
+		return fields;
 	}
 
 }
