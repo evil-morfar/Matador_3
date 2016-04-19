@@ -12,10 +12,11 @@ public class GoToJail extends AbstractNonOwnables {
 
 	/**
 	 * Creates the NonOwnable Jail Field. 
+	 * @param id The id of the field.
 	 * @param name Name of the Field
 	 */
-	public GoToJail(String name) {
-		super(name, FIELD_TYPE);
+	public GoToJail(int id, String name) {
+		super(id, name, FIELD_TYPE);
 	}
 
 	@Override

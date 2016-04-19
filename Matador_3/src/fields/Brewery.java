@@ -15,14 +15,15 @@ public class Brewery extends AbstractOwnable {
 	 * Creates an Ownable Field of type Brewery. Rent is calculated according to
 	 * the last dice sum times a multiplier, normally 100, or 200 if 2 breweries
 	 * is owned.
+	 * @param id The id of the field.
 	 * @param name Name of the Field.
 	 * @param price Price of buying the Field
 	 * @param multiply The multiplier that determines rent. The double of this
 	 * is used if a player owns 2 breweries.
 	 * @see AbstractOwnable
 	 */
-	public Brewery(String name, int price, int multiply) {
-		super(name, FIELD_TYPE, price);
+	public Brewery(int id, String name, int price, int multiply) {
+		super(id, name, FIELD_TYPE, price);
 		this.multiply = multiply;
 	}
 	
