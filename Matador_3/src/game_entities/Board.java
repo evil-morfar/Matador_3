@@ -21,6 +21,19 @@ public class Board {
 		createFields();
 	}
 	
+	/**
+	 * Returns the number of Shipping fields owned by the player.
+	 * @param player The player to check for
+	 * @return The number of owned ships.
+	 */
+	public int getNumOwnedShips(Player player) {
+		int num = 0;
+		for(int i = 0; i < fields.length; i++){
+			if(((AbstractOwnable) fields[i]).getOwner().equals(player) )
+				num++;
+		}
+		return num;
+	}
 	
 	/**
 	 * Creates fields based on the input .csv file
