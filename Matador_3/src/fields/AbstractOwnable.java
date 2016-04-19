@@ -2,10 +2,10 @@ package fields;
 
 import game_entities.Player;
 
-/**
+/************************************************
  * Superclass for Ownable Fields.
  * @author Henrik 
- */
+ ***************************************************/
 public abstract class AbstractOwnable extends AbstractFields {
 
 	protected int price;
@@ -17,9 +17,10 @@ public abstract class AbstractOwnable extends AbstractFields {
 		this.owner = null;
 	}
 
-	/********************************************************* 
-	 * @param Herited method from superclass AbstractFields
-	 ******************************************************''''*/
+	/******************************************************************************************
+	 * Herited method from superclass AbstractFields
+	 * Gives the player the option to buy the field if not owned, else the player must pay rent
+	 ******************************************************************************************/
 
 	@Override 
 	public void landOnField(Player player) {
@@ -33,7 +34,7 @@ public abstract class AbstractOwnable extends AbstractFields {
 				owner = player;
 				// buy successful message				
 
-			} else // not bought message 
+			} else // not bought message S
 
 		} else // not enough balance message 
 
@@ -45,9 +46,9 @@ public abstract class AbstractOwnable extends AbstractFields {
 
 
 
-	/**
-	 * @return true if owned, otherwise false
-	 */
+	/***************************************************
+	 * @return true if owned, otherwise false			*
+	***************************************************/
 	public boolean isOwned() {
 		return (owner == null) ? false : true;
 	}
