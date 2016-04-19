@@ -32,10 +32,6 @@ public class Controller {
 			break;
 			case PLAY_STATE: playstate();
 			break;
-			case PLAY_STATE2: playstate2();
-			break;
-			case PLAY_STATE3: playstate3();
-			break;
 			case WIN_STATE: winstate();
 			break;
 			}
@@ -52,7 +48,8 @@ public class Controller {
 	
 	private void winstate(){
 	}
-	}
+	
+}
 	
 
 
