@@ -33,6 +33,7 @@ public class BoardTest {
 		assert(fields[1].getName().equals("Start"));
 		assert(fields[40].getName().equals("Rådhuspladsen"));
 		assert(((Territory) fields[2]).getPrice() == 1200);
+		assert(fields.length == 40);
 	}
 
 }

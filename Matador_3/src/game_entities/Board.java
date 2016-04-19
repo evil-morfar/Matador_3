@@ -17,7 +17,7 @@ public class Board {
 	public AbstractFields[] fields; 
 	
 	public Board(){
-		this.fields = new AbstractFields[41];
+		this.fields = new AbstractFields[40];
 		createFields();
 	}
 	
@@ -79,7 +79,8 @@ public class Board {
 					fields[i] = new GoToJail(field[2]);
 					break;
 				default:
-					//First line is headers. Nothing should happen here.
+					//First line is headers.
+					i--;
 				}
 				
 				i++;
