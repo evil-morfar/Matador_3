@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fields.AbstractFields;
+import fields.AbstractOwnable;
 import fields.Territory;
 import game_entities.Board;
 
@@ -25,16 +26,21 @@ public class BoardTest {
 	@Before
 	public void setUp() throws Exception {
 		Board b = new Board();
-		AbstractFields[] fields = b.getFields();
+		fields = b.getFields();
 	}
 
 	@Test
 	public void testFields() {
-		assert(fields[1].getName().equals("Start"));
-		assert(fields[40].getName().equals("Rådhuspladsen"));
-		assert(((Territory) fields[2]).getPrice() == 1200);
-		assert(fields.length == 40);
-		assert(((Territory) fields[2]).getNumHouses() == 0);
+		assertEquals("Start", fields[0].getName());
+		assertEquals("Rådhuspladsen", fields[39].getName());
+		assertEquals(1200, ((AbstractOwnable) fields[1]).getPrice());
+		assertEquals(40, fields.length);
+		assertEquals(0, ((Territory) fields[3]).getNumHouses());
+	}
+	
+	@Test
+	public void testFieldToString() {
+		assertEquals("Field #1(Empty), name = Start", fields[0].toString());
 	}
 
 }
