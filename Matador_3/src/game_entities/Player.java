@@ -4,23 +4,22 @@ import game.entities.Balance;
 
 public class Player {
 	
-	String name;
-	int position;
-	boolean broke;
-	int startingBalance;
-	String color;
-	boolean isInJail;
-	int playerID;
-	
+	private String name;
+	private int position;
+	private boolean broke;
+	private String color;
+	private boolean isInJail;
+	private int playerID;
+
+
 	
 	public Player(String name, int startingBalance, String color, int position, int PlayerID){
 		this.name = name;
-		this.balance = balance;
+		this.balance = new Account(startingBalance);
 		this.Broke = false; 
 		this.position = position;
 	}
 
-	
 	public String getName(){
 		return name;
 	}
