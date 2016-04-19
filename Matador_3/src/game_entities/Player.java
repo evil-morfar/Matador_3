@@ -10,13 +10,14 @@ public class Player {
 	private String color;
 	private boolean isInJail;
 	private int playerID;
+	private Account account;
 
 
 	
 	public Player(String name, int startingBalance, String color, int position, int PlayerID){
 		this.name = name;
-		this.balance = new Account(startingBalance);
-		this.Broke = false; 
+		this.account = new Account(startingBalance);
+		this.broke = false; 
 		this.position = position;
 	}
 
@@ -29,12 +30,22 @@ public class Player {
 		this.position = position;		
 	}
 	
-	public void int changeBalance(){
+	public void setBalance(int value){
+		this.account.setBalance(value);
+	}
+	
+	public void depositBalance(int value){
+		this.account.deposit(value);
 		
 	}
 	
-	public void int setIsBroke(){
+	public void withdrawBalance(int value){
+		this.account.withdraw(value);
 		
+	}
+	
+	public void setIsBroke(boolean isBroke){
+		this.broke = isBroke;
 	}
 	
 	public String getColor(){
