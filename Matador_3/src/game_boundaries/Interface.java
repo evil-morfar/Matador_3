@@ -1,7 +1,16 @@
 package game_boundaries;
 
+/**
+ * @author Henrik
+ */
 
 // udkast til hvilke metoder vi skal have til vores GUI boundary 
+
+/******************************************************************* * 
+ * 
+ * Interface defining methods for input output to screen from game
+ * 
+ ********************************************************************/
 
 public interface Interface {
 
