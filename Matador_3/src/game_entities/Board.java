@@ -44,7 +44,8 @@ public class Board {
 				 */
 				switch(field[1]) {
 				case "Territory":
-					fields[i] = new Territory(field[2], 
+					fields[i] = new Territory(Integer.parseInt(field[0]),
+							field[2], 
 							Integer.parseInt(field[3]), 
 							Integer.parseInt(field[10]),
 								new int[]{
@@ -58,25 +59,25 @@ public class Board {
 					);
 					break;
 				case "Brewery":
-					fields[i] = new Brewery(field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					fields[i] = new Brewery(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
 					break;
 				case "Shipping":
-					fields[i] = new Shipping(field[2],Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					fields[i] = new Shipping(Integer.parseInt(field[0]), field[2],Integer.parseInt(field[3]), Integer.parseInt(field[4]));
 					break;
 				case "Chance":
-					fields[i] = new Chance();
+					fields[i] = new Chance(Integer.parseInt(field[0]));
 					break;
 				case "Empty":
-					fields[i] = new Empty();
+					fields[i] = new Empty(Integer.parseInt(field[0]));
 					break;
 				case "FlatTax":
-					fields[i] = new FlatTax(field[2], Integer.parseInt(field[3]));
+					fields[i] = new FlatTax(Integer.parseInt(field[0]),field[2], Integer.parseInt(field[3]));
 					break;
 				case "Tax":
-					fields[i] = new Tax(field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					fields[i] = new Tax(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
 					break;
 				case "GoToJail":
-					fields[i] = new GoToJail(field[2]);
+					fields[i] = new GoToJail(Integer.parseInt(field[0]), field[2]);
 					break;
 				default:
 					//First line is headers.
