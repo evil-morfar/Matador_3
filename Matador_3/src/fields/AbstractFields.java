@@ -8,9 +8,9 @@ import game_entities.Player;
  */
 public abstract class AbstractFields {
 
-	protected String name = "";
-	protected String fieldType = "";
-	protected int fieldID;
+	private String name = "";
+	private String fieldType = "";
+	private int fieldID;
 	
 	/**
 	 * @param fieldID the ID of the field, used to corporate with the Database
