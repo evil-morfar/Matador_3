@@ -36,6 +36,19 @@ public class Board {
 	}
 	
 	/**
+	 * @param player The player to check for
+	 * @return Number of owned Breweries
+	 * @see Board#getNumOwnedShips(Player)
+	 */
+	public int getNumOwnedBreweries(Player player) {
+		int num = 0;
+		for(int i = 0; i < fields.length; i++)
+			if(((AbstractOwnable) fields[i]).getOwner().equals(player))
+				num++;
+		return num;
+	}
+	
+	/**
 	 * Creates fields based on the input .csv file
 	 */
 	private void createFields() {
