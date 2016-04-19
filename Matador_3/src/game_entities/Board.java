@@ -68,7 +68,7 @@ public class Board {
 					fields[i] = new Chance(Integer.parseInt(field[0]));
 					break;
 				case "Empty":
-					fields[i] = new Empty(Integer.parseInt(field[0]));
+					fields[i] = new Empty(Integer.parseInt(field[0]), field[1]);
 					break;
 				case "FlatTax":
 					fields[i] = new FlatTax(Integer.parseInt(field[0]),field[2], Integer.parseInt(field[3]));

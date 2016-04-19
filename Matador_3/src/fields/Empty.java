@@ -13,9 +13,10 @@ public class Empty extends AbstractNonOwnables {
 	 * Create an Empty NonOwnable Field. Needed for fields that doesn't do
 	 * anything :)
 	 * @param id The id of the field.
+	 * @param name The name of the field
 	 */
-	public Empty(int id) {
-		super(id, FIELD_TYPE, FIELD_TYPE);
+	public Empty(int id, String name) {
+		super(id, name, FIELD_TYPE);
 	}
 
 	
