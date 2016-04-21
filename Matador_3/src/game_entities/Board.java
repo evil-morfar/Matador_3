@@ -29,8 +29,9 @@ public class Board {
 	public int getNumOwnedShips(Player player) {
 		int num = 0;
 		for(int i = 0; i < fields.length; i++){
-			if(((AbstractOwnable) fields[i]).getOwner().equals(player) )
-				num++;
+			if(fields[i] instanceof Shipping)
+				if(((AbstractOwnable) fields[i]).getOwner().equals(player) )
+					num++;
 		}
 		return num;
 	}
@@ -43,8 +44,9 @@ public class Board {
 	public int getNumOwnedBreweries(Player player) {
 		int num = 0;
 		for(int i = 0; i < fields.length; i++)
-			if(((AbstractOwnable) fields[i]).getOwner().equals(player))
-				num++;
+			if(fields[i] instanceof Brewery)
+				if(((AbstractOwnable) fields[i]).getOwner().equals(player))
+					num++;
 		return num;
 	}
 	
@@ -57,9 +59,9 @@ public class Board {
 	public int getNumOwnedSameColor(Player player, String color) {
 		int num = 0;
 		for (int i = 0; i < fields.length; i++)
-			if ((fields[i]).getFieldType().equals("Territory"))				
-				if( ((Territory) fields[i]).getColor().equals(color))
-					if(((AbstractOwnable) fields[i]).getOwner() == player)
+			if (fields[i] instanceof Territory)				
+				if(((AbstractOwnable) fields[i]).getOwner() == player)
+					if( ((Territory) fields[i]).getColor().equals(color))
 						num++;
 		return num;
 	}
