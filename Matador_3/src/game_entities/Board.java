@@ -22,6 +22,20 @@ public class Board {
 	}
 	
 	/**
+	 * Gets the total amount of fields owned by the player
+	 * @param player The player to check for
+	 * @return The number of owned fields.
+	 */
+	public int getNumOwnedFields(Player player) {
+		int num = 0;
+		for(AbstractFields field: fields)
+			if(field instanceof AbstractOwnable)
+				if(((AbstractOwnable) field).getOwner() == player)
+					num++;
+		return num;
+	}
+	
+	/**
 	 * Returns the number of Shipping fields owned by the player.
 	 * @param player The player to check for
 	 * @return The number of owned ships.

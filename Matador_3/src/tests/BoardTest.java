@@ -6,6 +6,7 @@ package tests;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import fields.*;
@@ -19,14 +20,17 @@ import game_entities.Player;
 public class BoardTest {
 	private AbstractFields[] fields;
 	private Board board;
+	private Player p1;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+		//TODO @Before is before every test
 		board = new Board();
 		fields = board.getFields();
+		p1 = new Player("p1", 3000, "Blue", 0, 1);
 		printFields();
 	}
 	
@@ -52,7 +56,7 @@ public class BoardTest {
 	
 	@Test
 	public void testGetNumOwnedSameColor(){
-		Player p1 = new Player("p1", 3000, "Blue", 0, 1);
+		p1 = new Player("p1", 3000, "Blue", 0, 1);
 		((AbstractOwnable) fields[1]).setOwner(p1);
 		assertEquals(1, board.getNumOwnedSameColor(p1, "Blue"));
 		((AbstractOwnable) fields[3]).setOwner(p1);
@@ -61,7 +65,7 @@ public class BoardTest {
 	
 	@Test
 	public void testGetNumOwnedShips() {
-		Player p1 = new Player("p1", 3000, "Blue", 0, 1);
+		p1 = new Player("p1", 3000, "Blue", 0, 1);
 		for (AbstractFields field : fields)
 			if(field instanceof Shipping)
 				((AbstractOwnable) field).setOwner(p1);
@@ -70,11 +74,16 @@ public class BoardTest {
 	
 	@Test
 	public void testGetNumOwnedBreweries(){
-		Player p1 = new Player("p1", 3000, "Blue", 0, 1);
 		for(AbstractFields field : fields)
 			if(field instanceof Brewery)
 				((AbstractOwnable) field).setOwner(p1);
 		assertEquals(2, board.getNumOwnedBreweries(p1));
+	}
+	
+	@Test
+	public void testGetNumOwnedFields(){
+		// TODO Doesn't work yet, @see @Before
+		System.out.println("Total owned: "+board.getNumOwnedFields(p1));
 	}
 
 }
