@@ -1,41 +1,41 @@
-Felt;Type;Navn;Pris;Leje;1 hus;2 huse;3 huse;4 huse;hotel;huspris
-1;Empty;Start;;;;;;;;
-2;Territory;Rødovrevej;1200;50;250;750;2250;4000;6000;1000
-3;Chance;Prøv lykken;;;;;;;;
-4;Territory;Hvidovrevej;1200;50;250;750;2250;4000;6000;1000
-5;Tax;Betal indkomstskat 10% eller 4000 kr.;4000;10;;;;;;
-6;Shipping;LB Færgerne;4000;500;;;;;;
-7;Territory;Roskildevej;2000;100;600;1800;5400;8000;11000;1000
-8;Chance;Prøv lykken;;;;;;;;
-9;Territory;Valby Langgade;2000;100;600;1800;5400;8000;11000;1000
-10;Territory;All‚gade;2400;150;800;2000;6000;9000;12000;1000
-11;Empty;Fængsel;;;;;;;;
-12;Territory;Frederiksberg All‚;2800;200;1000;3000;9000;12500;15000;2000
-13;Brewery;Carlsberg;3000;100;;;;;;
-14;Territory;Blowsvej;2800;200;1000;3000;9000;12500;15000;2000
-15;Territory;Gl. Kongevej;3200;250;1250;3750;10000;14000;18000;2000
-16;Shipping;Danmark;4000;500;;;;;;
-17;Territory;Bernstorfsvej;3600;300;1400;4000;11000;15000;19000;2000
-18;Chance;Prøv lykken;;;;;;;;
-19;Territory;Hellerupvej;3600;300;1400;4000;11000;15000;19000;2000
-20;Territory;Strandvej;4000;350;1600;4400;12000;16000;20000;2000
-21;Empty;Parkering;;;;;;;;
-22;Territory;Trianglen;4400;350;1800;5000;14000;17500;21000;3000
-23;Chance;Prøv lykken;;;;;;;;
-24;Territory;Østerbrogade;4400;350;1800;5000;14000;17500;21000;3000
-25;Territory;Grønningen;4800;400;2000;6000;15000;18500;22000;3000
-26;Shipping;Mols-Linien A/S;4000;500;;;;;;
-27;Territory;Bredgade;5200;450;2200;6600;16000;19500;23000;3000
-28;Territory;Kgs. Nytorv;5200;450;2200;6600;16000;19500;23000;3000
-29;Brewery;Coca-Cola;3000;100;;;;;;
-30;Territory;Østergade;5600;500;2400;7200;17000;20500;24000;3000
-31;GoToJail;De Fængsles;;;;;;;;
-32;Territory;Amagertorv;6000;550;2600;7800;18000;22000;25000;4000
-33;Territory;Vimmelskaftet;6000;550;2600;7800;18000;22000;25000;4000
-34;Chance;Prøv lykken;;;;;;;;
-35;Territory;Nygade;6400;600;3000;9000;20000;24000;28000;4000
-36;Shipping;Skandinavisk Linietrafik A/S;4000;500;;;;;;
-37;Chance;Prøv lykken;;;;;;;;
-38;Territory;Frederiksberggade;7000;700;3500;10000;22000;26000;30000;4000
-39;FlatTax;Ekstraordinær statsskat betal kr. 2000;2000;;;;;;;
-40;Territory;Rådhuspladsen;8000;1000;4000;12000;28000;34000;40000;4000
+Felt;Type;Navn;Pris;Leje;1 hus;2 huse;3 huse;4 huse;hotel;huspris;farve
+1;Empty;Start;;;;;;;;;
+2;Territory;Rødovrevej;1200;50;250;750;2250;4000;6000;1000;Blue
+3;Chance;Prøv lykken;;;;;;;;;
+4;Territory;Hvidovrevej;1200;50;250;750;2250;4000;6000;1000;Blue
+5;Tax;Betal indkomstskat 10% eller 4000 kr.;4000;10;;;;;;;
+6;Shipping;LB Færgerne;4000;500;;;;;;;
+7;Territory;Roskildevej;2000;100;600;1800;5400;8000;11000;1000;Pink
+8;Chance;Prøv lykken;;;;;;;;;
+9;Territory;Valby Langgade;2000;100;600;1800;5400;8000;11000;1000;Pink
+10;Territory;All‚gade;2400;150;800;2000;6000;9000;12000;1000;Pink
+11;Empty;Fængsel;;;;;;;;;
+12;Territory;Frederiksberg All‚;2800;200;1000;3000;9000;12500;15000;2000;Green
+13;Brewery;Carlsberg;3000;100;;;;;;;
+14;Territory;Blowsvej;2800;200;1000;3000;9000;12500;15000;2000;Green
+15;Territory;Gl. Kongevej;3200;250;1250;3750;10000;14000;18000;2000;Green
+16;Shipping;Danmark;4000;500;;;;;;;
+17;Territory;Bernstorfsvej;3600;300;1400;4000;11000;15000;19000;2000;Grey
+18;Chance;Prøv lykken;;;;;;;;;
+19;Territory;Hellerupvej;3600;300;1400;4000;11000;15000;19000;2000;Grey
+20;Territory;Strandvej;4000;350;1600;4400;12000;16000;20000;2000;Grey
+21;Empty;Parkering;;;;;;;;;
+22;Territory;Trianglen;4400;350;1800;5000;14000;17500;21000;3000;Red
+23;Chance;Prøv lykken;;;;;;;;;
+24;Territory;Østerbrogade;4400;350;1800;5000;14000;17500;21000;3000;Red
+25;Territory;Grønningen;4800;400;2000;6000;15000;18500;22000;3000;Red
+26;Shipping;Mols-Linien A/S;4000;500;;;;;;;
+27;Territory;Bredgade;5200;450;2200;6600;16000;19500;23000;3000;White
+28;Territory;Kgs. Nytorv;5200;450;2200;6600;16000;19500;23000;3000;White
+29;Brewery;Coca-Cola;3000;100;;;;;;;
+30;Territory;Østergade;5600;500;2400;7200;17000;20500;24000;3000;White
+31;GoToJail;De Fængsles;;;;;;;;;
+32;Territory;Amagertorv;6000;550;2600;7800;18000;22000;25000;4000;Yellow
+33;Territory;Vimmelskaftet;6000;550;2600;7800;18000;22000;25000;4000;Yellow
+34;Chance;Prøv lykken;;;;;;;;;
+35;Territory;Nygade;6400;600;3000;9000;20000;24000;28000;4000;Yellow
+36;Shipping;Skandinavisk Linietrafik A/S;4000;500;;;;;;;
+37;Chance;Prøv lykken;;;;;;;;;
+38;Territory;Frederiksberggade;7000;700;3500;10000;22000;26000;30000;4000;Purple
+39;FlatTax;Ekstraordinær statsskat betal kr. 2000;2000;;;;;;;;
+40;Territory;Rådhuspladsen;8000;1000;4000;12000;28000;34000;40000;4000;Purple
