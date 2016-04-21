@@ -12,9 +12,9 @@ public class GUI_boundary implements Interface {
 
 	}
 
-	/**
-	 * shows on the GUI what the player has rolled
-	 */
+	/*************************************************************
+	 * sets the dices on the GUI to what the player has rolled
+	***************************************************************/
 	
 	@Override
 	public void setDice(int[] dice) {
