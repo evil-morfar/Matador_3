@@ -1,5 +1,8 @@
 package game_boundaries;
 
+import java.awt.Color;
+
+import desktop_codebehind.Car;
 import desktop_resources.GUI;
 
 public class GUI_boundary implements Interface {
@@ -20,12 +23,26 @@ public class GUI_boundary implements Interface {
 	public void setDice(int[] dice) {
 	GUI.setDice(dice[0], dice[1]);
 
-	}
+	}	
 
+	/************************************************************************
+	 * Adds a new player to the board. using balance, name, and player #	*
+	 * 																		*
+	 * @param playerName Name of player which should be added to the board	*
+	 * @param balance Starting balance of player							*
+	 * @param playerNumber 0-5, otherwise error will occur					*
+	 ***********************************************************************/
+	
 	@Override
-	public void addPlayer(String playerName, int balance, int playerNo) {
-		// TODO Auto-generated method stub
-
+	public void addPlayer(String playerName, int balance, int playerID) {
+		Color[] colors = {Color.BLUE, Color.WHITE, Color.MAGENTA, Color.YELLOW, Color.BLACK, Color.GREEN};
+	
+		Car car = new Car.Builder()
+				.primaryColor(colors[playerID])
+				.secondaryColor(colors[5-playerID]).build();
+		GUI.addPlayer(playerName, balance, car);
+		GUI.setCar(1, playerName);
+	
 	}
 
 	@Override
