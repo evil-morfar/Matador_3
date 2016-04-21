@@ -56,6 +56,11 @@ public class DieCup {
 		return die1.roll() + die2.roll();
 	}
 
+	/**********************************************************************************
+	 * this getDice is easily used with the GUI that we are using in this game
+	 * @return dice number in an array
+	 *********************************************************************************/
+	
 	public int[] getDice(){
 		int[] dice = {getDie1(), getDie2()};
 		return dice;
