@@ -27,7 +27,6 @@ public class BoardTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		//TODO @Before is before every test
 		board = new Board();
 		fields = board.getFields();
 		p1 = new Player("p1", 3000, "Blue", 0, 1);
@@ -82,8 +81,11 @@ public class BoardTest {
 	
 	@Test
 	public void testGetNumOwnedFields(){
-		// TODO Doesn't work yet, @see @Before
-		System.out.println("Total owned: "+board.getNumOwnedFields(p1));
+		((AbstractOwnable) fields[1]).setOwner(p1);
+		((AbstractOwnable) fields[3]).setOwner(p1);
+		assertEquals(2, board.getNumOwnedFields(p1));
+		((AbstractOwnable) fields[1]).clearOwner();
+		assertEquals(1, board.getNumOwnedFields(p1));
 	}
 
 }
