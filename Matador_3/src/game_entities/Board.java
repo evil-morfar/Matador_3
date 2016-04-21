@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
+import desktop_fields.Field;
 import fields.*;
 
 /**
@@ -15,9 +17,11 @@ public class Board {
 	
 	private static final String CSV_FILE = "src/fields/fieldData.csv";
 	public AbstractFields[] fields; 
+	private Field[] guiFields; // TODO Create these
 	
 	public Board(){
 		this.fields = new AbstractFields[40];
+		this.guiFields = new Field[40];
 		createFields();
 	}
 	
