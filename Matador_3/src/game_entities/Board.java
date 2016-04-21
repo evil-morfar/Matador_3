@@ -67,6 +67,7 @@ public class Board {
 				 * 2: Buy price
 				 * 3 - 9: Rent prices, and more
 				 * 10: House price
+				 * 11: Color
 				 */
 				switch(field[1]) {
 				case "Territory":
@@ -74,13 +75,14 @@ public class Board {
 							field[2], 
 							Integer.parseInt(field[3]), 
 							Integer.parseInt(field[10]),
+							field[11],
 								new int[]{
 										Integer.parseInt(field[4]),
 										Integer.parseInt(field[5]),
 										Integer.parseInt(field[6]),
 										Integer.parseInt(field[7]),
 										Integer.parseInt(field[8]),
-										Integer.parseInt(field[9])
+										Integer.parseInt(field[9])										
 								}
 					);
 					break;
