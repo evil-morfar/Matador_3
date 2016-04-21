@@ -58,6 +58,8 @@ public class BoardTest {
 		Player p2 = new Player("p2", 3000, "Red" , 0, 2);
 		((AbstractOwnable) fields[1]).setOwner(p1);
 		assertEquals(1, board.getNumOwnedSameColor(p1, "Blue"));
+		((AbstractOwnable) fields[3]).setOwner(p1);
+		assertEquals(2, board.getNumOwnedSameColor(p1, "Blue"));
 	}
 
 }
