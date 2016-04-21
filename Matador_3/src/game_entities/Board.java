@@ -49,6 +49,22 @@ public class Board {
 	}
 	
 	/**
+	 * Calculates the number of fields a player owns of a particular color
+	 * @param player The player to check for
+	 * @param color The color to check for
+	 * @return The number of owned field (0-3)
+	 */
+	public int getNumOwnedSameColor(Player player, String color) {
+		int num = 0;
+		for (int i = 0; i < fields.length; i++)
+			if ((fields[i]).getFieldType().equals("Territory"))				
+				if( ((Territory) fields[i]).getColor().equals(color))
+					if(((AbstractOwnable) fields[i]).getOwner() == player)
+						num++;
+		return num;
+	}
+	
+	/**
 	 * Creates fields based on the input .csv file
 	 */
 	private void createFields() {
@@ -137,5 +153,7 @@ public class Board {
 	public AbstractFields[] getFields() {
 		return fields;
 	}
+	
+	
 
 }
