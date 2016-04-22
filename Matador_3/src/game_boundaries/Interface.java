@@ -13,6 +13,8 @@ package game_boundaries;
  ********************************************************************/
 
 public interface Interface {
+	
+	public void setDice(int[] dice);
 
 	public void update(int pos, int balance, String playerName);
 

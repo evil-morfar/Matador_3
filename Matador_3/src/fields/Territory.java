@@ -13,6 +13,7 @@ public class Territory extends AbstractOwnable {
 	private int[] rent;
 	private int numHouses = 0;
 	private int housePrice;
+	private String color;
 	private boolean hasHotel = false;
 
 	/**
@@ -22,16 +23,18 @@ public class Territory extends AbstractOwnable {
 	 * @param name Name of the Field
 	 * @param price Price of buying the Field
 	 * @param housePrice The price of buying a new house.
+	 * @param color The color group of the field.
 	 * @param rent Array, size 6.
 	 * Indexes: 	<p>0 = rent without houses</p>
 	 * 				<p>1-4 = rent with 1-4 houses</p>
 	 * 				<p>5 = rent with hotel</p>
 	 * @see AbstractOwnable
 	 */
-	public Territory(int id, String name, int price, int housePrice, int[] rent) {
+	public Territory(int id, String name, int price, int housePrice, String color, int[] rent) {
 		super(id, name, FIELD_TYPE, price);
 		this.rent = rent;
 		this.housePrice = housePrice;
+		this.color = color;
 	}
 	
 	/**
@@ -65,6 +68,10 @@ public class Territory extends AbstractOwnable {
 	 */
 	public boolean hasHotel(){
 		return this.hasHotel;
+	}
+	
+	public String getColor() {
+		return this.color;
 	}
 	
 	/**

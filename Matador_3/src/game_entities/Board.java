@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
+import desktop_fields.Field;
 import fields.*;
 
 /**
@@ -15,10 +17,26 @@ public class Board {
 	
 	private static final String CSV_FILE = "src/fields/fieldData.csv";
 	public AbstractFields[] fields; 
+	private Field[] guiFields; // TODO Create these
 	
 	public Board(){
 		this.fields = new AbstractFields[40];
+		this.guiFields = new Field[40];
 		createFields();
+	}
+	
+	/**
+	 * Gets the total amount of fields owned by the player
+	 * @param player The player to check for
+	 * @return The number of owned fields.
+	 */
+	public int getNumOwnedFields(Player player) {
+		int num = 0;
+		for(AbstractFields field: fields)
+			if(field instanceof AbstractOwnable)
+				if(((AbstractOwnable) field).getOwner() == player)
+					num++;
+		return num;
 	}
 	
 	/**
@@ -29,8 +47,9 @@ public class Board {
 	public int getNumOwnedShips(Player player) {
 		int num = 0;
 		for(int i = 0; i < fields.length; i++){
-			if(((AbstractOwnable) fields[i]).getOwner().equals(player) )
-				num++;
+			if(fields[i] instanceof Shipping)
+				if(((AbstractOwnable) fields[i]).getOwner().equals(player) )
+					num++;
 		}
 		return num;
 	}
@@ -43,8 +62,25 @@ public class Board {
 	public int getNumOwnedBreweries(Player player) {
 		int num = 0;
 		for(int i = 0; i < fields.length; i++)
-			if(((AbstractOwnable) fields[i]).getOwner().equals(player))
-				num++;
+			if(fields[i] instanceof Brewery)
+				if(((AbstractOwnable) fields[i]).getOwner().equals(player))
+					num++;
+		return num;
+	}
+	
+	/**
+	 * Calculates the number of fields a player owns of a particular color
+	 * @param player The player to check for
+	 * @param color The color to check for
+	 * @return The number of owned field (0-3)
+	 */
+	public int getNumOwnedSameColor(Player player, String color) {
+		int num = 0;
+		for (int i = 0; i < fields.length; i++)
+			if (fields[i] instanceof Territory)				
+				if(((AbstractOwnable) fields[i]).getOwner() == player)
+					if( ((Territory) fields[i]).getColor().equals(color))
+						num++;
 		return num;
 	}
 	
@@ -67,6 +103,7 @@ public class Board {
 				 * 2: Buy price
 				 * 3 - 9: Rent prices, and more
 				 * 10: House price
+				 * 11: Color
 				 */
 				switch(field[1]) {
 				case "Territory":
@@ -74,13 +111,14 @@ public class Board {
 							field[2], 
 							Integer.parseInt(field[3]), 
 							Integer.parseInt(field[10]),
+							field[11],
 								new int[]{
 										Integer.parseInt(field[4]),
 										Integer.parseInt(field[5]),
 										Integer.parseInt(field[6]),
 										Integer.parseInt(field[7]),
 										Integer.parseInt(field[8]),
-										Integer.parseInt(field[9])
+										Integer.parseInt(field[9])										
 								}
 					);
 					break;
@@ -135,5 +173,7 @@ public class Board {
 	public AbstractFields[] getFields() {
 		return fields;
 	}
+	
+	
 
 }
