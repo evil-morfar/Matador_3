@@ -5,14 +5,14 @@ import java.awt.Color;
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
 
-/**
- * 
- * @author Henrik
- *
- */
-
 public class GUI_boundary implements Interface {
 
+	public GUI_boundary (String filename){
+		
+		// INDSÆT RESTEN HER (IKKE DONE)
+	}
+	
+	
 	@Override
 	public void update(int pos, int balance, String playerName) {
 		// TODO Auto-generated method stub
