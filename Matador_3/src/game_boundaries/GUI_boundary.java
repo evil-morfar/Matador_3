@@ -5,6 +5,12 @@ import java.awt.Color;
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
 
+/**
+ * 
+ * @author Henrik
+ *
+ */
+
 public class GUI_boundary implements Interface {
 
 	@Override
