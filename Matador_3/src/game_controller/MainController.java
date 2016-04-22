@@ -1,6 +1,7 @@
 package game_controller;
 
 import game_entities.Board;
+import game_controller.Playstate_subController;
 import die_classes.DieCup;
 import die_classes.DieCup_Interface;
 import game_boundaries.*;
@@ -11,11 +12,14 @@ import game_boundaries.*;
  *
  */
 
-public class Controller {
+public class MainController {
 
 	//evt add flerer sub state under PLAY_STATE
 	public enum GameState{NAME_STATE, PLAY_STATE, WIN_STATE}; 
+	private GameState state = GameState.NAME_STATE;
 
+	
+	
 	private int turnNumber;
 	
 	private DieCup_Interface dieCup; 
@@ -24,7 +28,7 @@ public class Controller {
 	
 	
 	//Constructor
-	public Controller(){
+	public MainController(){
 		dieCup = DiceCup;
 		//output = insert output class here
 	}
