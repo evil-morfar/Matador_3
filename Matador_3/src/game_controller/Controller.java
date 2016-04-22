@@ -5,6 +5,12 @@ import die_classes.DieCup;
 import die_classes.DieCup_Interface;
 import game_boundaries.*;
 
+/**
+ * 
+ * @author PC / Valdemar
+ *
+ */
+
 public class Controller {
 
 	//evt add flerer sub state under PLAY_STATE

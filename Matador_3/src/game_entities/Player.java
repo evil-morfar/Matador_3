@@ -2,6 +2,13 @@ package game_entities;
 
 import game_entities.Account;
 
+/**
+ * 
+ * @author PC / Valdemar
+ *
+ */
+
+
 public class Player {
 	
 	private String name;

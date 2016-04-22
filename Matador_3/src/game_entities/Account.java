@@ -1,5 +1,11 @@
 package game_entities;
 
+/**
+ * 
+ * @author PC / Valdemar
+ *
+ */
+
 public class Account {
 
 	private int balance;
