@@ -1,7 +1,7 @@
 package game_controller;
 
 import game_entities.Board;
-import game_controller.Playstate_subController;
+import java.util.ArrayList;
 import die_classes.DieCup;
 import die_classes.DieCup_Interface;
 import game_boundaries.*;
@@ -23,14 +23,16 @@ public class MainController {
 	private int turnNumber;
 	
 	private DieCup_Interface dieCup; 
-	private GUI_boundary output;
+	private Interface output;
 
+	private ArrayList<String> playerNames;
 	
 	
 	//Constructor
 	public MainController(){
 		dieCup = DiceCup;
-		//output = insert output class here
+		playerNames = new ArrayList<String>();
+		output = new GUI_boundary("");
 	}
 	
 
@@ -50,6 +52,8 @@ public class MainController {
 
 	private void namestate(){
 
+		String name = GetUserString
+		
 	}
 
 	private void playstate(){
