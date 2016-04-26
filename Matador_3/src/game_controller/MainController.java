@@ -90,26 +90,26 @@ public class MainController {
 		if (currentPlayer.isInJail()) {
 			// TODO Jail options
 		} else {
-			GUI.showMessage(currentPlayer.getName() +"'s turn!");
 			String option = "";
 			Boolean end = false;
 			int numDoubles = 0;
 			Boolean hasRolled = false;
 			AbstractFields field = null;
 			while(!end) {
+				String sPlayer = currentPlayer.getName() + "'s turn:";
 				if(!option.equals("end")) // Special case
 					if(!hasRolled)
-						 option = GUI.getUserButtonPressed("Choose option:", "Roll", "Build", "Pawn", "Save and Exit");
+						 option = GUI.getUserButtonPressed(sPlayer, "Roll", "Build", "Pawn", "Save and Exit");
 					// Only show the "Buy" option if it's possible to buy the field
 					else if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
 						if (numDoubles != 0) // Can't end turn when one still have a roll
-							option = GUI.getUserButtonPressed("Choose option:", "Roll", "Buy", "Build", "Pawn");
+							option = GUI.getUserButtonPressed(sPlayer, "Roll", "Buy", "Build", "Pawn");
 						else
-							option = GUI.getUserButtonPressed("Choose option:", "Buy", "Build", "Pawn", "End Turn");
+							option = GUI.getUserButtonPressed(sPlayer, "Buy", "Build", "Pawn", "End Turn");
 					else if (numDoubles != 0)
-						option = GUI.getUserButtonPressed("Choose option:", "Roll", "Build", "Pawn");
+						option = GUI.getUserButtonPressed(sPlayer, "Roll", "Build", "Pawn");
 					else
-						option = GUI.getUserButtonPressed("Choose option:", "Build", "Pawn", "End Turn");
+						option = GUI.getUserButtonPressed(sPlayer, "Build", "Pawn", "End Turn");
 				
 				switch(option) {
 				case("Roll"):
@@ -140,7 +140,6 @@ public class MainController {
 					break;
 				
 				case("Buy"):
-					//TODO Test if the field is buyable
 					currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
 					output.updateBalance(currentPlayer);
 					((AbstractOwnable) field).setOwner(currentPlayer);	
@@ -155,6 +154,7 @@ public class MainController {
 					
 				case("Save and Exit"):
 					end = true;
+				//TODO Database
 					break;
 				}
 			}
