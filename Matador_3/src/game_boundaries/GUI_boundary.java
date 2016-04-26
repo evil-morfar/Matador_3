@@ -110,7 +110,7 @@ public class GUI_boundary implements Interface {
 	@Override
 	public void showWithdrawMessage(String playerName, int amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -158,7 +158,7 @@ public class GUI_boundary implements Interface {
 	@Override
 	public void showPlayerIsOwner(String playerName) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
