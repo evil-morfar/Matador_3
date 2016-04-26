@@ -87,6 +87,10 @@ public class Player {
 		this.isBroke = isBroke;
 	}
 	
+	public boolean isBroke(){
+		return this.isBroke;
+	}
+	
 	public String getColor(){
 		return color;
 	}
