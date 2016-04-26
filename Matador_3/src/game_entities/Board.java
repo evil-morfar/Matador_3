@@ -130,12 +130,21 @@ public class Board {
 										Integer.parseInt(field[9])										
 								}
 					);
+					Color color = Color.white;
+					java.lang.reflect.Field f;
+					try {
+						f = Class.forName("java.awt.Color").getField(field[11].toLowerCase());
+						color = (Color)f.get(null);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					guiFields[i] = new Street.Builder()
 							.setTitle(field[2])
 							.setDescription(field[2])
 							.setRent(field[3]+",-")
 							.setSubText("")
-							//.setBgColor(Color.getColor(field[11]))
+							.setBgColor(color)
 							.build();
 					break;
 				case "Brewery":
@@ -154,13 +163,13 @@ public class Board {
 							.setTitle(field[2])
 							.setDescription(field[2])
 							.setRent(field[3])
-							.setBgColor(Color.blue)
+							//.setBgColor(Color.blue)
 							.build();
 					break;
 				case "Chance":
 					fields[i] = new fields.Chance(Integer.parseInt(field[0]));
 					guiFields[i] = new Chance.Builder()
-							.setBgColor(Color.darkGray)
+							//.setBgColor(Color.darkGray)
 							.build();
 					break;
 				case "Empty":
@@ -168,10 +177,16 @@ public class Board {
 					if (i == 0) //Start needs special treatment in the GUI
 						guiFields[i] = new Start.Builder()
 						.setTitle("Start")
+						.setSubText("")
+						.build();
+					else if (i == 10) // so does jail
+						guiFields[i] = new Jail.Builder()
+						.setSubText(field[2])
 						.build();
 					else	
 						guiFields[i] = new Refuge.Builder()
 							.setTitle(field[2])
+							.setSubText(field[2])
 							.build();
 					break;
 				case "FlatTax":
@@ -190,6 +205,7 @@ public class Board {
 					fields[i] = new GoToJail(Integer.parseInt(field[0]), field[2]);
 					guiFields[i] = new Refuge.Builder()
 						.setTitle(field[2])
+						.setSubText(field[2])
 						.build();					
 					break;
 				default:

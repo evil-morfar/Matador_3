@@ -15,10 +15,10 @@ Felt;Type;Navn;Pris;Leje;1 hus;2 huse;3 huse;4 huse;hotel;huspris;farve
 14;Territory;BÅlowsvej;2800;200;1000;3000;9000;12500;15000;2000;Green
 15;Territory;Gl. Kongevej;3200;250;1250;3750;10000;14000;18000;2000;Green
 16;Shipping;Danmark;4000;500;;;;;;;
-17;Territory;Bernstorfsvej;3600;300;1400;4000;11000;15000;19000;2000;Grey
+17;Territory;Bernstorfsvej;3600;300;1400;4000;11000;15000;19000;2000;Gray
 18;Chance;Pr¯v lykken;;;;;;;;;
-19;Territory;Hellerupvej;3600;300;1400;4000;11000;15000;19000;2000;Grey
-20;Territory;Strandvej;4000;350;1600;4400;12000;16000;20000;2000;Grey
+19;Territory;Hellerupvej;3600;300;1400;4000;11000;15000;19000;2000;Gray
+20;Territory;Strandvej;4000;350;1600;4400;12000;16000;20000;2000;Gray
 21;Empty;Parkering;;;;;;;;;
 22;Territory;Trianglen;4400;350;1800;5000;14000;17500;21000;3000;Red
 23;Chance;Pr¯v lykken;;;;;;;;;
@@ -36,6 +36,6 @@ Felt;Type;Navn;Pris;Leje;1 hus;2 huse;3 huse;4 huse;hotel;huspris;farve
 35;Territory;Nygade;6400;600;3000;9000;20000;24000;28000;4000;Yellow
 36;Shipping;Skandinavisk Linietrafik A/S;4000;500;;;;;;;
 37;Chance;Pr¯v lykken;;;;;;;;;
-38;Territory;Frederiksberggade;7000;700;3500;10000;22000;26000;30000;4000;Purple
+38;Territory;Frederiksberggade;7000;700;3500;10000;22000;26000;30000;4000;Magenta
 39;FlatTax;EkstraordinÊr statsskat betal kr. 2000;2000;;;;;;;;
-40;Territory;RÂdhuspladsen;8000;1000;4000;12000;28000;34000;40000;4000;Purple
+40;Territory;RÂdhuspladsen;8000;1000;4000;12000;28000;34000;40000;4000;Magenta
