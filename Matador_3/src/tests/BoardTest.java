@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import desktop_resources.GUI;
 import fields.*;
 import game_entities.Board;
 import game_entities.Player;

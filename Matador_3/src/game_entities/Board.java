@@ -1,11 +1,17 @@
 package game_entities;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import desktop_fields.Field;
+import desktop_fields.*;
+import desktop_fields.Brewery;
+import desktop_fields.Chance;
+import desktop_fields.Empty;
+import desktop_fields.Shipping;
+import desktop_fields.Tax;
 import fields.*;
 
 /**
@@ -47,7 +53,7 @@ public class Board {
 	public int getNumOwnedShips(Player player) {
 		int num = 0;
 		for(int i = 0; i < fields.length; i++){
-			if(fields[i] instanceof Shipping)
+			if(fields[i] instanceof fields.Shipping)
 				if(((AbstractOwnable) fields[i]).getOwner().equals(player) )
 					num++;
 		}
@@ -62,7 +68,7 @@ public class Board {
 	public int getNumOwnedBreweries(Player player) {
 		int num = 0;
 		for(int i = 0; i < fields.length; i++)
-			if(fields[i] instanceof Brewery)
+			if(fields[i] instanceof fields.Brewery)
 				if(((AbstractOwnable) fields[i]).getOwner().equals(player))
 					num++;
 		return num;
@@ -86,6 +92,8 @@ public class Board {
 	
 	/**
 	 * Creates fields based on the input .csv file
+	 * Note: Due to naming conventions in our program and the GUI,
+	 * we're explicitly naming our objects as it's easier.
 	 */
 	private void createFields() {
 		String line = "";
@@ -99,9 +107,10 @@ public class Board {
 				String[] field = line.split(splitBy);
 				/* .csv indicies:
 				 * 0: Fieldnumber
-				 * 1: Field Name
-				 * 2: Buy price
-				 * 3 - 9: Rent prices, and more
+				 * 1: Field type
+				 * 2: Field name
+				 * 3: Buy price
+				 * 4 - 9: Rent prices, and more
 				 * 10: House price
 				 * 11: Color
 				 */
@@ -121,27 +130,67 @@ public class Board {
 										Integer.parseInt(field[9])										
 								}
 					);
+					guiFields[i] = new Street.Builder()
+							.setTitle(field[2])
+							.setDescription(field[2])
+							.setRent(field[3]+",-")
+							.setSubText("")
+							//.setBgColor(Color.getColor(field[11]))
+							.build();
 					break;
 				case "Brewery":
-					fields[i] = new Brewery(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					fields[i] = new fields.Brewery(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					guiFields[i] = new Brewery.Builder()
+							.setTitle(field[2])
+							.setDescription(field[2])
+							.setRent(field[3]+",-")
+							.setBgColor(Color.darkGray)
+							.build();
+							
 					break;
 				case "Shipping":
-					fields[i] = new Shipping(Integer.parseInt(field[0]), field[2],Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					fields[i] = new fields.Shipping(Integer.parseInt(field[0]), field[2],Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					guiFields[i] = new Shipping.Builder()
+							.setTitle(field[2])
+							.setDescription(field[2])
+							.setRent(field[3])
+							.setBgColor(Color.blue)
+							.build();
 					break;
 				case "Chance":
-					fields[i] = new Chance(Integer.parseInt(field[0]));
+					fields[i] = new fields.Chance(Integer.parseInt(field[0]));
+					guiFields[i] = new Chance.Builder()
+							.setBgColor(Color.darkGray)
+							.build();
 					break;
 				case "Empty":
-					fields[i] = new Empty(Integer.parseInt(field[0]), field[2]);
+					fields[i] = new fields.Empty(Integer.parseInt(field[0]), field[2]);
+					if (i == 0) //Start needs special treatment in the GUI
+						guiFields[i] = new Start.Builder()
+						.setTitle("Start")
+						.build();
+					else	
+						guiFields[i] = new Refuge.Builder()
+							.setTitle(field[2])
+							.build();
 					break;
 				case "FlatTax":
-					fields[i] = new FlatTax(Integer.parseInt(field[0]),field[2], Integer.parseInt(field[3]));
+					fields[i] = new fields.FlatTax(Integer.parseInt(field[0]),field[2], Integer.parseInt(field[3]));
+					guiFields[i] = new Tax.Builder()
+							.setTitle(field[2])
+							.build();
 					break;
 				case "Tax":
-					fields[i] = new Tax(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					fields[i] = new fields.Tax(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					guiFields[i] = new Tax.Builder()
+							.setTitle(field[2])
+							.build();
 					break;
 				case "GoToJail":
 					fields[i] = new GoToJail(Integer.parseInt(field[0]), field[2]);
+					guiFields[i] = new Refuge.Builder()
+						.setTitle(field[2])
+						.build();					
 					break;
 				default:
 					//First line is headers.
@@ -174,6 +223,8 @@ public class Board {
 		return fields;
 	}
 	
-	
+	public Field[] getGuiFields(){
+		return this.guiFields;
+	}
 
 }
