@@ -1,6 +1,7 @@
 package fields;
 
 import game_controller.MainController;
+import game_entities.Board;
 import game_entities.Player;
 
 /**
@@ -81,9 +82,26 @@ public class Territory extends AbstractOwnable {
 	 * @see AbstractFields#landOnField
 	 */
 	public void landOnField(MainController controller){
+		Player player = controller.getCurrentPlayer();
 		Player owner = this.getOwner();
+		Board board = controller.getBoard();
 		if (owner != player) {
-			//TODO do stuff
+			int rent = 0;
+			// Calculate the rent based on number of owned fields or houses
+			if (this.hasHotel) {
+				rent = this.rent[5];
+			} else if(this.numHouses > 0) {
+				rent = this.rent[this.numHouses];
+			} else if(board.getNumColorFields(this.color) == board.getNumOwnedSameColor(owner, this.color)) {
+				rent = 2 * this.rent[0]; // Double rent
+			} else if (player != owner) {
+				rent = this.rent[0];
+			} else if(!this.isOwned()){
+				//case not owned
+				
+			}
+			if (rent != 0) // Rent is due
+				player.withdrawBalance(rent);
 		}
 	}
 
