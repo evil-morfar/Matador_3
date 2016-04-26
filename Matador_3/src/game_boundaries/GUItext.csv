@@ -1,3 +1,2 @@
-Welcome to this game #Greeting message when player opens the game 
-Test #this should not be included in test 
-Testline2 #this should not be printed in java
+Velkommen til Matador, indtast navne på 2-6 spillere, lad feltet være tomt for at begynde spillet #velkommen besked 
+!s har vundet spillet, tillykke
