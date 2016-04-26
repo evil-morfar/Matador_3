@@ -30,9 +30,11 @@ public class Account {
 		balance = balance + value;
 	}
 
-	public void withdraw(int value){
-
-		balance = balance - value;
+	public void withdraw(int value) throws NotEnoughMoneyException{
+		if (balance - value < 0 ){
+			throw new NotEnoughMoneyException(balance, balance-value);
+		}
+		balance -= value;
 		
 	}
 
