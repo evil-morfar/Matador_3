@@ -57,8 +57,8 @@ public class MainController {
 
 	public void run(){
 		GUI.create(board.getGuiFields());
-
-		while(true){
+		boolean running = true;
+		while(running){
 			System.out.println("New loop");
 			switch(state){
 			case NAME_STATE:
@@ -69,6 +69,7 @@ public class MainController {
 				break;
 			case WIN_STATE:
 				winstate();
+				running = false;
 				break;
 			}
 		}
@@ -76,9 +77,9 @@ public class MainController {
 
 	private void namestate(){
 		if (debug){
-			players.add(new Player("Player 1", 30000, "Blue", 1, 1));
+			players.add(new Player("Player 1", 100, "Blue", 1, 1));
 			output.addPlayer("Player 1", 30000, 1);
-			players.add(new Player("Player 2", 30000, "White",  1, 2));
+			players.add(new Player("Player 2", 100, "White",  1, 2));
 			output.addPlayer("Player 2", 30000, 2);
 			state = GameState.PLAY_STATE;
 		}
@@ -87,6 +88,10 @@ public class MainController {
 	}
 
 	private void playstate(){
+		if(getNumNotBrokePlayers() == 1){
+			state = GameState.WIN_STATE;
+			return;
+		}
 		String option = "";
 		if (currentPlayer.isInJail()) {
 			if(currentPlayer.getNumJailRolls() < 3) {
@@ -179,6 +184,7 @@ public class MainController {
 					System.out.println(currentPlayer.getName());
 					hasRolled = false;
 					end = true;
+					break;
 					
 				case("Save and Exit"):
 					end = true;
@@ -196,10 +202,13 @@ public class MainController {
 	 * @return The next player. Will be the first if player was the last in line.
 	 */
 	private Player getNextPlayer(Player player) {
+		Player p;
 		if(player.getPlayerID() == players.size())
-			return players.get(0);
+			p = players.get(0);
 		else
-			return players.get(player.getPlayerID());
+			p = players.get(player.getPlayerID());
+		// Make sure we don't mark a broke player as the next player
+		return !p.isBroke() ? p : getNextPlayer(p);
 	}
 
 	/**
@@ -210,8 +219,8 @@ public class MainController {
 	 */
 	private void movePlayer(Player player, int num){
 		int position = player.getPosition();
-		if (position + num > board.getFields().length + 1){
-			position -= board.getFields().length + 1;
+		if (position + num > board.getFields().length){
+			position -= board.getFields().length;
 			System.out.println(player.getName() + " passed start, received 4k.");
 			player.depositBalance(4000);
 		}
@@ -229,6 +238,18 @@ public class MainController {
 	private void movePlayerTo(Player player, int position){
 		player.setPosition(position);
 		output.movePlayer(position, player.getName());
+	}
+	
+	/**
+	 * @return The number of broke players
+	 */
+	private int getNumNotBrokePlayers(){
+		int num = 0;
+		for(Player player : players){
+			if(!(player.isBroke()))
+				num++;
+		}
+		return num;
 	}
 
 	private void winstate(){
