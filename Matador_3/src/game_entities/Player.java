@@ -103,12 +103,4 @@ public class Player {
 	public void move(int places){
 		this.position += places;
 	}
-	
-	/**
-	 * Moves the player to a specific position.
-	 * @param position The position to move to.
-	 */
-	public void moveTo(int position){
-		this.position = position;
-	}
 }
