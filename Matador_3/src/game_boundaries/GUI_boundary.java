@@ -16,7 +16,7 @@ public class GUI_boundary implements Interface {
 		BoundaryReader r = new BoundaryReader();
 		GUIarray = r.getGUIText();
 		
-		// INDSÆT RESTEN HER (IKKE DONE)
+		
 	}
 	
 	
@@ -125,6 +125,7 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
+	
 	public void showNotBoughtMessage(String playerName) {
 		GUI.showMessage(String.format(GUIarray[10], playerName));
 
