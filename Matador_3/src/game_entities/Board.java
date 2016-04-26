@@ -54,7 +54,7 @@ public class Board {
 		int num = 0;
 		for(int i = 0; i < fields.length; i++){
 			if(fields[i] instanceof fields.Shipping)
-				if(((AbstractOwnable) fields[i]).getOwner().equals(player) )
+				if(((AbstractOwnable) fields[i]).getOwner() == player)
 					num++;
 		}
 		return num;
@@ -69,7 +69,7 @@ public class Board {
 		int num = 0;
 		for(int i = 0; i < fields.length; i++)
 			if(fields[i] instanceof fields.Brewery)
-				if(((AbstractOwnable) fields[i]).getOwner().equals(player))
+				if(((AbstractOwnable) fields[i]).getOwner() == player)
 					num++;
 		return num;
 	}

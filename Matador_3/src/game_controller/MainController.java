@@ -4,8 +4,12 @@ import game_entities.Board;
 import game_entities.Player;
 
 import java.util.ArrayList;
+
+import desktop_resources.GUI;
 import die_classes.DieCup;
 import die_classes.DieCup_Interface;
+import fields.AbstractFields;
+import fields.AbstractOwnable;
 import game_boundaries.*;
 
 /**
@@ -28,6 +32,7 @@ public class MainController {
 	private Player currentPlayer;
 	private Board board;
 	
+	private Boolean debug = true; //Sets up players automatically if true
 	
 	//Constructor
 	public MainController(){
@@ -51,29 +56,105 @@ public class MainController {
 	}
 
 	public void run(){
+		GUI.create(board.getGuiFields());
 
 		while(true){
+			System.out.println("New loop");
 			switch(state){
-			case NAME_STATE: namestate();
-			break;
-			case PLAY_STATE: playstate();
-			break;
-			case WIN_STATE: winstate();
-			break;
+			case NAME_STATE:
+				namestate();
+				break;
+			case PLAY_STATE:
+				playstate();
+				break;
+			case WIN_STATE:
+				winstate();
+				break;
 			}
 		}
 	}
 
 	private void namestate(){
-
-		String name = GetUserString
+		if (debug){
+			players.add(new Player("Player 1", 30000, "Blue", 0, 1));
+			output.addPlayer("Player 1", 30000, 1);
+			players.add(new Player("Player 2", 30000, "White",  0, 2));
+			output.addPlayer("Player 2", 30000, 2);
+			state = GameState.PLAY_STATE;
+		}
+		currentPlayer = players.get(0);
 		
 	}
 
 	private void playstate(){
-
+		if (currentPlayer.isInJail()) {
+			// TODO Jail options
+		} else {
+			GUI.showMessage(currentPlayer.getName() +"'s turn!");
+			String option = GUI.getUserButtonPressed("Choose option:", "Roll", "Build", "Pawn", "Save and Exit");
+			switch(option) {
+			case("Roll"):
+				dieCup.roll();
+				output.setDice(dieCup.getDice());
+				movePlayer(currentPlayer, dieCup.getSum());
+				AbstractFields field = board.getFields()[currentPlayer.getPosition()];
+				field.landOnField(this);
+				option = GUI.getUserButtonPressed("Choose option:", "Buy", "Build", "Pawn", "End Turn");
+				switch(option) {
+				case("Buy"):
+					currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
+					output.updateBalance(currentPlayer);
+					((AbstractOwnable) field).setOwner(currentPlayer);		
+					break;
+				case("Build"):
+					//TODO
+					break;
+				case("Pawn"):
+					//TODO
+					break;
+				case("End Turn"):
+					System.out.println(currentPlayer.getName());
+					currentPlayer = getNextPlayer(currentPlayer);
+					System.out.println(currentPlayer.getName());
+				}
+				
+				break;
+			case("Build"):
+				//TODO
+				break;
+			
+			case("Pawn"):
+				//TODO
+				break;
+			
+			case("Save and Exit"):
+				
+				break;
+			}
+		}
 	}
 	
+	/**
+	 * Gets the next player in players based on a given player.
+	 * @param player The player right before the intended player.
+	 * @return The next player. Will be the first if player was the last in line.
+	 */
+	private Player getNextPlayer(Player player) {
+		if(player.getPlayerID() == players.size())
+			return players.get(0);
+		else
+			return players.get(player.getPlayerID());
+	}
+
+	private void movePlayer(Player player, int num){
+		int position = player.getPosition();
+		if (position + num > board.getFields().length)
+			position -= board.getFields().length;
+		position += num;
+		player.moveTo(position);
+		output.movePlayer(position, player.getName());
+	}
+
 	private void winstate(){
 	}
 }

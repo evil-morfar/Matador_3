@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
+import game_entities.Player;
 
 public class GUI_boundary implements Interface {
 
@@ -169,6 +170,19 @@ public class GUI_boundary implements Interface {
 	public void initializeBoard() {
 		// TODO Auto-generated method stub
 
+	}
+
+
+	@Override
+	public void movePlayer(int fieldNum, String playername) {
+		GUI.removeAllCars(playername);
+		GUI.setCar(fieldNum+1, playername);		
+	}
+
+
+	@Override
+	public void updateBalance(Player player) {
+		GUI.setBalance(player.getName(), player.getBalance());		
 	}
 
 

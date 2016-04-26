@@ -1,5 +1,7 @@
 package game_boundaries;
 
+import game_entities.Player;
+
 /**
  * @author Henrik
  */
@@ -23,6 +25,8 @@ public interface Interface {
 	public void removeAllOwners();
 
 	public void removeOwner(int fieldNumber);
+	
+	public void movePlayer(int fieldNum, String playername);
 
 	public void showUpdateMessage(String playerName, int pos);
 	
@@ -59,5 +63,7 @@ public interface Interface {
 	public boolean promptBuy(String name, int price);
 	
 	public void initializeBoard();
+	
+	public void updateBalance(Player player);
 	
 }

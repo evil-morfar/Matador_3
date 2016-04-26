@@ -88,5 +88,11 @@ public class BoardTest {
 		((AbstractOwnable) fields[1]).clearOwner();
 		assertEquals(1, board.getNumOwnedFields(p1));
 	}
+	
+	@Test
+	public void testOwner(){
+		assertNotEquals(((AbstractOwnable) fields[1]).getOwner(), p1);
+		assertFalse(((AbstractOwnable) fields[1]).getOwner() == p1);
+	}
 
 }

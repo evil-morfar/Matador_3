@@ -28,11 +28,12 @@ public class Player {
 	 * @param position, what field # the player is currently on 
 	 * @param PlayerID, ID to identify the player
 	 */
-	public Player(String name, int startingBalance, String color, int position, int PlayerID){
+	public Player(String name, int startingBalance, String color, int position, int playerID){
 		this.name = name;
 		this.account = new Account(startingBalance);
 		this.broke = false; 
 		this.position = position;
+		this.playerID = playerID;
 	}
 	
 	public String getName(){
