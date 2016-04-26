@@ -193,12 +193,16 @@ public class Board {
 					fields[i] = new fields.FlatTax(Integer.parseInt(field[0]),field[2], Integer.parseInt(field[3]));
 					guiFields[i] = new Tax.Builder()
 							.setTitle(field[2])
+							.setSubText(field[2])
+							.setDescription("2.000 kr")
 							.build();
 					break;
 				case "Tax":
 					fields[i] = new fields.Tax(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
 					guiFields[i] = new Tax.Builder()
 							.setTitle(field[2])
+							.setSubText(field[2])
+							.setDescription("4000 / 10%")
 							.build();
 					break;
 				case "GoToJail":
