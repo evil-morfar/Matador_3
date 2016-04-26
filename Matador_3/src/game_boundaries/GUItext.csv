@@ -1,15 +1,27 @@
 Velkommen til Matador, indtast navne på 2-6 spillere, lad feltet være tomt for at begynde spillet §§§§ velkommen besked 
 Indtast navn, lad feltet være tomt for at begynde spillet 
 Indtast mindst 2 navne før du starter spillet
+%s starter, kast med terningerne §§§ når den som starter er blevet valgt og skal slå
 %s har vundet spillet, tillykke §§§§ en spiller har vundet spillet
 %s er gået falit og er ude af spillet, alle hans grunde er nu frisat §§§ en spiller er ude af spillet 
+§
 %s har landet på %s vil du købe det for %d? §§§ felt, pris. når en spiller lander på ledigt felt 
 %s har købt feltet %s for %d
+%s har ikke råd til at købe feltet 
 %s har landet på %s, du ejer det selv §§§§ %s er henholdvis spiller og feltet som han lander på, kaldes når han lander på eget felt 
 %s har landet på %s, du skal betale %d i leje til %s §§§ navn, felt, leje.
-
+%s har ikke råd til at betale leje
+§
 %s er i fængsel hvordan vil forsøge at komme ud? §§§ navn, når en spiller starter sin tur i fængsel
 %s slog ikke to ens og forbliver i fængsel
 %s slog to ens, er ude af fængslet og rykker nu det antal slået øjne
 %s har ikke slået to ens efter tre forsøg, 1000 er nu hævet og rykker antal slået øjne
 %s har betalt 1000 og er ude af fængsel 
+%s har brugt sit kort og er ude af fængsel §§§ når en spiller bruger sit "get of out jail for free card" 
+§
+%s har slået tre ens i træk og bliver smidt i brummen direkte uden startfelts bonus §§§ når en spiller har slået 3 ens i træk 
+%s er landet på et skattefelt betal %d eller %d % §§§ måske virker procent tegn ikke her, når en spiller lander på tax felt med valg 
+%s er landet på et skattefelt %d er trukket fra din konto §§§ når en spiller lander på tax felt uden valg 
+%s er landet på fængsels feltet, intet sker 
+%s er landet på start feltet, intet sker 
+%s er landet på parkering, intet sker 
