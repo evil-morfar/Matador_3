@@ -1,4 +1,4 @@
-package tests;
+package game_boundaries;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
