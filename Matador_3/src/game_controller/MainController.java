@@ -77,9 +77,9 @@ public class MainController {
 
 	private void namestate(){
 		if (debug){
-			players.add(new Player("Player 1", 100, "Blue", 1, 1));
+			players.add(new Player("Player 1", 30000, "Blue", 1, 1));
 			output.addPlayer("Player 1", 30000, 1);
-			players.add(new Player("Player 2", 100, "White",  1, 2));
+			players.add(new Player("Player 2", 30000, "White",  1, 2));
 			output.addPlayer("Player 2", 30000, 2);
 			state = GameState.PLAY_STATE;
 		}
