@@ -8,11 +8,11 @@ Felt;Type;Navn;Pris;Leje;1 hus;2 huse;3 huse;4 huse;hotel;huspris;farve
 7;Territory;Roskildevej;2000;100;600;1800;5400;8000;11000;1000;Pink
 8;Chance;Prøv lykken;;;;;;;;;
 9;Territory;Valby Langgade;2000;100;600;1800;5400;8000;11000;1000;Pink
-10;Territory;All‚gade;2400;150;800;2000;6000;9000;12000;1000;Pink
+10;Territory;Allégade;2400;150;800;2000;6000;9000;12000;1000;Pink
 11;Empty;Fængsel;;;;;;;;;
-12;Territory;Frederiksberg All‚;2800;200;1000;3000;9000;12500;15000;2000;Green
+12;Territory;Frederiksberg Allé;2800;200;1000;3000;9000;12500;15000;2000;Green
 13;Brewery;Carlsberg;3000;100;;;;;;;
-14;Territory;Blowsvej;2800;200;1000;3000;9000;12500;15000;2000;Green
+14;Territory;Bölowsvej;2800;200;1000;3000;9000;12500;15000;2000;Green
 15;Territory;Gl. Kongevej;3200;250;1250;3750;10000;14000;18000;2000;Green
 16;Shipping;Danmark;4000;500;;;;;;;
 17;Territory;Bernstorfsvej;3600;300;1400;4000;11000;15000;19000;2000;Gray
