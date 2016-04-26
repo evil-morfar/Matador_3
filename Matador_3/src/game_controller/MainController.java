@@ -76,9 +76,9 @@ public class MainController {
 
 	private void namestate(){
 		if (debug){
-			players.add(new Player("Player 1", 30000, "Blue", 0, 1));
+			players.add(new Player("Player 1", 30000, "Blue", 1, 1));
 			output.addPlayer("Player 1", 30000, 1);
-			players.add(new Player("Player 2", 30000, "White",  0, 2));
+			players.add(new Player("Player 2", 30000, "White",  1, 2));
 			output.addPlayer("Player 2", 30000, 2);
 			state = GameState.PLAY_STATE;
 		}
@@ -91,46 +91,45 @@ public class MainController {
 			// TODO Jail options
 		} else {
 			GUI.showMessage(currentPlayer.getName() +"'s turn!");
+			String option = "";
 			Boolean end = false;
+			int numDoubles = 0;
+			Boolean hasRolled = false;
+			AbstractFields field = null;
 			while(!end) {
-				String option = GUI.getUserButtonPressed("Choose option:", "Roll", "Build", "Pawn", "Save and Exit");
+				if(!option.equals("end")) // Special case
+					if(!hasRolled)
+						 option = GUI.getUserButtonPressed("Choose option:", "Roll", "Build", "Pawn", "Save and Exit");
+					// Only show the "Buy" option if it's possible to buy the field
+					else if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
+						if (numDoubles != 0) // Can't end turn when one still have a roll
+							option = GUI.getUserButtonPressed("Choose option:", "Roll", "Buy", "Build", "Pawn");
+						else
+							option = GUI.getUserButtonPressed("Choose option:", "Buy", "Build", "Pawn", "End Turn");
+					else if (numDoubles != 0)
+						option = GUI.getUserButtonPressed("Choose option:", "Roll", "Build", "Pawn");
+					else
+						option = GUI.getUserButtonPressed("Choose option:", "Build", "Pawn", "End Turn");
+				
 				switch(option) {
 				case("Roll"):
+					hasRolled = true;
 					dieCup.roll();
 					output.setDice(dieCup.getDice());
-					movePlayer(currentPlayer, dieCup.getSum());
-					AbstractFields field = board.getFields()[currentPlayer.getPosition()-1];
-					field.landOnField(this);
-					
-					while(!end) {
-						// Only show the "Buy" option if it's possible to buy the field
-						if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
-							option = GUI.getUserButtonPressed("Choose option:", "Buy", "Build", "Pawn", "End Turn");
-						else
-							option = GUI.getUserButtonPressed("Choose option:", "Build", "Pawn", "End Turn");
-						
-						switch(option) {
-						case("Buy"):
-							//TODO Test if the field is buyable
-							currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
-							output.updateBalance(currentPlayer);
-							((AbstractOwnable) field).setOwner(currentPlayer);	
-							output.setOwner(field.getFieldID(), currentPlayer.getName());
-							break;
-						case("Build"):
-							//TODO
-							break;
-						case("Pawn"):
-							//TODO
-							break;
-						case("End Turn"):
-							System.out.println(currentPlayer.getName());
-							currentPlayer = getNextPlayer(currentPlayer);
-							System.out.println(currentPlayer.getName());
-							end = true;
-						}
+					if(dieCup.isDoubles()>0)
+						numDoubles++;
+					else
+						numDoubles = 0;
+					if(numDoubles == 3){
+						currentPlayer.setInJail(true);
+						movePlayerTo(currentPlayer, 11);
+						option = "end";
+						break;
 					}
-					
+					movePlayer(currentPlayer, dieCup.getSum());
+					field = board.getFields()[currentPlayer.getPosition()-1];
+					field.landOnField(this);
+										
 					break;
 				case("Build"):
 					//TODO
@@ -140,8 +139,22 @@ public class MainController {
 					//TODO
 					break;
 				
+				case("Buy"):
+					//TODO Test if the field is buyable
+					currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
+					output.updateBalance(currentPlayer);
+					((AbstractOwnable) field).setOwner(currentPlayer);	
+					output.setOwner(field.getFieldID(), currentPlayer.getName());
+					break;
+					
+				case("End Turn"): case("end"):
+					System.out.println(currentPlayer.getName());
+					currentPlayer = getNextPlayer(currentPlayer);
+					System.out.println(currentPlayer.getName());
+					hasRolled = false;
+					
 				case("Save and Exit"):
-					System.exit(0);
+					end = true;
 					break;
 				}
 			}
@@ -160,6 +173,12 @@ public class MainController {
 			return players.get(player.getPlayerID());
 	}
 
+	/**
+	 * Moves a player a number of fields. Note player position starts at 1, while
+	 * field indicies starts at 0.
+	 * @param player The player to move
+	 * @param num Number of fields to move.
+	 */
 	private void movePlayer(Player player, int num){
 		int position = player.getPosition();
 		if (position + num > board.getFields().length + 1){
@@ -169,6 +188,16 @@ public class MainController {
 		}
 		position += num;
 		System.out.println(player.getName() + " moved to " + position);
+		player.setPosition(position);
+		output.movePlayer(position, player.getName());
+	}
+	
+	/**
+	 * Moves a player to a specific position
+	 * @param player The player to move
+	 * @param position The fieldID to move to
+	 */
+	private void movePlayerTo(Player player, int position){
 		player.setPosition(position);
 		output.movePlayer(position, player.getName());
 	}
