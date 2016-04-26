@@ -62,8 +62,9 @@ public class Player {
 	}
 	
 	/**
-	 * Withdraws an amount from the players balance.
+	 * Withdraws an amount from the players balance. If under 0, player is set to broke
 	 * @param value The amount to withdraw.
+	 * @param setisBroke sets the player broke status to true or false 
 	 * @see Player#depositBalance(int)
 	 */
 	public void withdrawBalance(int value){
