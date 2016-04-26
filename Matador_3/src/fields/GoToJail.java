@@ -25,8 +25,9 @@ public class GoToJail extends AbstractNonOwnables {
 	 * @see GoToJail
 	 */
 	public void landOnField(Player player) {
-		// TODO Move player to jail
-
+		player.setJail(true);
+		
+		
 	}
 
 }

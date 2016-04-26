@@ -35,6 +35,9 @@ public class Player {
 		this.position = position;
 	}
 
+	public void setJail(boolean jail) {
+		this.isInJail = jail;
+	}
 	
 	public String getName(){
 		return name;
