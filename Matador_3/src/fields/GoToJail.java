@@ -27,7 +27,7 @@ public class GoToJail extends AbstractNonOwnables {
 	 */
 	public void landOnField(MainController controller) {
 		Player player = controller.getCurrentPlayer();
-		player.moveTo(11);
+		player.setPosition(11);
 		player.setInJail(true);		
 	}
 
