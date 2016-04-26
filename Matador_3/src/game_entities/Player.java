@@ -44,6 +44,10 @@ public class Player {
 		return this.account.getBalance();
 	}
 
+	/**
+	 * Sets the player's position (1-40)
+	 * @param position 1-40
+	 */
 	public void setPosition(int position){
 		this.position = position;		
 	}
