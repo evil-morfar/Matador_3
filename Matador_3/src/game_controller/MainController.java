@@ -253,6 +253,8 @@ public class MainController {
 	}
 
 	private void winstate(){
+		GUI.showMessage(currentPlayer.getName() + " has won!");
+		System.exit(0);
 	}
 }
 
