@@ -34,10 +34,14 @@ public class Brewery extends AbstractOwnable {
 	 * @see AbstractFields#landOnField
 	 */
 	public void landOnField(MainController controller){
+		Player player = controller.getCurrentPlayer();
 		Player owner = this.getOwner();
 		if(owner != player ){
-			// TODO do stuff.
-			// Rent = (multiplier * numberOfOwnedBreweries) * lastRoll
+			int numOwned = controller.getBoard().getNumOwnedBreweries(owner);
+			int rent = (this.multiply * numOwned) * controller.getRoll();
+			player.withdrawBalance(rent);
+		} else if (!this.isOwned()) {
+			// TODO Prompt to buy
 		}
 	}
 
