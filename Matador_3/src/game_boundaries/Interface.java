@@ -60,7 +60,7 @@ public interface Interface {
 	
 	public boolean promptTax();
 	
-	public boolean promptBuy(String name, int price);
+	public boolean promptBuy(String playername, String fieldName, int price);
 	
 	public void initializeBoard();
 	
