@@ -16,7 +16,7 @@ public class GUI_boundary implements Interface {
 		BoundaryReader r = new BoundaryReader();
 		GUIarray = r.getGUIText();
 		
-		// INDSÆT RESTEN HER (IKKE DONE)
+		
 	}
 	
 	
@@ -61,7 +61,14 @@ public class GUI_boundary implements Interface {
 	@Override
 	public void removeAllOwners() {
 		// TODO Auto-generated method stub
-
+		int i = 0; 
+		while(i < 40){
+		
+			GUI.removeOwner(i);
+			i++;
+		}
+		
+		
 	}
 
 	@Override
@@ -74,6 +81,9 @@ public class GUI_boundary implements Interface {
 	public void showUpdateMessage(String playerName, int pos) {
 		// TODO Auto-generated method stub
 
+		
+		
+		
 	}
 
 	@Override
@@ -125,6 +135,7 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
+	
 	public void showNotBoughtMessage(String playerName) {
 		GUI.showMessage(String.format(GUIarray[10], playerName));
 
