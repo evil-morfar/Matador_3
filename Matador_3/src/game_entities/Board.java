@@ -143,7 +143,7 @@ public class Board {
 							.setTitle(field[2])
 							.setDescription(field[2])
 							.setRent(field[3]+",-")
-							.setSubText("")
+							.setSubText(field[3]+",-")
 							.setBgColor(color)
 							.build();
 					break;
@@ -152,6 +152,7 @@ public class Board {
 					guiFields[i] = new Brewery.Builder()
 							.setTitle(field[2])
 							.setDescription(field[2])
+							.setSubText(field[3]+",-")
 							.setRent(field[3]+",-")
 							.setBgColor(Color.darkGray)
 							.build();
@@ -161,9 +162,10 @@ public class Board {
 					fields[i] = new fields.Shipping(Integer.parseInt(field[0]), field[2],Integer.parseInt(field[3]), Integer.parseInt(field[4]));
 					guiFields[i] = new Shipping.Builder()
 							.setTitle(field[2])
+							.setSubText("")
+							.setSubText(field[3]+",-")
 							.setDescription(field[2])
 							.setRent(field[3])
-							//.setBgColor(Color.blue)
 							.build();
 					break;
 				case "Chance":
