@@ -130,13 +130,13 @@ public class Board {
 										Integer.parseInt(field[9])										
 								}
 					);
+					// Stupid way Java needs to get a color from a string
 					Color color = Color.white;
 					java.lang.reflect.Field f;
 					try {
 						f = Class.forName("java.awt.Color").getField(field[11].toLowerCase());
 						color = (Color)f.get(null);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					guiFields[i] = new Street.Builder()
