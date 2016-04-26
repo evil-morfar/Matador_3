@@ -1,3 +1,15 @@
-Velkommen til Matador, indtast navne på 2-6 spillere, lad feltet være tomt for at begynde spillet #velkommen besked 
-Spiller har vundet spillet, tillykke #en spiller har vundet spillet
+Velkommen til Matador, indtast navne på 2-6 spillere, lad feltet være tomt for at begynde spillet §§§§ velkommen besked 
+Indtast navn, lad feltet være tomt for at begynde spillet 
+Indtast mindst 2 navne før du starter spillet
+%s har vundet spillet, tillykke §§§§ en spiller har vundet spillet
+%s er gået falit og er ude af spillet, alle hans grunde er nu frisat §§§ en spiller er ude af spillet 
+%s har landet på %s vil du købe det for %d? §§§ felt, pris. når en spiller lander på ledigt felt 
+%s har købt feltet %s for %d
+%s har landet på %s, du ejer det selv §§§§ %s er henholdvis spiller og feltet som han lander på, kaldes når han lander på eget felt 
+%s har landet på %s, du skal betale %d i leje til %s §§§ navn, felt, leje.
 
+%s er i fængsel hvordan vil forsøge at komme ud? §§§ navn, når en spiller starter sin tur i fængsel
+%s slog ikke to ens og forbliver i fængsel
+%s slog to ens, er ude af fængslet og rykker nu det antal slået øjne
+%s har ikke slået to ens efter tre forsøg, 1000 er nu hævet og rykker antal slået øjne
+%s har betalt 1000 og er ude af fængsel 
