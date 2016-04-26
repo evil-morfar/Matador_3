@@ -87,10 +87,37 @@ public class MainController {
 	}
 
 	private void playstate(){
+		String option = "";
 		if (currentPlayer.isInJail()) {
-			// TODO Jail options
-		} else {
-			String option = "";
+			if(currentPlayer.getNumJailRolls() < 3) {
+				option = GUI.getUserButtonPressed(currentPlayer.getName()+" is jailed!", "Roll", "Pay 1000,-");
+				if (option.equals("Roll")){
+					dieCup.roll();
+					output.setDice(dieCup.getDice());
+					if(dieCup.isDoubles() != 0 ) { // Player is freed
+						currentPlayer.setInJail(false);
+						currentPlayer.setNumJailRolls(0);
+						movePlayer(currentPlayer, dieCup.getSum());
+						AbstractFields field = board.getFields()[currentPlayer.getPosition()-1];
+						field.landOnField(this);
+					} else
+						currentPlayer.setNumJailRolls(currentPlayer.getNumJailRolls() + 1);
+				} else { // Player chooses to pay
+					currentPlayer.withdrawBalance(1000);
+					output.updateBalance(currentPlayer);
+					currentPlayer.setInJail(false);
+					currentPlayer.setNumJailRolls(0);
+					playstate(); // Just call playstate to continue the game
+				}
+			} else {
+				option = GUI.getUserButtonPressed(currentPlayer.getName()+" is jailed and used 3 rolls", "Pay 1000,-");
+				currentPlayer.withdrawBalance(1000);
+				output.updateBalance(currentPlayer);
+				currentPlayer.setInJail(false);
+				currentPlayer.setNumJailRolls(0);
+				playstate(); // Just call playstate to continue the game
+			}
+		} else {			
 			Boolean end = false;
 			int numDoubles = 0;
 			Boolean hasRolled = false;
@@ -129,7 +156,7 @@ public class MainController {
 					movePlayer(currentPlayer, dieCup.getSum());
 					field = board.getFields()[currentPlayer.getPosition()-1];
 					field.landOnField(this);
-										
+					output.updateBalance(currentPlayer); // For when they've payed stuff			
 					break;
 				case("Build"):
 					//TODO
@@ -151,6 +178,7 @@ public class MainController {
 					currentPlayer = getNextPlayer(currentPlayer);
 					System.out.println(currentPlayer.getName());
 					hasRolled = false;
+					end = true;
 					
 				case("Save and Exit"):
 					end = true;
