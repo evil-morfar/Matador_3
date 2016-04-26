@@ -182,6 +182,7 @@ public class MainController {
 					
 				case("Save and Exit"):
 					end = true;
+					System.exit(0);
 				//TODO Database
 					break;
 				}
