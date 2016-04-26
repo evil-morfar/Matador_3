@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
-import tests.ReaderTest;
+import tests.BoundaryReader;
 
 
 
@@ -13,7 +13,7 @@ public class GUI_boundary implements Interface {
 	private String[] GUIarray;
 	
 	public GUI_boundary (String filename){
-		ReaderTest test = new ReaderTest();
+		BoundaryReader test = new BoundaryReader();
 		GUIarray = test.getGUIText();
 		
 		// INDSÆT RESTEN HER (IKKE DONE)

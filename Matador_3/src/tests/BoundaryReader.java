@@ -5,9 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ReaderTest {
+public class BoundaryReader {
 
-	public ReaderTest(){
+	public BoundaryReader(){
 		GUIreader();
 	}
 	
