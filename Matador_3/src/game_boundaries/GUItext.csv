@@ -10,7 +10,8 @@ Indtast mindst 2 navne før du starter spillet
 %s har ikke råd til at købe feltet 
 %s har landet på %s, du ejer det selv §§§§ %s er henholdvis spiller og feltet som han lander på, kaldes når han lander på eget felt 
 %s har landet på %s, du skal betale %d i leje til %s §§§ navn, felt, leje.
-%s har ikke råd til at betale leje
+§
+%s har ikke råd
 §
 %s er i fængsel hvordan vil forsøge at komme ud? §§§ navn, når en spiller starter sin tur i fængsel
 %s slog ikke to ens og forbliver i fængsel
