@@ -4,10 +4,17 @@ import java.awt.Color;
 
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
+import tests.ReaderTest;
+
+
 
 public class GUI_boundary implements Interface {
 
+	private String[] GUIarray;
+	
 	public GUI_boundary (String filename){
+		ReaderTest test = new ReaderTest();
+		GUIarray = test.getGUIText();
 		
 		// INDSÆT RESTEN HER (IKKE DONE)
 	}
@@ -71,7 +78,7 @@ public class GUI_boundary implements Interface {
 
 	@Override
 	public void showWelcome() {
-		// TODO Auto-generated method stub
+		
 
 	}
 
@@ -83,7 +90,7 @@ public class GUI_boundary implements Interface {
 
 	@Override
 	public void showWinner(String playerName) {
-		// TODO Auto-generated method stub
+		GUI.showMessage(String.format(, playerName));
 
 	}
 

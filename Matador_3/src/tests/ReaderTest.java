@@ -7,14 +7,17 @@ import java.io.IOException;
 
 public class ReaderTest {
 
+	public ReaderTest(){
+		GUIreader();
+	}
+	
+	private String[] GUIline = new String[40];
+
 	private static final String GUI_FILE = "src/game_boundaries/GUItext.csv";
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub/ indlæs fil med tekster
 
-		String[] GUIline;
-		GUIline = new String[40];
-		
+	private void GUIreader() {
+
 		String line = "";
 		String splitBy = "§";
 		BufferedReader br = null;
@@ -24,7 +27,7 @@ public class ReaderTest {
 			int i = 0;
 			while((line = br.readLine()) != null) {
 				String[] field = line.split(splitBy);
-		
+
 				GUIline[i] = field[0];
 				i++;
 			}
@@ -44,7 +47,11 @@ public class ReaderTest {
 					e.printStackTrace();
 				}
 		}
-String test = String.format("%s har købt %s for %d","Bo","Cola",200);
-System.out.println(test);
+//		String test = String.format("%s har købt %s for %d","Bo","Cola",200);
+//		System.out.println(test);
+	}
+	
+	public String[] getGUIText() {
+		return GUIline;
 	}
 }
