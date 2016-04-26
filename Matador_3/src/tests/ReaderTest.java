@@ -14,9 +14,9 @@ public class ReaderTest {
 
 		String[] GUIline;
 		GUIline = new String[40];
-
+		
 		String line = "";
-		String splitBy = "#";
+		String splitBy = "§";
 		BufferedReader br = null;
 
 		try {
@@ -24,7 +24,7 @@ public class ReaderTest {
 			int i = 0;
 			while((line = br.readLine()) != null) {
 				String[] field = line.split(splitBy);
-
+		
 				GUIline[i] = field[0];
 				i++;
 			}
@@ -44,6 +44,7 @@ public class ReaderTest {
 					e.printStackTrace();
 				}
 		}
-
+String test = String.format("%s har købt %s for %d","Bo","Cola",200);
+System.out.println(test);
 	}
 }
