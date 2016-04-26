@@ -16,6 +16,7 @@ public class Player {
 	private boolean isBroke;
 	private String color;
 	private boolean isInJail;
+	private int numJailRolls;
 	private int playerID;
 	private Account account;
 
@@ -34,6 +35,7 @@ public class Player {
 		this.isBroke = false; 
 		this.position = position;
 		this.playerID = playerID;
+		this.numJailRolls = 0;
 	}
 	
 	public String getName(){
@@ -110,5 +112,13 @@ public class Player {
 	 */
 	public void move(int places){
 		this.position += places;
+	}
+	
+	public void setNumJailRolls(int i){
+		this.numJailRolls = i;
+	}
+	
+	public int getNumJailRolls(){
+		return this.numJailRolls;
 	}
 }
