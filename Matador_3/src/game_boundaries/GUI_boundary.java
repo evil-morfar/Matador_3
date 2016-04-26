@@ -90,7 +90,7 @@ public class GUI_boundary implements Interface {
 
 	@Override
 	public void showWinner(String playerName) {
-		GUI.showMessage(String.format(, playerName));
+		GUI.showMessage(String.format(playerName));
 
 	}
 
