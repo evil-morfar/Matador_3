@@ -66,4 +66,6 @@ public interface Interface {
 	
 	public void updateBalance(Player player);
 	
+	public void setOwner(int fieldNumber, String playername);
+	
 }

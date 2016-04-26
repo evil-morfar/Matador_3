@@ -191,6 +191,12 @@ public class GUI_boundary implements Interface {
 	}
 
 
+	@Override
+	public void setOwner(int fieldNumber, String playername) {
+		GUI.setOwner(fieldNumber, playername);		
+	}
+
+
 
 
 
