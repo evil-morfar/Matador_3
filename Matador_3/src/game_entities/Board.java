@@ -91,6 +91,20 @@ public class Board {
 	}
 	
 	/**
+	 * Gets the number of fields of a particular color.
+	 * @param color The color to check for.
+	 * @return The number of fields of that color.
+	 */
+	public int getNumColorFields(String color){
+		int num = 0;
+		for(int i = 0; i < fields.length; i++)
+			if (fields[i] instanceof Territory)	
+				if( ((Territory) fields[i]).getColor().equals(color))
+					num++;
+		return num;
+	}
+	
+	/**
 	 * Creates fields based on the input .csv file
 	 * Note: Due to naming conventions in our program and the GUI,
 	 * we're explicitly naming our objects as it's easier.
