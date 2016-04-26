@@ -86,4 +86,24 @@ public class Player {
 	public int getPlayerID(){
 		return playerID;
 	}
+	
+	public boolean isInJail() {
+		return isInJail;
+	}
+
+	public void setInJail(boolean isInJail) {
+		this.isInJail = isInJail;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+	
+	/**
+	 * Moves the player.
+	 * @param places The number of places to move. Can be negative.
+	 */
+	public void move(int places){
+		this.position += places;
+	}
 }
