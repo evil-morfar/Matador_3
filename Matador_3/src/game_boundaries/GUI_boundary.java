@@ -166,9 +166,9 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public boolean promptBuy(String name, int price) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean promptBuy(String playerName, String fieldName, int price) {
+		String msg = String.format(GUIarray[8], playerName, fieldName, price);
+		return GUI.getUserLeftButtonPressed(msg, "yes", "no");
 	}
 
 	@Override
