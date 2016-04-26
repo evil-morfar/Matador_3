@@ -13,7 +13,7 @@ public class Player {
 	
 	private String name;
 	private int position;
-	private boolean broke;
+	private boolean isBroke;
 	private String color;
 	private boolean isInJail;
 	private int playerID;
@@ -31,7 +31,7 @@ public class Player {
 	public Player(String name, int startingBalance, String color, int position, int playerID){
 		this.name = name;
 		this.account = new Account(startingBalance);
-		this.broke = false; 
+		this.isBroke = false; 
 		this.position = position;
 		this.playerID = playerID;
 	}
@@ -62,12 +62,16 @@ public class Player {
 	}
 	
 	/**
-	 * Withdraws an amount from the players balance.
+	 * Withdraws an amount from the players balance. If under 0, player is set to broke
 	 * @param value The amount to withdraw.
+	 * @param setisBroke sets the player broke status to true or false 
 	 * @see Player#depositBalance(int)
 	 */
 	public void withdrawBalance(int value){
 		 this.account.withdraw(value);
+		 if (account.getBalance()<0)
+			 account.setBalance(0);
+		 this.setIsBroke(true);
 		
 	}
 	
@@ -77,7 +81,7 @@ public class Player {
 	 */
 	
 	public void setIsBroke(boolean isBroke){
-		this.broke = isBroke;
+		this.isBroke = isBroke;
 	}
 	
 	public String getColor(){
