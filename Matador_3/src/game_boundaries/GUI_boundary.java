@@ -5,6 +5,7 @@ import java.awt.Color;
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
 import game_entities.Player;
+import game_controller.MainController;
 
 
 
@@ -23,7 +24,9 @@ public class GUI_boundary implements Interface {
 	@Override
 	public void update(int pos, int balance, String playerName) {
 		// TODO Auto-generated method stub
-
+		
+		GUI.setCar(pos, playerName);
+		GUI.setBalance(playerName, balance);
 
 
 	}
@@ -80,7 +83,7 @@ public class GUI_boundary implements Interface {
 	@Override
 	public void showUpdateMessage(String playerName, int pos) {
 		// TODO Auto-generated method stub
-
+		
 		
 		
 		
