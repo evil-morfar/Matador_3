@@ -87,29 +87,56 @@ public class MainController {
 	}
 
 	private void playstate(){
+		String option = "";
 		if (currentPlayer.isInJail()) {
-			// TODO Jail options
-		} else {
-			GUI.showMessage(currentPlayer.getName() +"'s turn!");
-			String option = "";
+			if(currentPlayer.getNumJailRolls() < 3) {
+				option = GUI.getUserButtonPressed(currentPlayer.getName()+" is jailed!", "Roll", "Pay 1000,-");
+				if (option.equals("Roll")){
+					dieCup.roll();
+					output.setDice(dieCup.getDice());
+					if(dieCup.isDoubles() != 0 ) { // Player is freed
+						currentPlayer.setInJail(false);
+						currentPlayer.setNumJailRolls(0);
+						movePlayer(currentPlayer, dieCup.getSum());
+						AbstractFields field = board.getFields()[currentPlayer.getPosition()-1];
+						field.landOnField(this);
+					} else
+						currentPlayer.setNumJailRolls(currentPlayer.getNumJailRolls() + 1);
+				} else { // Player chooses to pay
+					currentPlayer.withdrawBalance(1000);
+					output.updateBalance(currentPlayer);
+					currentPlayer.setInJail(false);
+					currentPlayer.setNumJailRolls(0);
+					playstate(); // Just call playstate to continue the game
+				}
+			} else {
+				option = GUI.getUserButtonPressed(currentPlayer.getName()+" is jailed and used 3 rolls", "Pay 1000,-");
+				currentPlayer.withdrawBalance(1000);
+				output.updateBalance(currentPlayer);
+				currentPlayer.setInJail(false);
+				currentPlayer.setNumJailRolls(0);
+				playstate(); // Just call playstate to continue the game
+			}
+		} else {			
 			Boolean end = false;
 			int numDoubles = 0;
 			Boolean hasRolled = false;
 			AbstractFields field = null;
 			while(!end) {
+				String sPlayer = currentPlayer.getName() + "'s turn:";
 				if(!option.equals("end")) // Special case
 					if(!hasRolled)
-						 option = GUI.getUserButtonPressed("Choose option:", "Roll", "Build", "Pawn", "Save and Exit");
+						 option = GUI.getUserButtonPressed(sPlayer, "Roll", "Build", "Pawn", "Save and Exit");
 					// Only show the "Buy" option if it's possible to buy the field
 					else if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
 						if (numDoubles != 0) // Can't end turn when one still have a roll
-							option = GUI.getUserButtonPressed("Choose option:", "Roll", "Buy", "Build", "Pawn");
+							option = GUI.getUserButtonPressed(sPlayer, "Roll", "Buy", "Build", "Pawn");
 						else
-							option = GUI.getUserButtonPressed("Choose option:", "Buy", "Build", "Pawn", "End Turn");
+							option = GUI.getUserButtonPressed(sPlayer, "Buy", "Build", "Pawn", "End Turn");
 					else if (numDoubles != 0)
-						option = GUI.getUserButtonPressed("Choose option:", "Roll", "Build", "Pawn");
+						option = GUI.getUserButtonPressed(sPlayer, "Roll", "Build", "Pawn");
 					else
-						option = GUI.getUserButtonPressed("Choose option:", "Build", "Pawn", "End Turn");
+						option = GUI.getUserButtonPressed(sPlayer, "Build", "Pawn", "End Turn");
 				
 				switch(option) {
 				case("Roll"):
@@ -129,7 +156,7 @@ public class MainController {
 					movePlayer(currentPlayer, dieCup.getSum());
 					field = board.getFields()[currentPlayer.getPosition()-1];
 					field.landOnField(this);
-										
+					output.updateBalance(currentPlayer); // For when they've payed stuff			
 					break;
 				case("Build"):
 					//TODO
@@ -140,7 +167,6 @@ public class MainController {
 					break;
 				
 				case("Buy"):
-					//TODO Test if the field is buyable
 					currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
 					output.updateBalance(currentPlayer);
 					((AbstractOwnable) field).setOwner(currentPlayer);	
@@ -152,9 +178,12 @@ public class MainController {
 					currentPlayer = getNextPlayer(currentPlayer);
 					System.out.println(currentPlayer.getName());
 					hasRolled = false;
+					end = true;
 					
 				case("Save and Exit"):
 					end = true;
+					System.exit(0);
+				//TODO Database
 					break;
 				}
 			}
