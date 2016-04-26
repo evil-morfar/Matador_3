@@ -70,11 +70,12 @@ public class Player {
 	 * @see Player#depositBalance(int)
 	 */
 	public void withdrawBalance(int value){
-		 this.account.withdraw(value);
-		 if (account.getBalance()<0)
-			 account.setBalance(0);
-		 this.setIsBroke(true);
-		
+		 try {
+			this.account.withdraw(value);
+		} catch (NotEnoughMoneyException e) {
+			this.account.setBalance(0);
+			this.isBroke = true;
+		}
 	}
 	
 	/**
