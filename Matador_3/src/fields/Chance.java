@@ -1,5 +1,10 @@
 package fields;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import game_controller.MainController;
 import game_entities.Player;
 
@@ -19,8 +24,50 @@ public class Chance extends AbstractNonOwnables {
 	public Chance(int id) {
 		// Name and fieldType is the same.
 		super(id, FIELD_TYPE, FIELD_TYPE);
+		
 	}
 
+	private String[] chanceCard = new String[40];
+
+	private static final String CHANCE_FILE = "src/game_boundaries/GUItext.csv";
+
+
+	private void GUIreader() {
+
+		String line = "";
+		String splitBy = ";";
+		BufferedReader br = null;
+
+		try {
+			br = new BufferedReader(new FileReader(CHANCE_FILE));
+			int i = 1;
+			while((line = br.readLine()) != null) {
+				String[] field = line.split(splitBy);
+
+				switch(field[1]) {
+				case "Indbetaling":
+				
+				
+				i++;
+			}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		} finally {
+			if(br != null)
+				try {
+					br.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		}
+	}
+	
 	/**
 	 * Draws and executes a chance card on the player landing on the Field.
 	 * @param controller Main game controller.
