@@ -61,7 +61,14 @@ public class GUI_boundary implements Interface {
 	@Override
 	public void removeAllOwners() {
 		// TODO Auto-generated method stub
-
+		int i = 0; 
+		while(i < 40){
+		
+			GUI.removeOwner(i);
+			i++;
+		}
+		
+		
 	}
 
 	@Override
@@ -74,6 +81,9 @@ public class GUI_boundary implements Interface {
 	public void showUpdateMessage(String playerName, int pos) {
 		// TODO Auto-generated method stub
 
+		
+		
+		
 	}
 
 	@Override
