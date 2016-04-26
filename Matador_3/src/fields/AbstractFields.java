@@ -1,6 +1,6 @@
 package fields;
 
-import game_entities.Player;
+import game_controller.MainController;
 
 /**
  * Super class for every field in the game
@@ -24,12 +24,11 @@ public abstract class AbstractFields {
 		this.fieldID = fieldID;
 	}
 	
-	/********************************************************************
+	/**
 	 * abstract method which will be inherited in subclasses
-	 * @param landOnField THe method to be called when a player moves and lands on a field, different for all classes 
-	 *********************************************************************'*/
-	
-	public abstract void landOnField(Player player);
+	 * @param controller The main game controller. Contains all relevant information. 
+	*/	
+	public abstract void landOnField(MainController controller);
 	
 	// Getters
 	

@@ -1,5 +1,6 @@
 package fields;
 
+import game_controller.MainController;
 import game_entities.Player;
 
 /**
@@ -21,10 +22,10 @@ public class GoToJail extends AbstractNonOwnables {
 
 	@Override
 	/**
-	 * @param player The player to move to the jail.
-	 * @see GoToJail
+	 * @param controller Main game controller.
+	 * @see AbstractFields#landOnField
 	 */
-	public void landOnField(Player player) {
+	public void landOnField(MainController controller) {
 		player.setJail(true);
 		
 		

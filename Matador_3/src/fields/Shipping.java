@@ -1,5 +1,6 @@
 package fields;
 
+import game_controller.MainController;
 import game_entities.Player;
 
 /**
@@ -28,10 +29,10 @@ public class Shipping extends AbstractOwnable {
 	/**
 	 * Controls what happens when a player lands on the shipping field.
 	 * Note the rent is higher if one owns more ships.
-	 * @param player The player landing on the field.
-	 * @see AbstractOwnable
+	 * @param controller Main game controller.
+	 * @see AbstractFields#landOnField
 	 */
-	public void landOnField(Player player){
+	public void landOnField(MainController controller){
 		Player owner = this.getOwner();
 		if(player != owner){
 			/* TODO do stuff.

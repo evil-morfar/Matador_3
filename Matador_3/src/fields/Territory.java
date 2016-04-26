@@ -1,5 +1,6 @@
 package fields;
 
+import game_controller.MainController;
 import game_entities.Player;
 
 /**
@@ -76,10 +77,10 @@ public class Territory extends AbstractOwnable {
 	
 	/**
 	 * Controls what happens when a player lands on this type of field.
-	 * @param player The player landing on the field.
-	 * @see AbstractOwnable
+	 * @param controller Main game controller.
+	 * @see AbstractFields#landOnField
 	 */
-	public void landOnField(Player player){
+	public void landOnField(MainController controller){
 		Player owner = this.getOwner();
 		if (owner != player) {
 			//TODO do stuff

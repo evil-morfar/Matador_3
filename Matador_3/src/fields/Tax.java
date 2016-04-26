@@ -1,5 +1,6 @@
 package fields;
 
+import game_controller.MainController;
 import game_entities.Player;
 /**
  * The NonOwnable Field, Tax. There's normally 1 of these in a standard Monopoly game.
@@ -29,10 +30,11 @@ public class Tax extends AbstractNonOwnables {
 	/**
 	 * Provides the choice between paying a flat amount, or a percentage of
 	 * the players current balance.
-	 * @param player The player landing on the Field.
+	 * @param controller Main game controller.
+	 * @see AbstractFields#landOnField
 	 */
 	@Override
-	public void landOnField(Player player) {
+	public void landOnField(MainController controller) {
 		// TODO The player must choose between paying this.amount or
 		// player.getBalance() / this.percent
 

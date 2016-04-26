@@ -1,5 +1,6 @@
 package fields;
 
+import game_controller.MainController;
 import game_entities.Player;
 
 /**
@@ -25,9 +26,10 @@ public class FlatTax extends AbstractNonOwnables {
 	@Override
 	/**
 	 * Forces the player landing on the field to pay the amount in taxes.
-	 * @param player The player landing on the field.
+	 * @param controller Main game controller.
+	 * @see AbstractFields#landOnField
 	 */
-	public void landOnField(Player player) {
+	public void landOnField(MainController controller) {
 		player.withdrawBalance(this.amount);
 		//TODO consider error handling.
 	}

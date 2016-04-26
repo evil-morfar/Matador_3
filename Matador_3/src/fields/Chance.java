@@ -1,5 +1,6 @@
 package fields;
 
+import game_controller.MainController;
 import game_entities.Player;
 
 /**
@@ -22,10 +23,11 @@ public class Chance extends AbstractNonOwnables {
 
 	/**
 	 * Draws and executes a chance card on the player landing on the Field.
-	 * @param player The player landing on the Field.
+	 * @param controller Main game controller.
+	 * @see AbstractFields#landOnField
 	 */
 	@Override
-	public void landOnField(Player player) {
+	public void landOnField(MainController controller) {
 		// TODO Draw and execute a chance card on the player
 
 	}

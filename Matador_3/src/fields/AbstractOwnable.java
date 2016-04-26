@@ -1,5 +1,6 @@
 package fields;
 
+import game_controller.MainController;
 import game_entities.Player;
 
 /************************************************
@@ -17,26 +18,27 @@ public abstract class AbstractOwnable extends AbstractFields {
 		this.owner = null;
 	}
 
-	/******************************************************************************************
-	 * Herited method from superclass AbstractFields
+	/**
+	 * Inherited method from superclass AbstractFields
 	 * Gives the player the option to buy the field if not owned, else the player must pay rent
-	 ******************************************************************************************/
-
+	 * @param controller Main game controller.
+	 * @see AbstractFields#landOnField
+	 */
 	@Override 
-	public void landOnField(Player player) {
+	public void landOnField(MainController controller) {
 
-		if(this.owner==null){
-
-			if(player.getBalance()>price) {
-
-				if(//player accepts on gui))
-						)player.withdrawBalance(price);
-				owner = player;
-				// buy successful message				
-
-			} else // not bought message S
-
-		} else // not enough balance message 
+//		if(this.owner==null){
+//
+//			if(player.getBalance()>price) {
+//
+//				if(//player accepts on gui))
+//						)player.withdrawBalance(price);
+//				owner = player;
+//				// buy successful message				
+//
+//			} else // not bought message S
+//
+//		} else // not enough balance message 
 
 	}
 

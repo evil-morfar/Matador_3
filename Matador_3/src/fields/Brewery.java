@@ -1,5 +1,6 @@
 package fields;
 
+import game_controller.MainController;
 import game_entities.Player;
 
 /**
@@ -29,11 +30,10 @@ public class Brewery extends AbstractOwnable {
 	
 	/**
 	 * Controls what happens when a player lands on a Brewery type Field.
-	 * @param player The player landing on the field.
-	 * @param lastRoll The sum of the last dice roll - used to determine rent.
-	 * @see Brewery#Brewery(String, int, int)
+	 * @param controller Main game controller.
+	 * @see AbstractFields#landOnField
 	 */
-	public void landOnField(Player player, int lastRoll){
+	public void landOnField(MainController controller){
 		Player owner = this.getOwner();
 		if(owner != player ){
 			// TODO do stuff.

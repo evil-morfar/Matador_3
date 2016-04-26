@@ -1,5 +1,6 @@
 package fields;
 
+import game_controller.MainController;
 import game_entities.Player;
 
 /** 
@@ -14,7 +15,7 @@ public abstract class AbstractNonOwnables extends AbstractFields {
 	}
 
 	
-	public void landOnfield(Player player) {
+	public void landOnfield(MainController controller) {
 		
 	}
 

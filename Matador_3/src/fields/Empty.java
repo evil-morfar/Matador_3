@@ -1,5 +1,6 @@
 package fields;
 
+import game_controller.MainController;
 import game_entities.Player;
 /**
  * An Empty NonOwnable Field for a Monopoly game.
@@ -22,12 +23,11 @@ public class Empty extends AbstractNonOwnables {
 	
 	/**
 	 * Nothing's supposed to happen here!
-	 * @param player The player landing on the Field, whom nothing will
-	 * happen to.
-	 * @see Empty#Empty()
+	 * @param controller Main game controller.
+	 * @see AbstractFields#landOnField
 	 */
 	@Override 
-	public void landOnField(Player player) {
+	public void landOnField(MainController controller) {
 		// Intentionally left blank!
 	}
 
