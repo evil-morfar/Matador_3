@@ -91,45 +91,59 @@ public class MainController {
 			// TODO Jail options
 		} else {
 			GUI.showMessage(currentPlayer.getName() +"'s turn!");
-			String option = GUI.getUserButtonPressed("Choose option:", "Roll", "Build", "Pawn", "Save and Exit");
-			switch(option) {
-			case("Roll"):
-				dieCup.roll();
-				output.setDice(dieCup.getDice());
-				movePlayer(currentPlayer, dieCup.getSum());
-				AbstractFields field = board.getFields()[currentPlayer.getPosition()];
-				field.landOnField(this);
-				option = GUI.getUserButtonPressed("Choose option:", "Buy", "Build", "Pawn", "End Turn");
+			Boolean end = false;
+			while(!end) {
+				String option = GUI.getUserButtonPressed("Choose option:", "Roll", "Build", "Pawn", "Save and Exit");
 				switch(option) {
-				case("Buy"):
-					currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
-					output.updateBalance(currentPlayer);
-					((AbstractOwnable) field).setOwner(currentPlayer);		
+				case("Roll"):
+					dieCup.roll();
+					output.setDice(dieCup.getDice());
+					movePlayer(currentPlayer, dieCup.getSum());
+					AbstractFields field = board.getFields()[currentPlayer.getPosition()];
+					field.landOnField(this);
+					
+					while(!end) {
+						// Only show the "Buy" option if it's possible to buy the field
+						if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
+							option = GUI.getUserButtonPressed("Choose option:", "Buy", "Build", "Pawn", "End Turn");
+						else
+							option = GUI.getUserButtonPressed("Choose option:", "Build", "Pawn", "End Turn");
+						
+						switch(option) {
+						case("Buy"):
+							//TODO Test if the field is buyable
+							currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
+							output.updateBalance(currentPlayer);
+							((AbstractOwnable) field).setOwner(currentPlayer);	
+							output.setOwner(field.getFieldID(), currentPlayer.getName());
+							break;
+						case("Build"):
+							//TODO
+							break;
+						case("Pawn"):
+							//TODO
+							break;
+						case("End Turn"):
+							System.out.println(currentPlayer.getName());
+							currentPlayer = getNextPlayer(currentPlayer);
+							System.out.println(currentPlayer.getName());
+							end = true;
+						}
+					}
+					
 					break;
 				case("Build"):
 					//TODO
 					break;
+				
 				case("Pawn"):
 					//TODO
 					break;
-				case("End Turn"):
-					System.out.println(currentPlayer.getName());
-					currentPlayer = getNextPlayer(currentPlayer);
-					System.out.println(currentPlayer.getName());
+				
+				case("Save and Exit"):
+					System.exit(0);
+					break;
 				}
-				
-				break;
-			case("Build"):
-				//TODO
-				break;
-			
-			case("Pawn"):
-				//TODO
-				break;
-			
-			case("Save and Exit"):
-				
-				break;
 			}
 		}
 	}
