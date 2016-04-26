@@ -99,7 +99,7 @@ public class MainController {
 					dieCup.roll();
 					output.setDice(dieCup.getDice());
 					movePlayer(currentPlayer, dieCup.getSum());
-					AbstractFields field = board.getFields()[currentPlayer.getPosition()];
+					AbstractFields field = board.getFields()[currentPlayer.getPosition()-1];
 					field.landOnField(this);
 					
 					while(!end) {
@@ -162,10 +162,14 @@ public class MainController {
 
 	private void movePlayer(Player player, int num){
 		int position = player.getPosition();
-		if (position + num > board.getFields().length)
-			position -= board.getFields().length;
+		if (position + num > board.getFields().length + 1){
+			position -= board.getFields().length + 1;
+			System.out.println(player.getName() + " passed start, received 4k.");
+			player.depositBalance(4000);
+		}
 		position += num;
-		player.moveTo(position);
+		System.out.println(player.getName() + " moved to " + position);
+		player.setPosition(position);
 		output.movePlayer(position, player.getName());
 	}
 

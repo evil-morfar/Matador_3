@@ -182,7 +182,7 @@ public class GUI_boundary implements Interface {
 	@Override
 	public void movePlayer(int fieldNum, String playername) {
 		GUI.removeAllCars(playername);
-		GUI.setCar(fieldNum+1, playername);		
+		GUI.setCar(fieldNum, playername);		
 	}
 
 

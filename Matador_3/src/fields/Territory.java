@@ -85,7 +85,7 @@ public class Territory extends AbstractOwnable {
 		Player player = controller.getCurrentPlayer();
 		Player owner = this.getOwner();
 		Board board = controller.getBoard();
-		if (owner != player) {
+		if (owner != player && this.isOwned()) {
 			int rent = 0;
 			// Calculate the rent based on number of owned fields or houses
 			if (this.hasHotel) {
