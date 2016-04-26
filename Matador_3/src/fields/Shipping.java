@@ -33,11 +33,14 @@ public class Shipping extends AbstractOwnable {
 	 * @see AbstractFields#landOnField
 	 */
 	public void landOnField(MainController controller){
+		Player player = controller.getCurrentPlayer();
 		Player owner = this.getOwner();
 		if(player != owner){
-			/* TODO do stuff.
-			 * rent = rent * 2^player.ownedShips 
-			 */
+			int owned = controller.getBoard().getNumOwnedShips(owner);
+			int rent = this.rent * 2 ^ owned;
+			player.withdrawBalance(rent); 
+		}else if (!this.isOwned()) {
+			//TODO if not owned
 		}
 	}
 
