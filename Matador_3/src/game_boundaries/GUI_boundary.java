@@ -12,8 +12,8 @@ public class GUI_boundary implements Interface {
 	private String[] GUIarray;
 	
 	public GUI_boundary (String filename){
-		BoundaryReader test = new BoundaryReader();
-		GUIarray = test.getGUIText();
+		BoundaryReader r = new BoundaryReader();
+		GUIarray = r.getGUIText();
 		
 		// INDSÆT RESTEN HER (IKKE DONE)
 	}
@@ -65,7 +65,7 @@ public class GUI_boundary implements Interface {
 
 	@Override
 	public void removeOwner(int fieldNumber) {
-		// TODO Auto-generated method stub
+		GUI.removeOwner(fieldNumber);
 
 	}
 
@@ -77,19 +77,19 @@ public class GUI_boundary implements Interface {
 
 	@Override
 	public void showWelcome() {
-		
+		GUI.showMessage(String.format(GUIarray[1]));
 
 	}
 
 	@Override
 	public void showStartingPlayer(String playerName) {
-		// TODO Auto-generated method stub
+		GUI.showMessage(String.format(GUIarray[4],playerName));
 
 	}
 
 	@Override
 	public void showWinner(String playerName) {
-		GUI.showMessage(String.format(playerName));
+		GUI.showMessage(String.format(GUIarray[5],playerName));
 
 	}
 
@@ -113,26 +113,25 @@ public class GUI_boundary implements Interface {
 
 	@Override
 	public void showNotEnoughBalanceMessage(String playerName) {
-		// TODO Auto-generated method stub
+		GUI.showMessage(String.format(GUIarray[14], playerName));
 
 	}
 
 	@Override
 	public void showBrokeMessage(String playerName) {
-		// TODO Auto-generated method stub
+		GUI.showMessage(String.format(GUIarray[6], playerName));
 
 	}
 
 	@Override
 	public void showNotBoughtMessage(String playerName) {
-		// TODO Auto-generated method stub
+		GUI.showMessage(String.format(GUIarray[10], playerName));
 
 	}
 
 	@Override
-	public void showFieldBoughtMessage(String playerName, int fieldNumber) {
-		// TODO Auto-generated method stub
-
+	public void showFieldBoughtMessage(String playerName, String fieldName, int amount) {
+		GUI.showMessage(String.format(GUIarray[9], playerName, fieldName, amount));
 	}
 
 	@Override

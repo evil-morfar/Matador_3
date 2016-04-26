@@ -24,7 +24,7 @@ public class BoundaryReader {
 
 		try {
 			br = new BufferedReader(new FileReader(GUI_FILE));
-			int i = 0;
+			int i = 1;
 			while((line = br.readLine()) != null) {
 				String[] field = line.split(splitBy);
 
