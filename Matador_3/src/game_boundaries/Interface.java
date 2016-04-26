@@ -48,7 +48,7 @@ public interface Interface {
 	
 	public void showNotBoughtMessage(String playerName);
 	
-	public void showFieldBoughtMessage(String playerName, int fieldNumber);
+	public void showFieldBoughtMessage(String playerName, String fieldName, int amount);
 	
 	public void showRollingDiceForRent(String playeName);
 	

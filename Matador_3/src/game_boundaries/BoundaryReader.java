@@ -1,30 +1,33 @@
-package tests;
+package game_boundaries;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ReaderTest {
+public class BoundaryReader {
+
+	public BoundaryReader(){
+		GUIreader();
+	}
+	
+	private String[] GUIline = new String[40];
 
 	private static final String GUI_FILE = "src/game_boundaries/GUItext.csv";
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub/ indlæs fil med tekster
 
-		String[] GUIline;
-		GUIline = new String[40];
-		
+	private void GUIreader() {
+
 		String line = "";
 		String splitBy = "§";
 		BufferedReader br = null;
 
 		try {
 			br = new BufferedReader(new FileReader(GUI_FILE));
-			int i = 0;
+			int i = 1;
 			while((line = br.readLine()) != null) {
 				String[] field = line.split(splitBy);
-		
+
 				GUIline[i] = field[0];
 				i++;
 			}
@@ -44,7 +47,11 @@ public class ReaderTest {
 					e.printStackTrace();
 				}
 		}
-String test = String.format("%s har købt %s for %d","Bo","Cola",200);
-System.out.println(test);
+//		String test = String.format("%s har købt %s for %d","Bo","Cola",200);
+//		System.out.println(test);
+	}
+	
+	public String[] getGUIText() {
+		return GUIline;
 	}
 }
