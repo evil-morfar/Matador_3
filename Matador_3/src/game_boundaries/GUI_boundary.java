@@ -156,7 +156,8 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showPlayerIsOwner(String playerName) {
+	public void showPlayerIsOwner(String playerName
+			) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -209,8 +210,11 @@ public class GUI_boundary implements Interface {
 	public void setOwner(int fieldNumber, String playername) {
 		GUI.setOwner(fieldNumber, playername);		
 	}
-
-
+	
+	@Override
+	public String getUserButtonPressed(String msg, String button1){
+		return GUI.getUserButtonPressed(msg, button1);
+	}
 
 
 
