@@ -216,6 +216,9 @@ public class GUI_boundary implements Interface {
 		return GUI.getUserButtonPressed(msg, button1);
 	}
 
-
+	@Override
+	public void create(Field[] fields){
+		GUI.create(fields);
+	}
 
 }

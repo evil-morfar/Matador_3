@@ -69,5 +69,7 @@ public interface Interface {
 	public void setOwner(int fieldNumber, String playername);
 
 	public String getUserButtonPressed(String msg, String button1);
+
+	public void create(Field[] fields); 
 	
 }
