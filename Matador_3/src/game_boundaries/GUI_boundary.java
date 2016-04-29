@@ -3,6 +3,7 @@ package game_boundaries;
 import java.awt.Color;
 
 import desktop_codebehind.Car;
+import desktop_fields.Field;
 import desktop_resources.GUI;
 import game_entities.Player;
 import game_controller.MainController;
@@ -212,7 +213,7 @@ public class GUI_boundary implements Interface {
 	}
 	
 	@Override
-	public String getUserButtonPressed(String msg, String button1){
+	public String getUserButtonPressed(String msg, String... button1){
 		return GUI.getUserButtonPressed(msg, button1);
 	}
 

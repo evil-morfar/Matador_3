@@ -1,5 +1,6 @@
 package game_boundaries;
 
+import desktop_fields.Field;
 import game_entities.Player;
 
 /**
@@ -68,7 +69,7 @@ public interface Interface {
 	
 	public void setOwner(int fieldNumber, String playername);
 
-	public String getUserButtonPressed(String msg, String button1);
+	public String getUserButtonPressed(String msg, String... button1);
 
 	public void create(Field[] fields); 
 	
