@@ -7,9 +7,17 @@ public class BalanceChange extends SuperCard {
 
 	
 	private int amount;
+	private final static String CARD_TYPE = "BalanceChange";
 	
-	public BalanceChange(int cardNumber, String cardType, String cardText, int amount) {
-		super(cardNumber, cardType, cardText);
+	/**
+	 * 
+	 * @param cardNumber number of the card
+	 * @param cardType which category the card falls under
+	 * @param cardText Text of the card 
+	 * @param amount The amount the player receives or pays
+	 */
+	public BalanceChange(int cardNumber, String cardText, int amount) {
+		super(cardNumber, CARD_TYPE, cardText);
 		this.amount = amount;
 		
 	}

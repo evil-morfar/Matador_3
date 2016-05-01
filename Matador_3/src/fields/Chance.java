@@ -42,11 +42,12 @@ public class Chance extends AbstractNonOwnables {
 			br = new BufferedReader(new FileReader(CHANCE_FILE));
 			int i = 1;
 			while((line = br.readLine()) != null) {
-				String[] field = line.split(splitBy);
+				String[] card = line.split(splitBy);
 
-				switch(field[1]) {
+				switch(card[1]) {
 
 				case "BalanceChange":
+					chanceCard[i] = new BalanceChange(Integer.parseInt(card[0]), card[2],Integer.parseInt(card[3]));
 					
 					break;
 				case "PayHouses":
