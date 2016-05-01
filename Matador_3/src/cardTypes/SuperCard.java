@@ -8,18 +8,25 @@ package cardTypes;
 
 public abstract class SuperCard {
 
+	private int cardNumber;
+	private String cardType;
 	private String cardText;
 	
-	public SuperCard(String cardText) {
-		this.setCardText(cardText);
+	public SuperCard(int cardNumber, String cardType, String cardText) {
+		this.cardNumber = cardNumber;
+		this.cardType = cardType;
+		this.cardText =cardText;
 	}
 
 	public String getCardText() {
 		return cardText;
 	}
 
-	public void setCardText(String cardText) {
-		this.cardText = cardText;
+	public int getCardNumber() {
+		return cardNumber;
 	}
 
+	public String getCardType() {
+		return cardType;
+	}
 }
