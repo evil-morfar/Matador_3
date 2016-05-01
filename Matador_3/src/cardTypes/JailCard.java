@@ -1,6 +1,7 @@
 package cardTypes;
 
 import game_controller.MainController;
+import game_entities.Player;
 
 public class JailCard extends SuperCard {
 
@@ -13,8 +14,8 @@ public class JailCard extends SuperCard {
 
 	@Override
 	public void triggerCard(MainController controller) {
-		
-		
+		Player player = controller.getCurrentPlayer();
+		player.increaseNumJailCards();
 	}
 
 }

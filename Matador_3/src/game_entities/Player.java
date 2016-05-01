@@ -114,7 +114,14 @@ public class Player {
 	}
 	
 	public int getNumJailCards(){
-		return this.numJailCards;
+		return numJailCards;
+	}
+	
+	public void increaseNumJailCards(){
+		numJailCards++;
+	}
+	public void decreaseNumJailCards() {
+		numJailCards--;
 	}
 	
 	/**
