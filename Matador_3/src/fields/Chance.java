@@ -13,7 +13,7 @@ import game_entities.Player;
  * @author Nichlas N. Pilemand
  */
 public class Chance extends AbstractNonOwnables {
-	
+
 	private static final String FIELD_TYPE = "Chance";
 
 	/**
@@ -24,7 +24,7 @@ public class Chance extends AbstractNonOwnables {
 	public Chance(int id) {
 		// Name and fieldType is the same.
 		super(id, FIELD_TYPE, FIELD_TYPE);
-		
+
 	}
 
 	private String[] chanceCard = new String[40];
@@ -45,11 +45,39 @@ public class Chance extends AbstractNonOwnables {
 				String[] field = line.split(splitBy);
 
 				switch(field[1]) {
-				case "Indbetaling":
-				
-				
-				i++;
-			}
+
+				case "BalanceChange":
+					
+					break;
+				case "PayHouses":
+					
+					break;
+				case "MoveField":
+					
+					break;
+				case "MoveJail":
+					
+					break;
+				case "MoveFleet":
+					
+					break;
+				case "Move":
+					
+					break;
+				case "ReceivePlayers":
+
+					break;
+				case "JailCard":
+
+					break;	
+				case "Poor":
+
+
+
+
+
+					i++;
+				}
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -67,7 +95,7 @@ public class Chance extends AbstractNonOwnables {
 				}
 		}
 	}
-	
+
 	/**
 	 * Draws and executes a chance card on the player landing on the Field.
 	 * @param controller Main game controller.
