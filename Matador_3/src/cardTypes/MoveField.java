@@ -27,7 +27,7 @@ public class MoveField extends SuperCard {
 		switch(fieldNumber) {
 		case -3: // only one chance card moves the player a fixed number of spaces back
 			if(player.getPosition()==3) {
-				controller.movePlayerTo(player, 40);
+				controller.movePlayerTo(player, 40); // if on space 3 he would land on space 40 going 3 back
 			}else 
 				controller.movePlayer(player, -3);			
 
