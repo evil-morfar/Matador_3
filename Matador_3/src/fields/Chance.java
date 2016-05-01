@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import cardTypes.BalanceChange;
+import cardTypes.PayHouses;
 import game_controller.MainController;
 import game_entities.Player;
 
@@ -27,7 +29,7 @@ public class Chance extends AbstractNonOwnables {
 
 	}
 
-	private String[] chanceCard = new String[40];
+	private String[] chanceCard = new String[33];
 
 	private static final String CHANCE_FILE = "src/game_boundaries/GUItext.csv";
 
@@ -51,7 +53,7 @@ public class Chance extends AbstractNonOwnables {
 					
 					break;
 				case "PayHouses":
-					
+					chanceCard[i] = new PayHouses(Integer.parseInt(card[0]), card[2],Integer.parseInt(card[3]), Integer.parseInt(card[4]));
 					break;
 				case "MoveField":
 					

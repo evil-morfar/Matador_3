@@ -6,9 +6,10 @@ public class PayHouses extends SuperCard {
 
 	private int amountPerHouse;
 	private int amountPerHotel;
+	private final static String CARD_TYPE = "PayHouses";
 	
-	public PayHouses(int cardNumber, String cardType, String cardText, int amountPerHouse, int amountPerHotel) {
-		super(cardNumber, cardType, cardText);
+	public PayHouses(int cardNumber, String cardText, int amountPerHouse, int amountPerHotel) {
+		super(cardNumber, CARD_TYPE, cardText);
 		this.amountPerHouse = amountPerHouse;
 		this.amountPerHotel = amountPerHotel;
 	}
