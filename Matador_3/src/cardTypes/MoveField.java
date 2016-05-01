@@ -10,9 +10,10 @@ public class MoveField extends SuperCard {
 	 */
 
 	private int fieldNumber;
+	private final static String CARD_TYPE = "MoveField";
 
-	public MoveField(int cardNumber, String cardType, String cardText, int fieldNumber) {
-		super(cardNumber, cardType, cardText);
+	public MoveField(int cardNumber, String cardText, int fieldNumber) {
+		super(cardNumber, CARD_TYPE, cardText);
 		this.fieldNumber = fieldNumber;
 	}
 
@@ -23,12 +24,22 @@ public class MoveField extends SuperCard {
 	@Override
 	public void triggerCard(MainController controller) {
 		Player player = controller.getCurrentPlayer();
-		if (player.getPosition()>fieldNumber) {
-			player.depositBalance(4000);
+		switch(fieldNumber) {
+		case -3: // only one chance card moves the player a fixed number of spaces back
+			if(player.getPosition()==3) {
+				controller.movePlayerTo(player, 40);
+			}else 
+				controller.movePlayer(player, -3);			
+
+		default:
+			if (player.getPosition()>fieldNumber) {
+				player.depositBalance(4000);
+			}
+			else {
+			}
+			controller.movePlayerTo(player, fieldNumber);
 		}
-		else {
-		}
-		controller.movePlayerTo(player, fieldNumber);
+
 		// not done, skal finde ud af hvordan man flytter personen men stadig giver ham mulighed for at købe feltet
 	}
 

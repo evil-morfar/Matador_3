@@ -217,7 +217,7 @@ public class MainController {
 	 * @param player The player to move
 	 * @param num Number of fields to move.
 	 */
-	private void movePlayer(Player player, int num){
+	public void movePlayer(Player player, int num){
 		int position = player.getPosition();
 		if (position + num > board.getFields().length){
 			position -= board.getFields().length;
