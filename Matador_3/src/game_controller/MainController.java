@@ -235,7 +235,7 @@ public class MainController {
 	 * @param player The player to move
 	 * @param position The fieldID to move to
 	 */
-	private void movePlayerTo(Player player, int position){
+	public void movePlayerTo(Player player, int position){
 		player.setPosition(position);
 		output.movePlayer(position, player.getName());
 	}
