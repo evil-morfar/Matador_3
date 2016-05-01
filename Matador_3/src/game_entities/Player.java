@@ -17,6 +17,7 @@ public class Player {
 	private String color;
 	private boolean isInJail;
 	private int numJailRolls;
+	private int numJailCards;
 	private int playerID;
 	private Account account;
 
@@ -36,6 +37,7 @@ public class Player {
 		this.position = position;
 		this.playerID = playerID;
 		this.numJailRolls = 0;
+		this.numJailCards = 0;
 	}
 	
 	public String getName(){
@@ -109,6 +111,10 @@ public class Player {
 
 	public int getPosition() {
 		return position;
+	}
+	
+	public int getNumJailCards(){
+		return this.numJailCards;
 	}
 	
 	/**
