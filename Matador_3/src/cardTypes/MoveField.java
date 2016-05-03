@@ -1,5 +1,6 @@
 package cardTypes;
 
+import fields.AbstractFields;
 import game_controller.MainController;
 import game_entities.Player;
 
@@ -37,10 +38,13 @@ public class MoveField extends SuperCard {
 			}
 			else {
 			}
+			AbstractFields field = null;
 			controller.movePlayerTo(player, fieldNumber);
+			field = controller.getBoard().getFields()[controller.getCurrentPlayer().getPosition()-1];
+			field.landOnField(controller);
+			controller.getGUI().updateBalance(player); // For when they've payed stuff	
 		}
 
-		// not done, skal finde ud af hvordan man flytter personen men stadig giver ham mulighed for at købe feltet
 	}
 
 }

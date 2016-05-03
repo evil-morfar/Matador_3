@@ -32,6 +32,7 @@ public class MainController {
 	private Player currentPlayer;
 	private Board board;
 	private Boolean end = false;
+	private GUI_boundary GUI;
 	
 	private Boolean debug = true; //Sets up players automatically if true
 	
@@ -50,6 +51,10 @@ public class MainController {
 	
 	public Board getBoard() {
 		return board;
+	}
+	
+	public GUI_boundary getGUI() {
+		return GUI;
 	}
 	
 	public int getRoll(){

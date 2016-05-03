@@ -82,7 +82,7 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showUpdateMessage(String playerName, int pos) {
+	public void showUpdateMessage(Player player, int pos) {
 		// TODO Auto-generated method stub
 		
 		
@@ -97,68 +97,67 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showStartingPlayer(String playerName) {
-		GUI.showMessage(String.format(GUIarray[4],playerName));
+	public void showStartingPlayer(Player player) {
+		GUI.showMessage(String.format(GUIarray[4],player));
 
 	}
 
 	@Override
-	public void showWinner(String playerName) {
-		GUI.showMessage(String.format(GUIarray[5],playerName));
+	public void showWinner(Player player) {
+		GUI.showMessage(String.format(GUIarray[5],player));
 
 	}
 
 	@Override
-	public void showWithdrawMessage(String playerName, int amount) {
+	public void showWithdrawMessage(Player player, int amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void showDepositMessage(String playerName, int bonus) {
+	public void showDepositMessage(Player player, int bonus) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void showTransferMessage(String playerName, String ownerName, int amount) {
+	public void showTransferMessage(Player player, String ownerName, int amount) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void showNotEnoughBalanceMessage(String playerName) {
-		GUI.showMessage(String.format(GUIarray[14], playerName));
+	public void showNotEnoughBalanceMessage(Player player) {
+		GUI.showMessage(String.format(GUIarray[14], player));
 
 	}
 
 	@Override
-	public void showBrokeMessage(String playerName) {
-		GUI.showMessage(String.format(GUIarray[6], playerName));
+	public void showBrokeMessage(Player player) {
+		GUI.showMessage(String.format(GUIarray[6], player));
 
 	}
 
 	@Override
 	
-	public void showNotBoughtMessage(String playerName) {
-		GUI.showMessage(String.format(GUIarray[10], playerName));
+	public void showNotBoughtMessage(Player player) {
+		GUI.showMessage(String.format(GUIarray[10], player));
 
 	}
 
 	@Override
-	public void showFieldBoughtMessage(String playerName, String fieldName, int amount) {
-		GUI.showMessage(String.format(GUIarray[9], playerName, fieldName, amount));
+	public void showFieldBoughtMessage(Player player, String fieldName, int amount) {
+		GUI.showMessage(String.format(GUIarray[9], player, fieldName, amount));
 	}
 
 	@Override
-	public void showRollingDiceForRent(String playeName) {
+	public void showRollingDiceForRent(Player player) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void showPlayerIsOwner(String playerName
-			) {
+	public void showPlayerIsOwner(Player player) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -170,7 +169,7 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void promptRollDice(String playerName) {
+	public void promptRollDice(Player player) {
 		// TODO Auto-generated method stub
 
 	}
@@ -182,8 +181,8 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public boolean promptBuy(String playerName, String fieldName, int price) {
-		String msg = String.format(GUIarray[8], playerName, fieldName, price);
+	public boolean promptBuy(Player player, String fieldName, int price) {
+		String msg = String.format(GUIarray[8], player, fieldName, price);
 		return GUI.getUserLeftButtonPressed(msg, "yes", "no");
 	}
 
@@ -195,9 +194,9 @@ public class GUI_boundary implements Interface {
 
 
 	@Override
-	public void movePlayer(int fieldNum, String playername) {
-		GUI.removeAllCars(playername);
-		GUI.setCar(fieldNum, playername);		
+	public void movePlayer(int fieldNum, String playerName) {
+		GUI.removeAllCars(playerName);
+		GUI.setCar(fieldNum, playerName);		
 	}
 
 
@@ -208,8 +207,8 @@ public class GUI_boundary implements Interface {
 
 
 	@Override
-	public void setOwner(int fieldNumber, String playername) {
-		GUI.setOwner(fieldNumber, playername);		
+	public void setOwner(int fieldNumber, String playerName) {
+		GUI.setOwner(fieldNumber, playerName);		
 	}
 	
 	@Override
@@ -235,5 +234,17 @@ public class GUI_boundary implements Interface {
 	@Override
 	public void setHotel(int fieldNumber, boolean hasHotel){
 		GUI.setHotel( fieldNumber, hasHotel);
+	}
+
+	@Override
+	public void showPoor(Player player) {
+		GUI.showMessage(String.format(GUIarray[29], player));
+		
+	}
+
+	@Override
+	public void showNotPoor(Player player) {
+		GUI.showMessage(String.format(GUIarray[30], player));
+		
 	}
 }

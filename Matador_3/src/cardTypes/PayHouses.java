@@ -30,6 +30,8 @@ public class PayHouses extends SuperCard {
 
 	@Override
 	public void triggerCard(MainController controller) {
+	
+		
 		// not sure how to count hotels/houses on all fields
 		
 	}
