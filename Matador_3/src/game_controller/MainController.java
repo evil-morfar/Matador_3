@@ -197,6 +197,7 @@ public class MainController {
 					break;
 				}
 			}
+			currentPlayer.setNumDoubles(numDoubles);
 		}
 	}
 	

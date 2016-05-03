@@ -11,6 +11,7 @@ drop table if exists games;
 drop view if exists game;
 drop procedure if exists CreatePlayer;
 drop procedure if exists CreateGame;
+drop procedure if exists SavePlayer;
 
 
 create table games(
@@ -23,7 +24,7 @@ create table games(
 );
 
 create table players(
-	player_id 	int(1) check (player_id > 0 && player_id <=6),
+	player_id 	int(1), #check (player_id > 0 && player_id <=6),
     game_id 	int not null,
     player_name	varchar(20),
     account 	int(7),
@@ -87,6 +88,7 @@ create procedure CreatePlayer(
 )
 BEGIN
 	insert into players values (player_id, game_id, player_name, account, jailcards, color, position);
+    insert into jail values (player_id, game_id, 0, 0, false);
 END//
 
 create procedure CreateGame(
@@ -97,6 +99,31 @@ create procedure CreateGame(
 BEGIN
 	insert into games values (null, game_name, CURTIME(), current_player, 1);
     select LAST_INSERT_ID() into id;
+    insert into bank values (id, 32, 12);
 END//
+
+create procedure SavePlayer(
+	IN game_id int,
+    IN player_id int,
+    IN account int,
+    IN jailcards int,
+    IN position int,
+    IN num_doubles int,
+    IN jail_time int,
+    IN isInJail boolean
+)
+BEGIN
+	UPDATE players, jail
+		set players.account = account,
+			players.jailcards = jailcards,
+            players.position = position,
+            jail.num_doubles = num_doubles,
+            jail.jail_time = jail_time,
+            jail.isInJail = isInJail
+		where players.game_id = game_id && players.player_id = player_id 
+				&& jail.game_id = game_id && jail.player_id = player_id;
+END//
+
+
 delimiter ;
 

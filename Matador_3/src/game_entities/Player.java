@@ -18,6 +18,7 @@ public class Player {
 	private boolean isInJail;
 	private int numJailRolls;
 	private int numJailCards;
+	private int numDoubles;
 	private int playerID;
 	private Account account;
 
@@ -38,8 +39,17 @@ public class Player {
 		this.playerID = playerID;
 		this.numJailRolls = 0;
 		this.numJailCards = 0;
+		this.numDoubles = 0;
 	}
 	
+	public int getNumDoubles() {
+		return numDoubles;
+	}
+
+	public void setNumDoubles(int numDoubles) {
+		this.numDoubles = numDoubles;
+	}
+
 	public String getName(){
 		return name;
 	}

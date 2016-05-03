@@ -9,7 +9,9 @@ public interface DatabaseAccess {
 	
 	public int createNewGame(String name, int currentPlayer);
 	
-	public void saveGame(int currentPlayer, Player[] players, Board board);
+	public void saveGame(int currentPlayer, Board board);
+	
+	public void savePlayer(Player player);
 	
 	public void updateView(int gameID);
 }
