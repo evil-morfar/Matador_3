@@ -2,7 +2,6 @@ package tests;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -20,20 +19,20 @@ public class CardTest {
 		chanceCard = cardcreater.getCards();
 		printFields();
 	}
-
+	// prints all the cards to an array in order
 	public static void printFields(){
 		for (SuperCard card : chanceCard)
 			System.out.println(card.toString());		
 	}
-	
+
 	@Test
-	public void testFields01() {
+	public void testChance01() {
 		assertEquals("De modtager Deres aktieudbytte. Modtag kr. 1000 af banken.", chanceCard[0].getCardText());
 	}
-	
+
 	@Test
-	public void testFields02() {
+	public void testChance02() {
 		assertEquals(1, chanceCard[0].getCardNumber());
 	}
-	
+
 }
