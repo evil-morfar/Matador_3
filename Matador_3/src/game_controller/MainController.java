@@ -132,17 +132,17 @@ public class MainController {
 				String sPlayer = currentPlayer.getName() + "'s turn:";
 				if(!option.equals("end")) // Special case
 					if(!hasRolled)
-						 option = output.getUserButtonPressed(sPlayer, "Roll", "Build", "Pawn", "Save and Exit");
+						 option = output.getUserButtonPressed(sPlayer, "Roll", "Build", "Save and Exit");
 					// Only show the "Buy" option if it's possible to buy the field
 					else if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
 						if (numDoubles != 0) // Can't end turn when one still have a roll
-							option = output.getUserButtonPressed(sPlayer, "Roll", "Buy", "Build", "Pawn");
+							option = output.getUserButtonPressed(sPlayer, "Roll", "Buy", "Build");
 						else
-							option = output.getUserButtonPressed(sPlayer, "Buy", "Build", "Pawn", "End Turn");
+							option = output.getUserButtonPressed(sPlayer, "Buy", "Build", "End Turn");
 					else if (numDoubles != 0)
-						option = output.getUserButtonPressed(sPlayer, "Roll", "Build", "Pawn");
+						option = output.getUserButtonPressed(sPlayer, "Roll", "Build");
 					else
-						option = output.getUserButtonPressed(sPlayer, "Build", "Pawn", "End Turn");
+						option = output.getUserButtonPressed(sPlayer, "Build", "End Turn");
 				
 				switch(option) {
 				case("Roll"):
@@ -169,9 +169,6 @@ public class MainController {
 					//TODO
 					break;
 				
-				case("Pawn"):
-					//TODO
-					break;
 				
 				case("Buy"):
 					currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
