@@ -27,12 +27,11 @@ public class MainController {
 	private int turnNumber;
 	
 	private DieCup dieCup; 
-	private Interface output;
+	private GUI_boundary output;
 	private ArrayList<Player> players;
 	private Player currentPlayer;
 	private Board board;
 	private Boolean end = false;
-	private GUI_boundary GUI;
 	
 	private Boolean debug = true; //Sets up players automatically if true
 	
@@ -54,7 +53,7 @@ public class MainController {
 	}
 	
 	public GUI_boundary getGUI() {
-		return GUI;
+		return output;
 	}
 	
 	public int getRoll(){
@@ -101,8 +100,13 @@ public class MainController {
 		String option = "";
 		if (currentPlayer.isInJail()) {
 			if(currentPlayer.getNumJailRolls() < 3) {
-				option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed!", "Roll", "Pay 1000,-");
-				if (option.equals("Roll")){
+				if(currentPlayer.getNumJailCards() > 0 )
+					option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed!", "Roll", "Pay 1000,-", "Use Jail Card");
+				else
+					option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed!", "Roll", "Pay 1000,-");
+				
+				switch(option) {
+				case ("Roll"):
 					dieCup.roll();
 					output.setDice(dieCup.getDice());
 					if(dieCup.isDoubles() != 0 ) { // Player is freed
@@ -113,17 +117,31 @@ public class MainController {
 						field.landOnField(this);
 					} else
 						currentPlayer.setNumJailRolls(currentPlayer.getNumJailRolls() + 1);
-				} else { // Player chooses to pay
-					currentPlayer.withdrawBalance(1000);
-					output.updateBalance(currentPlayer);
+					break;
+					
+				default: // It actually saves lines doing it this way ;)
+					if(option.equals("Use Jail Card"))
+						currentPlayer.decreaseNumJailCards();
+					else {
+						currentPlayer.withdrawBalance(1000);
+						output.updateBalance(currentPlayer);
+					}
 					currentPlayer.setInJail(false);
 					currentPlayer.setNumJailRolls(0);
 					playstate(); // Just call playstate to continue the game
+					break;					
 				}
 			} else {
-				option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed and used 3 rolls", "Pay 1000,-");
-				currentPlayer.withdrawBalance(1000);
-				output.updateBalance(currentPlayer);
+				if(currentPlayer.getNumJailCards() > 0 )
+					option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed and used 3 rolls", "Pay 1000,-", "Use Jail Card");
+				else
+					option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed and used 3 rolls", "Pay 1000,-");
+				
+				if(option.equals("Pay 1000,-")) {
+					currentPlayer.withdrawBalance(1000);
+					output.updateBalance(currentPlayer);					
+				} else
+					currentPlayer.decreaseNumJailCards();
 				currentPlayer.setInJail(false);
 				currentPlayer.setNumJailRolls(0);
 				playstate(); // Just call playstate to continue the game
