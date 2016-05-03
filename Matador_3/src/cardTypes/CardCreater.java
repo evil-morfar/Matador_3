@@ -8,7 +8,7 @@ import java.io.IOException;
 public class CardCreater {
 
 	private SuperCard[] chanceCard = new SuperCard[33];
-	private static final String CHANCE_FILE = "src/game_boundaries/GUItext.csv";
+	private static final String CHANCE_FILE = "src/game_cardTypes/ChanceCardData.csv";
 
 	private void chanceReader() {
 
@@ -21,13 +21,19 @@ public class CardCreater {
 			int i = 1;
 			while((line = br.readLine()) != null) {
 				String[] card = line.split(splitBy);
-
+				/* index 0: fieldnumber 
+				index 1: Card type 
+				index 2:  Card description 
+				index 3: amount 
+				index 4: move amount 
+				** for "payhouses" index 3 and 4 is both used for amount calculations **
+				 */
 				switch(card[1]) {
 
 				case "BalanceChange":
 					chanceCard[i] = new BalanceChange(Integer.parseInt(card[0]), card[2],Integer.parseInt(card[3]));
-
 					break;
+
 				case "PayHouses":
 					chanceCard[i] = new PayHouses(Integer.parseInt(card[0]), card[2],Integer.parseInt(card[3]), Integer.parseInt(card[4]));
 					break;
@@ -50,7 +56,7 @@ public class CardCreater {
 
 				case "Poor":
 					chanceCard[i] = new JailCard(Integer.parseInt(card[0]), card[2]);
-					
+
 					i++;
 				}
 			}
@@ -70,5 +76,4 @@ public class CardCreater {
 				}
 		}
 	}
-
 }
