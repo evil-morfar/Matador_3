@@ -25,7 +25,7 @@ public class MoveFleet extends SuperCard {
 		switch(fieldNumber) {
 
 		case(3): controller.movePlayer(player, 6);	
-			chanceRent(controller);
+			chanceRent(controller, player, 6 - 1, field);
 		
 		break;
 		case(8):controller.movePlayer(player, 16);
@@ -48,15 +48,9 @@ public class MoveFleet extends SuperCard {
 		}
 	}
 	
-	public void chanceRent (MainController controller){
-		Player player = controller.getCurrentPlayer();
-		AbstractFields []field = controller.getBoard().getFields();
-		int i = player.getPosition()-1;
-		
-		
+	public void chanceRent (MainController controller, Player player, int i, AbstractFields[] field){		
 		if(((AbstractOwnable) field[i]).isOwned()) 
 			if(((AbstractOwnable) field[i]).getOwner() != player)
-
 				field[i].landOnField(controller);
 		field[i].landOnField(controller);
 
