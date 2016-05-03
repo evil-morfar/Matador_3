@@ -1,14 +1,7 @@
 package fields;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-import cardTypes.BalanceChange;
-import cardTypes.PayHouses;
 import game_controller.MainController;
-import game_entities.Player;
+
 
 /**
  * The NonOwnable Field, Chance. Several of these exists in a standard Monopoly game.
@@ -28,77 +21,7 @@ public class Chance extends AbstractNonOwnables {
 		super(id, FIELD_TYPE, FIELD_TYPE);
 
 	}
-
-	private String[] chanceCard = new String[33];
-
-	private static final String CHANCE_FILE = "src/game_boundaries/GUItext.csv";
-
-
-	private void GUIreader() {
-
-		String line = "";
-		String splitBy = ";";
-		BufferedReader br = null;
-
-		try {
-			br = new BufferedReader(new FileReader(CHANCE_FILE));
-			int i = 1;
-			while((line = br.readLine()) != null) {
-				String[] card = line.split(splitBy);
-
-				switch(card[1]) {
-
-				case "BalanceChange":
-					chanceCard[i] = new BalanceChange(Integer.parseInt(card[0]), card[2],Integer.parseInt(card[3]));
-					
-					break;
-				case "PayHouses":
-					chanceCard[i] = new PayHouses(Integer.parseInt(card[0]), card[2],Integer.parseInt(card[3]), Integer.parseInt(card[4]));
-					break;
-				case "MoveField":
-					
-					break;
-				case "MoveJail":
-					
-					break;
-				case "MoveFleet":
-					
-					break;
-				case "Move":
-					
-					break;
-				case "ReceivePlayers":
-
-					break;
-				case "JailCard":
-
-					break;	
-				case "Poor":
-
-
-
-
-
-					i++;
-				}
-			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-
-		} finally {
-			if(br != null)
-				try {
-					br.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-		}
-	}
-
+	
 	/**
 	 * Draws and executes a chance card on the player landing on the Field.
 	 * @param controller Main game controller.

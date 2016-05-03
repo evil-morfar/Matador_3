@@ -255,6 +255,9 @@ public class Board {
 		
 	}
 	
+	
+	
+	
 	public AbstractFields[] getFields() {
 		return fields;
 	}
