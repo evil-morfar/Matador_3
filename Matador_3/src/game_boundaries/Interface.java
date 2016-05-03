@@ -27,47 +27,47 @@ public interface Interface {
 
 	public void removeOwner(int fieldNumber);
 	
-	public void movePlayer(int fieldNum, String playername);
+	public void movePlayer(int fieldNum, String playerName);
 
-	public void showUpdateMessage(String playerName, int pos);
+	public void showUpdateMessage(Player player, int pos);
 	
 	public void showWelcome();
 	
-	public void showStartingPlayer(String playerName);
+	public void showStartingPlayer(Player player);
 	
-	public void showWinner(String playerName);
+	public void showWinner(Player player);
 	
-	public void showWithdrawMessage(String playerName, int amount);
+	public void showWithdrawMessage(Player player, int amount);
 	
-	public void showDepositMessage(String playerName, int bonus);
+	public void showDepositMessage(Player player, int bonus);
 	
-	public void showTransferMessage(String playerName, String ownerName, int amount);
+	public void showTransferMessage(Player player, String ownerName, int amount);
 	
-	public void showNotEnoughBalanceMessage(String playerName);
+	public void showNotEnoughBalanceMessage(Player player);
 	
-	public void showBrokeMessage(String playerName);
+	public void showBrokeMessage(Player player);
 	
-	public void showNotBoughtMessage(String playerName);
+	public void showNotBoughtMessage(Player player);
 	
-	public void showFieldBoughtMessage(String playerName, String fieldName, int amount);
+	public void showFieldBoughtMessage(Player player, String fieldName, int amount);
 	
-	public void showRollingDiceForRent(String playeName);
+	public void showRollingDiceForRent(Player player);
 	
-	public void showPlayerIsOwner(String playerName);
+	public void showPlayerIsOwner(Player player);
 	
 	public String promptPlayerName(int playerNumber, boolean error);
 	
-	public void promptRollDice(String playerName);
+	public void promptRollDice(Player player);
 	
 	public boolean promptTax();
 	
-	public boolean promptBuy(String playername, String fieldName, int price);
+	public boolean promptBuy(Player player, String fieldName, int price);
 	
 	public void initializeBoard();
 	
 	public void updateBalance(Player player);
 	
-	public void setOwner(int fieldNumber, String playername);
+	public void setOwner(int fieldNumber, String playerName);
 
 	public String getUserButtonPressed(String msg, String... button1);
 
@@ -79,7 +79,7 @@ public interface Interface {
 		
 	public void setHotel(int fieldNumber, boolean hasHotel);
 	
-	public void showPoor(String playerName);
+	public void showPoor(Player player);
 	
-	public void showNotPoor(String playerName);
+	public void showNotPoor(Player player);
 }
