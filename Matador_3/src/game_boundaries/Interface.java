@@ -71,6 +71,8 @@ public interface Interface {
 
 	public String getUserButtonPressed(String msg, String... button1);
 
-	public void create(Field[] fields); 
+	public void create(Field[] fields);
+
+	void showMessage(String message); 
 	
 }
