@@ -32,6 +32,7 @@ public class MoveFleet extends SuperCard {
 		
 		if(((AbstractOwnable) field[6-1]).isOwned()) 
 			 if(((AbstractOwnable) field[6-1]).getOwner() != player)
+				 
 				field[6-1].landOnField(controller);
 		field[6-1].landOnField(controller);
 
