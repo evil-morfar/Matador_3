@@ -41,23 +41,16 @@ public class CardCreater {
 					break;
 
 				case "MoveFleet":
-					
-					break;
-
-				case "Move":
-
-					break;
-
-				case "ReceivePlayers":
-
+					chanceCard[i] = new MoveFleet(Integer.parseInt(card[0]), card[2]);
 					break;
 
 				case "JailCard":
-
+					chanceCard[i] = new JailCard(Integer.parseInt(card[0]), card[2]);
 					break;	
 
 				case "Poor":
-
+					chanceCard[i] = new JailCard(Integer.parseInt(card[0]), card[2]);
+					
 					i++;
 				}
 			}

@@ -26,3 +26,5 @@ Indtast mindst 2 navne før du starter spillet
 %s er landet på fængsels feltet, intet sker 
 %s er landet på start feltet, intet sker 
 %s er landet på parkering, intet sker 
+%s har under 15000 i total værdi og modtager derfor 15 000 §§§ en spiller modtager en bonus 
+%s har ikke under 15000 i total værdi og modtager derfor ikke 15 000 §§§ en spiller modtager ikke en bonus 
