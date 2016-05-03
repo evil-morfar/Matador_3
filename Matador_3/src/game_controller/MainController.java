@@ -31,6 +31,7 @@ public class MainController {
 	private ArrayList<Player> players;
 	private Player currentPlayer;
 	private Board board;
+	private Boolean end = false;
 	
 	private Boolean debug = true; //Sets up players automatically if true
 	
@@ -123,11 +124,10 @@ public class MainController {
 				playstate(); // Just call playstate to continue the game
 			}
 		} else {			
-			Boolean end = false;
 			int numDoubles = 0;
 			Boolean hasRolled = false;
 			AbstractFields field = null;
-			while(!end) {
+			while(!this.end) {
 				String sPlayer = currentPlayer.getName() + "'s turn:";
 				if(!option.equals("end")) // Special case
 					if(!hasRolled)
@@ -163,6 +163,7 @@ public class MainController {
 					field.landOnField(this);
 					output.updateBalance(currentPlayer); // For when they've payed stuff			
 					break;
+					
 				case("Build"):
 					//TODO
 					break;
@@ -187,7 +188,7 @@ public class MainController {
 					break;
 					
 				case("Save and Exit"):
-					end = true;
+					this.end = true;
 					System.exit(0);
 				//TODO Database
 					break;
@@ -255,6 +256,13 @@ public class MainController {
 	private void winstate(){
 		GUI.showMessage(currentPlayer.getName() + " has won!");
 		System.exit(0);
+	}
+	
+	/**
+	 * Ends the player's turn.
+	 */
+	public void endTurn(){
+		this.end = true;
 	}
 }
 
