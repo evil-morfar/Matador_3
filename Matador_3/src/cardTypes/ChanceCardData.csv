@@ -1,5 +1,5 @@
 Kortnummer;Kort type ;Felt beskrivelse;amount;move
-1;BalanceChange;De modtager Deres aktieudbytte. Modtag kr. 1000 af banken. ;1000;
+1;BalanceChange;De modtager Deres aktieudbytte. Modtag kr. 1000 af banken.;1000;
 2;MoveField;Ryk frem til start. ;;1
 3;MoveJail;Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start, indkassere de ikke kr. 4000 ;;
 4;MoveJail;Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start, indkassere de ikke kr. 4000 ;;
