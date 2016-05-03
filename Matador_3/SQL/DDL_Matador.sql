@@ -10,6 +10,7 @@ drop table if exists players;
 drop table if exists games;
 drop view if exists game;
 drop procedure if exists CreatePlayer;
+drop procedure if exists CreateGame;
 
 
 create table games(
@@ -30,7 +31,7 @@ create table players(
 	color		varchar(10),
     position	int(2) check(position <= 40 && position > 0),
     primary key(player_id, game_id),
-    foreign key (game_id) references games(game_id )
+    foreign key (game_id) references games(game_id)
 );
 
 create table player_properties(
@@ -86,6 +87,16 @@ create procedure CreatePlayer(
 )
 BEGIN
 	insert into players values (player_id, game_id, player_name, account, jailcards, color, position);
+END//
+
+create procedure CreateGame(
+	IN game_name varchar(30),
+    IN current_player int(1),
+    OUT id int
+)
+BEGIN
+	insert into games values (null, game_name, CURTIME(), current_player, 1);
+    select LAST_INSERT_ID() into id;
 END//
 delimiter ;
 
