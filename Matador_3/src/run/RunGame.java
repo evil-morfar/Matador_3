@@ -1,7 +1,5 @@
 package run;
-import desktop_resources.GUI;
 import game_controller.MainController;
-import game_entities.Board;
 
 public class RunGame {
 

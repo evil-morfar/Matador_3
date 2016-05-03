@@ -6,13 +6,19 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import desktop_fields.*;
 import desktop_fields.Brewery;
 import desktop_fields.Chance;
-import desktop_fields.Empty;
+import desktop_fields.Field;
+import desktop_fields.Jail;
+import desktop_fields.Refuge;
 import desktop_fields.Shipping;
+import desktop_fields.Start;
+import desktop_fields.Street;
 import desktop_fields.Tax;
-import fields.*;
+import fields.AbstractFields;
+import fields.AbstractOwnable;
+import fields.GoToJail;
+import fields.Territory;
 
 /**
  * Creates a Monopoly board.

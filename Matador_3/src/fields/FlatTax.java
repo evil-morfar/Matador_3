@@ -1,7 +1,6 @@
 package fields;
 
 import game_controller.MainController;
-import game_entities.Player;
 
 /**
  * The NonOwnable Field, FlatTax. There's only 1 of these on a standard Monopoly game.

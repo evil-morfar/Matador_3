@@ -2,7 +2,6 @@ package cardTypes;
 
 import fields.AbstractFields;
 import fields.AbstractOwnable;
-import fields.Shipping;
 import game_controller.MainController;
 import game_entities.Player;
 

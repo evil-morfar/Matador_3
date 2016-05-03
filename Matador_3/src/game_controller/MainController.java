@@ -1,16 +1,13 @@
 package game_controller;
 
-import game_entities.Board;
-import game_entities.Player;
-
 import java.util.ArrayList;
 
-import desktop_resources.GUI;
 import die_classes.DieCup;
-import die_classes.DieCup_Interface;
 import fields.AbstractFields;
 import fields.AbstractOwnable;
-import game_boundaries.*;
+import game_boundaries.GUI_boundary;
+import game_entities.Board;
+import game_entities.Player;
 
 /**
  * 

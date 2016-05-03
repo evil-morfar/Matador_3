@@ -1,7 +1,5 @@
 package game_entities;
 
-import game_entities.Account;
-
 /**
  * 
  * @author PC / Valdemar

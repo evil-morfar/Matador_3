@@ -1,13 +1,10 @@
 package tests;
 
-import static org.junit.Assert.*;
-
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import database.Connector;
 import database.DatabaseAccess1;
 import game_entities.Player;
 

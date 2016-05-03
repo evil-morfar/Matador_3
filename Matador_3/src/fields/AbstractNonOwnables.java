@@ -1,7 +1,6 @@
 package fields;
 
 import game_controller.MainController;
-import game_entities.Player;
 
 /** 
  * Superclass for NonOwnable Fields

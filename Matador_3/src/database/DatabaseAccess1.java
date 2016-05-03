@@ -3,7 +3,6 @@ package database;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 
-
 import game_entities.Board;
 import game_entities.Player;
 

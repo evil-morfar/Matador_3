@@ -6,7 +6,6 @@ import desktop_codebehind.Car;
 import desktop_fields.Field;
 import desktop_resources.GUI;
 import game_entities.Player;
-import game_controller.MainController;
 
 
 

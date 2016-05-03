@@ -1,7 +1,6 @@
 package fields;
 
 import game_controller.MainController;
-import game_entities.Player;
 /**
  * An Empty NonOwnable Field for a Monopoly game.
  * @author Nichlas N. Pilemand

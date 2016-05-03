@@ -3,14 +3,18 @@
  */
 package tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import desktop_resources.GUI;
-import fields.*;
+import fields.AbstractFields;
+import fields.AbstractOwnable;
+import fields.Brewery;
+import fields.Shipping;
+import fields.Territory;
 import game_entities.Board;
 import game_entities.Player;
 
