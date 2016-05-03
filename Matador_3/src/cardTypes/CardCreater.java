@@ -10,7 +10,7 @@ public class CardCreater {
 	private SuperCard[] chanceCard = new SuperCard[33];
 	private static final String CHANCE_FILE = "src/game_boundaries/GUItext.csv";
 
-	private void GUIreader() {
+	private void chanceReader() {
 
 		String line = "";
 		String splitBy = ";";
@@ -41,7 +41,7 @@ public class CardCreater {
 					break;
 
 				case "MoveFleet":
-					chanceCard[i] = new MoveFleet(Integer.parseInt(card[0]), card[2]
+					
 					break;
 
 				case "Move":

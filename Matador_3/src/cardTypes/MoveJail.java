@@ -16,7 +16,7 @@ public class MoveJail extends SuperCard {
 		Player player = controller.getCurrentPlayer();
 		player.setInJail(true);
 		controller.movePlayerTo(player, 11);
-		controller.endTurn(player);
+		controller.endTurn();
 
 	}
 
