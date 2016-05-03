@@ -124,6 +124,7 @@ public class MainController {
 				playstate(); // Just call playstate to continue the game
 			}
 		} else {			
+			this.end = false;
 			int numDoubles = 0;
 			Boolean hasRolled = false;
 			AbstractFields field = null;
@@ -184,7 +185,7 @@ public class MainController {
 					currentPlayer = getNextPlayer(currentPlayer);
 					System.out.println(currentPlayer.getName());
 					hasRolled = false;
-					end = true;
+					this.end = true;
 					break;
 					
 				case("Save and Exit"):
