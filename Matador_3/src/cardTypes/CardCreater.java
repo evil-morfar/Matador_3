@@ -49,7 +49,7 @@ public class CardCreater {
 					break;	
 
 				case "Poor":
-					
+					chanceCard[i] = new JailCard(Integer.parseInt(card[0]), card[2]);
 					
 					i++;
 				}
