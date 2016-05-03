@@ -56,7 +56,7 @@ public class MainController {
 	}
 
 	public void run(){
-		GUI.create(board.getGuiFields());
+		GUI_boundary.create(board.getGuiFields());
 		boolean running = true;
 		while(running){
 			System.out.println("New loop");
@@ -95,7 +95,7 @@ public class MainController {
 		String option = "";
 		if (currentPlayer.isInJail()) {
 			if(currentPlayer.getNumJailRolls() < 3) {
-				option = GUI.getUserButtonPressed(currentPlayer.getName()+" is jailed!", "Roll", "Pay 1000,-");
+				option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed!", "Roll", "Pay 1000,-");
 				if (option.equals("Roll")){
 					dieCup.roll();
 					output.setDice(dieCup.getDice());
@@ -115,7 +115,7 @@ public class MainController {
 					playstate(); // Just call playstate to continue the game
 				}
 			} else {
-				option = GUI.getUserButtonPressed(currentPlayer.getName()+" is jailed and used 3 rolls", "Pay 1000,-");
+				option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed and used 3 rolls", "Pay 1000,-");
 				currentPlayer.withdrawBalance(1000);
 				output.updateBalance(currentPlayer);
 				currentPlayer.setInJail(false);
@@ -131,17 +131,17 @@ public class MainController {
 				String sPlayer = currentPlayer.getName() + "'s turn:";
 				if(!option.equals("end")) // Special case
 					if(!hasRolled)
-						 option = GUI.getUserButtonPressed(sPlayer, "Roll", "Build", "Pawn", "Save and Exit");
+						 option = output.getUserButtonPressed(sPlayer, "Roll", "Build", "Pawn", "Save and Exit");
 					// Only show the "Buy" option if it's possible to buy the field
 					else if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
 						if (numDoubles != 0) // Can't end turn when one still have a roll
-							option = GUI.getUserButtonPressed(sPlayer, "Roll", "Buy", "Build", "Pawn");
+							option = output.getUserButtonPressed(sPlayer, "Roll", "Buy", "Build", "Pawn");
 						else
-							option = GUI.getUserButtonPressed(sPlayer, "Buy", "Build", "Pawn", "End Turn");
+							option = output.getUserButtonPressed(sPlayer, "Buy", "Build", "Pawn", "End Turn");
 					else if (numDoubles != 0)
-						option = GUI.getUserButtonPressed(sPlayer, "Roll", "Build", "Pawn");
+						option = output.getUserButtonPressed(sPlayer, "Roll", "Build", "Pawn");
 					else
-						option = GUI.getUserButtonPressed(sPlayer, "Build", "Pawn", "End Turn");
+						option = output.getUserButtonPressed(sPlayer, "Build", "Pawn", "End Turn");
 				
 				switch(option) {
 				case("Roll"):
