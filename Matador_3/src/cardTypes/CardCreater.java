@@ -62,6 +62,8 @@ public class CardCreater {
 
 				case "Poor":
 					chanceCard[i] = new Poor(Integer.parseInt(card[0]), card[2]);
+					break;
+					
 				default:
 					//First line is headers.
 					i--;
