@@ -33,6 +33,9 @@ public class BalanceChange extends SuperCard {
 			// multiplies with -1 so it withdraws properly, if it withdraws a negative value the player would be given money instead
 		player.withdrawBalance(amount*(-1));
 		}
+		else if (amount==0) {
+			// has to withdraw 200 from every player except card drawer and give it to card drawer 
+		}
 		else player.depositBalance(amount);
 	}
 
