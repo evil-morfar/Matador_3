@@ -27,12 +27,12 @@ public class CardTest {
 	}
 	
 	@Test
-	public void testFields() {
+	public void testFields01() {
 		assertEquals("De modtager Deres aktieudbytte. Modtag kr. 1000 af banken.", chanceCard[0].getCardText());
 	}
 	
 	@Test
-	public void testFields2() {
+	public void testFields02() {
 		assertEquals(1, chanceCard[0].getCardNumber());
 	}
 	

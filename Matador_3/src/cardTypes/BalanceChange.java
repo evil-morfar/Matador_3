@@ -35,6 +35,8 @@ public class BalanceChange extends SuperCard {
 		}
 		else if (amount==0) {
 			// has to withdraw 200 from every player except card drawer and give it to card drawer 
+			
+			
 		}
 		else player.depositBalance(amount);
 	}
