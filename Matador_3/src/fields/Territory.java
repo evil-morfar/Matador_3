@@ -105,4 +105,12 @@ public class Territory extends AbstractOwnable {
 		}
 	}
 
+	/**
+	 * @return the housePrice
+	 */
+	public int getHousePrice() {
+		return housePrice;
+	}
+
+
 }
