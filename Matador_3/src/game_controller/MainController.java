@@ -56,7 +56,7 @@ public class MainController {
 	}
 
 	public void run(){
-		GUI_boundary.create(board.getGuiFields());
+		output.create(board.getGuiFields());
 		boolean running = true;
 		while(running){
 			System.out.println("New loop");

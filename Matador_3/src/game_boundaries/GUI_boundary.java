@@ -226,4 +226,5 @@ public class GUI_boundary implements Interface {
 	public void showMessage(String message){
 		GUI.showMessage(message);
 	}
+	
 }
