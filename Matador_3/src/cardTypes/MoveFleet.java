@@ -29,19 +29,19 @@ public class MoveFleet extends SuperCard {
 		
 		break;
 		case(8):controller.movePlayer(player, 16);
-			chanceRent(controller);
+			chanceRent(controller, player, 16 - 1, field);
 		break;
 		case(18):controller.movePlayer(player, 26);
-			chanceRent(controller);
+			chanceRent(controller, player, 26 - 1, field);
 		break;
 		case(23):controller.movePlayer(player, 26);
-			chanceRent(controller);
+			chanceRent(controller, player, 26 - 1, field);
 		break;
 		case(34):controller.movePlayer(player, 36);
-			chanceRent(controller);
+			chanceRent(controller, player, 36 - 1, field);
 		break;
 		case(37):controller.movePlayer(player, 6);
-			chanceRent(controller);
+			chanceRent(controller, player, 6 - 1, field);
 		break;
 		default:
 			
