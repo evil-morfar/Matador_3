@@ -2,13 +2,14 @@ package cardTypes;
 
 import fields.AbstractFields;
 import fields.AbstractOwnable;
+import fields.Shipping;
 import game_controller.MainController;
 import game_entities.Player;
 
 public class MoveFleet extends SuperCard {
 
 
-	private int rent;
+	
 	
 	private final static String CARD_TYPE = "MoveFleet";
 
@@ -29,15 +30,10 @@ public class MoveFleet extends SuperCard {
 		
 		case(3): controller.movePlayer(player, 6);	
 		
-		if(((AbstractOwnable) field[6-1]).isOwned()) {
-			 if(((AbstractOwnable) field[6-1]).getOwner() != controller.getCurrentPlayer()){
+		if(((AbstractOwnable) field[6-1]).isOwned()) 
+			 if(((AbstractOwnable) field[6-1]).getOwner() != player)
 				field[6-1].landOnField(controller);
-				int rent = this.rent * 2 ^ owned;
-				player.withdrawBalance(rent); 
-			 }
-		}else{
-			field[6-1].landOnField(controller);
-		}
+		field[6-1].landOnField(controller);
 
 			break;
 		case(8):controller.movePlayer(player, 16);
