@@ -44,7 +44,12 @@ public class Board {
 					num++;
 		return num;
 	}
-
+/**
+ * Gets the total value of the fields owned by the player 
+ * @param player
+ * @return The total value of the players owned fields
+ */
+	
 	public int getValueOfFields(Player player) {
 		int value = 0;
 		for(AbstractFields field: fields)
