@@ -73,6 +73,9 @@ public interface Interface {
 
 	public void create(Field[] fields);
 
-	void showMessage(String message); 
+	public void showMessage(String message); 
 	
+	public void setHouses(int fieldNumber, int houseCount);
+		
+	public void setHotel(int fieldNumber, boolean hasHotel);
 }
