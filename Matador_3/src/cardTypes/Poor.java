@@ -11,7 +11,7 @@ import game_entities.Player;
 
 public class Poor extends SuperCard {
 
-	private final static String CARD_TYPE = "JailCard";
+	private final static String CARD_TYPE = "Poor";
 
 	public Poor(int cardNumber, String cardText) {
 		super(cardNumber, CARD_TYPE, cardText);
