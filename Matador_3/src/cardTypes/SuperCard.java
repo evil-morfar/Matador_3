@@ -40,4 +40,15 @@ public abstract class SuperCard {
 	public String getCardType() {
 		return cardType;
 	}
+//	public String toString() {
+//		return cardNumber + " " + cardType + " " + cardText;
+//	}
+
+	@Override
+	public String toString() {
+		return "SuperCard [cardNumber=" + cardNumber + ", cardType=" + cardType + ", cardText=" + cardText + "]";
+	}
+	
+	
+	
 }

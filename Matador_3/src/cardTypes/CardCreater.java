@@ -7,8 +7,14 @@ import java.io.IOException;
 
 public class CardCreater {
 
-	private SuperCard[] chanceCard = new SuperCard[33];
-	private static final String CHANCE_FILE = "src/game_cardTypes/ChanceCardData.csv";
+	private SuperCard[] chanceCard;
+	private static final String CHANCE_FILE = "src/cardTypes/ChanceCardData.csv";
+	
+	public CardCreater() {
+		this.chanceCard = new SuperCard[33];
+		chanceReader();
+	}
+	
 
 	private void chanceReader() {
 
@@ -76,4 +82,9 @@ public class CardCreater {
 				}
 		}
 	}
+	
+	public SuperCard[] getCards(){
+		return chanceCard;
+	}
+	
 }
