@@ -78,4 +78,8 @@ public interface Interface {
 	public void setHouses(int fieldNumber, int houseCount);
 		
 	public void setHotel(int fieldNumber, boolean hasHotel);
+	
+	public void showPoor(String playerName);
+	
+	public void showNotPoor(String playerName);
 }

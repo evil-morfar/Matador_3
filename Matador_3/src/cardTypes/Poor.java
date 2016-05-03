@@ -18,8 +18,13 @@ public class Poor extends SuperCard {
 		// if the players total owned field value and curent balance is under 15000 he is granted 40000
 		if (controller.getBoard().getValueOfFields(player)+player.getBalance()<15000) {
 			player.depositBalance(40000);
+			output.showPoor(player);
 		}
-		
+		else {
+			
+			controller.getGUI().showPoor(player);
+			
+		}
 		
 	}
 

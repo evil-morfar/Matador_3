@@ -236,4 +236,16 @@ public class GUI_boundary implements Interface {
 	public void setHotel(int fieldNumber, boolean hasHotel){
 		GUI.setHotel( fieldNumber, hasHotel);
 	}
+
+	@Override
+	public void showPoor(String playerName) {
+		GUI.showMessage(String.format(GUIarray[29], playerName));
+		
+	}
+
+	@Override
+	public void showNotPoor(String playerName) {
+		GUI.showMessage(String.format(GUIarray[30], playerName));
+		
+	}
 }
