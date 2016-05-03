@@ -222,4 +222,9 @@ public class GUI_boundary implements Interface {
 		GUI.create(fields);
 	}
 
+	@Override
+	public void showMessage(String message){
+		GUI.showMessage(message);
+	}
+	
 }
