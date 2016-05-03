@@ -263,6 +263,10 @@ public class MainController {
 		this.end = true;
 	}
 
+	public int getNumPlayers(){
+		return players.size();
+	}
+	
 }
 
 
