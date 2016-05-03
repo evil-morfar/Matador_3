@@ -36,6 +36,4 @@ public class CardTest {
 		assertEquals(1, chanceCard[0].getCardNumber());
 	}
 	
-	
-	
 }
