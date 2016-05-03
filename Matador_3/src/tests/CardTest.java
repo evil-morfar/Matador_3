@@ -12,17 +12,18 @@ import cardTypes.SuperCard;
 public class CardTest {
 
 	private static SuperCard[] chanceCard;
-	private CardCreater cardcreater;
+	private static CardCreater cardcreater;
 
 	@BeforeClass
 	public static void setUp() throws Exception {
-	chanceCard = new CardCreater().getCards();
+		cardcreater = new CardCreater();
+		chanceCard = cardcreater.getCards();
 		printFields();
 	}
 
 	public static void printFields(){
-		for (SuperCard chancecard : chanceCard)
-			System.out.println(chancecard.toString());		
+		for (SuperCard card : chanceCard)
+			System.out.println(card.toString());		
 	}
 	
 	@Test

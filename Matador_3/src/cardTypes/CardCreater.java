@@ -24,7 +24,7 @@ public class CardCreater {
 
 		try {
 			br = new BufferedReader(new FileReader(CHANCE_FILE));
-			int i = 1;
+			int i = 0;
 			while((line = br.readLine()) != null) {
 				String[] card = line.split(splitBy);
 				/* index 0: fieldnumber 
@@ -62,9 +62,13 @@ public class CardCreater {
 
 				case "Poor":
 					chanceCard[i] = new JailCard(Integer.parseInt(card[0]), card[2]);
-
-					i++;
+				default:
+					//First line is headers.
+					i--;
+				
 				}
+				
+				i++;
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -84,7 +88,7 @@ public class CardCreater {
 	}
 	
 	public SuperCard[] getCards(){
-		return chanceCard;
+		return this.chanceCard;
 	}
 	
 }
