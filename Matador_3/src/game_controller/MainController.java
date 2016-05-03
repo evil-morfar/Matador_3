@@ -31,7 +31,7 @@ public class MainController {
 	private ArrayList<Player> players;
 	private Player currentPlayer;
 	private Board board;
-	private Boolean end = false;
+	private Boolean endTurn = false;
 	
 	private Boolean debug = true; //Sets up players automatically if true
 	
@@ -147,11 +147,11 @@ public class MainController {
 				playstate(); // Just call playstate to continue the game
 			}
 		} else {			
-			this.end = false;
+			this.endTurn = false;
 			int numDoubles = 0;
 			Boolean hasRolled = false;
 			AbstractFields field = null;
-			while(!this.end) {
+			while(!this.endTurn) {
 				String sPlayer = currentPlayer.getName() + "'s turn:";
 				if(!option.equals("end")) // Special case
 					if(!hasRolled)
@@ -205,11 +205,11 @@ public class MainController {
 					currentPlayer = getNextPlayer(currentPlayer);
 					System.out.println(currentPlayer.getName());
 					hasRolled = false;
-					this.end = true;
+					this.endTurn = true;
 					break;
 					
 				case("Save and Exit"):
-					this.end = true;
+					this.endTurn = true;
 					System.exit(0);
 				//TODO Database
 					break;
@@ -284,7 +284,7 @@ public class MainController {
 	 * Ends the player's turn.
 	 */
 	public void endTurn(){
-		this.end = true;
+		this.endTurn = true;
 	}
 
 	public int getNumPlayers(){
