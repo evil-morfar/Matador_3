@@ -49,7 +49,7 @@ public interface Interface {
 	
 	public void showNotBoughtMessage(Player player);
 	
-	public void showFieldBoughtMessage(Player player, String fieldName, int amount);
+	public void showFieldBoughtMessage(String playerName, String fieldName, int amount);
 	
 	public void showRollingDiceForRent(Player player);
 	

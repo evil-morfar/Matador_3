@@ -145,8 +145,8 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showFieldBoughtMessage(Player player, String fieldName, int amount) {
-		GUI.showMessage(String.format(GUIarray[9], player, fieldName, amount));
+	public void showFieldBoughtMessage(String playerName, String fieldName, int amount) {
+		GUI.showMessage(String.format(GUIarray[9], playerName, fieldName, amount));
 	}
 
 	@Override

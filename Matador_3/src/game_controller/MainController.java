@@ -195,7 +195,7 @@ public class MainController {
 					output.updateBalance(currentPlayer);
 					((AbstractOwnable) field).setOwner(currentPlayer);	
 					output.setOwner(field.getFieldID(), currentPlayer.getName());
-					break;
+					output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
 					
 				case("End Turn"): case("end"):
 					System.out.println(currentPlayer.getName());
