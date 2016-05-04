@@ -25,7 +25,7 @@ public class Poor extends SuperCard {
 		// if the players total owned field value and current balance is under 15000 he is granted 40000
 	
 		// still needs to count value of houses/hotels in, as of now it's bugged 
-		if (controller.getBoard().getValueOfFields(player)+player.getBalance()<15000) {
+		if (controller.getBoard().getValueOfFields(player)+player.getBalance()+controller.getBoard().getValueHouses(player)<15000) {
 			player.depositBalance(40000);
 			controller.getGUI().showPoor(player);
 		}

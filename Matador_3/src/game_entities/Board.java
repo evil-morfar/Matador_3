@@ -65,6 +65,15 @@ public class Board {
 		return value;
 	}
 
+	public int getValueHouses(Player player) {
+		int valueH = 0;
+		for(AbstractFields field: fields)
+			if(field instanceof AbstractOwnable)
+				if(((AbstractOwnable) field).getOwner() == player)
+					valueH += ((Territory) field).getHousePrice();
+		return valueH;
+	}
+	
 
 	/**
 	 * Returns the number of Shipping fields owned by the player.
