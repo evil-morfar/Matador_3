@@ -41,7 +41,7 @@ public interface Interface {
 	
 	public void showDepositMessage(Player player, int bonus);
 	
-	public void showTransferMessage(Player player, String ownerName, int amount);
+	public void showTransferMessage(Player player, String fieldName, Player owner, int amount);
 	
 	public void showNotEnoughBalanceMessage(Player player);
 	

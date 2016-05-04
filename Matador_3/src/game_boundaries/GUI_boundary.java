@@ -120,8 +120,8 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showTransferMessage(Player player, String ownerName, int amount) {
-		// TODO Auto-generated method stub
+	public void showTransferMessage(Player player, String fieldName, Player owner, int amount) {
+		GUI.showMessage(String.format(GUIarray[12], player, fieldName, owner, amount));
 
 	}
 

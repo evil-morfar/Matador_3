@@ -102,6 +102,8 @@ public class Territory extends AbstractOwnable {
 			}
 			if (rent != 0) // Rent is due
 				player.withdrawBalance(rent);
+			AbstractFields field = null;
+			controller.getGUI().showTransferMessage(player, field.getName(), ((AbstractOwnable)field).getOwner(), rent);
 		}
 	}
 
