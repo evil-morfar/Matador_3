@@ -163,8 +163,15 @@ public class GUI_boundary implements Interface {
 
 	@Override
 	public String promptPlayerName(int playerNumber, boolean error) {
-		// TODO Auto-generated method stub
-		return null;
+		String message;
+
+		// Checks if there was an error last time a player name was entered
+		if(error)
+			message = GUIarray[3];
+		else
+			message = String.format(GUIarray[2], playerNumber);
+
+		return GUI.getUserString(message);
 	}
 
 	@Override

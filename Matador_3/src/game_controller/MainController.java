@@ -22,20 +22,21 @@ public class MainController {
 	//evt add flerer sub state under PLAY_STATE
 	public enum GameState{NAME_STATE, PLAY_STATE, WIN_STATE}; 
 	private GameState state = GameState.NAME_STATE;
-	
+
 	private int turnNumber;
-	
+
 	private DieCup dieCup; 
 	private GUI_boundary output;
 	private ArrayList<Player> players;
 	private Player currentPlayer;
 	private Board board;
 	private Boolean endTurn = false;
+	private final int startingBalance = 30000;
 
 	private static CardCreater cardcreater;
-	
+
 	private Boolean debug = true; //Sets up players automatically if true
-	
+
 	//Constructor
 	public MainController(){
 		dieCup = new DieCup();
@@ -44,24 +45,24 @@ public class MainController {
 		board = new Board();
 		cardcreater = new CardCreater();
 	}
-	
+
 
 	public Player getCurrentPlayer() {
 		return currentPlayer;
 	}
-	
+
 	public CardCreater getCardCreater() {
 		return cardcreater;
 	}
-	
+
 	public Board getBoard() {
 		return board;
 	}
-	
+
 	public GUI_boundary getGUI() {
 		return output;
 	}
-	
+
 	public int getRoll(){
 		return dieCup.getSum();
 	}
@@ -87,15 +88,31 @@ public class MainController {
 	}
 
 	private void namestate(){
-		if (debug){
-			players.add(new Player("Player 1", 30000, "Blue", 1, 1));
-			output.addPlayer("Player 1", 30000, 1);
-			players.add(new Player("Player 2", 30000, "White",  1, 2));
-			output.addPlayer("Player 2", 30000, 2);
-			state = GameState.PLAY_STATE;
-		}
+
+		for (int i = 0; i < 6; i++){
+			boolean error = false;
+			// Checks if the names are long enough
+			while (true){
+				String name = output.promptPlayerName(i+1, error);
+				if (name.length() == 0){
+					if(i>=2){
+						// breaks the loop and starts the game
+						i = 6;
+						break;
+					}
+					else
+						error = true;
+				}
+				else{
+					players.add(new Player(name, startingBalance, "blue", 1, i));
+					// Adds the player to the GUI
+					output.addPlayer(name, startingBalance, i);
+					break;
+				}				
+			}	
+		}	
 		currentPlayer = players.get(0);
-		
+		state = GameState.PLAY_STATE;
 	}
 
 	private void playstate(){
@@ -110,21 +127,21 @@ public class MainController {
 					option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed!", "Roll", "Pay 1000,-", "Use Jail Card");
 				else
 					option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed!", "Roll", "Pay 1000,-");
-				
+
 				switch(option) {
 				case ("Roll"):
 					dieCup.roll();
-					output.setDice(dieCup.getDice());
-					if(dieCup.isDoubles() != 0 ) { // Player is freed
-						currentPlayer.setInJail(false);
-						currentPlayer.setNumJailRolls(0);
-						movePlayer(currentPlayer, dieCup.getSum());
-						AbstractFields field = board.getFields()[currentPlayer.getPosition()-1];
-						field.landOnField(this);
-					} else
-						currentPlayer.setNumJailRolls(currentPlayer.getNumJailRolls() + 1);
-					break;
-					
+				output.setDice(dieCup.getDice());
+				if(dieCup.isDoubles() != 0 ) { // Player is freed
+					currentPlayer.setInJail(false);
+					currentPlayer.setNumJailRolls(0);
+					movePlayer(currentPlayer, dieCup.getSum());
+					AbstractFields field = board.getFields()[currentPlayer.getPosition()-1];
+					field.landOnField(this);
+				} else
+					currentPlayer.setNumJailRolls(currentPlayer.getNumJailRolls() + 1);
+				break;
+
 				default: // It actually saves lines doing it this way ;)
 					if(option.equals("Use Jail Card"))
 						currentPlayer.decreaseNumJailCards();
@@ -142,7 +159,7 @@ public class MainController {
 					option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed and used 3 rolls", "Pay 1000,-", "Use Jail Card");
 				else
 					option = output.getUserButtonPressed(currentPlayer.getName()+" is jailed and used 3 rolls", "Pay 1000,-");
-				
+
 				if(option.equals("Pay 1000,-")) {
 					currentPlayer.withdrawBalance(1000);
 					output.updateBalance(currentPlayer);					
@@ -161,8 +178,8 @@ public class MainController {
 				String sPlayer = currentPlayer.getName() + "'s turn:";
 				if(!option.equals("end")) // Special case
 					if(!hasRolled)
-						 option = output.getUserButtonPressed(sPlayer, "Roll", "Build", "Save and Exit");
-					// Only show the "Buy" option if it's possible to buy the field
+						option = output.getUserButtonPressed(sPlayer, "Roll", "Build", "Save and Exit");
+				// Only show the "Buy" option if it's possible to buy the field
 					else if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
 						if (numDoubles != 0) // Can't end turn when one still have a roll
 							option = output.getUserButtonPressed(sPlayer, "Roll", "Buy", "Build");
@@ -172,59 +189,59 @@ public class MainController {
 						option = output.getUserButtonPressed(sPlayer, "Roll", "Build");
 					else
 						option = output.getUserButtonPressed(sPlayer, "Build", "End Turn");
-				
+
 				switch(option) {
 				case("Roll"):
 					hasRolled = true;
-					dieCup.roll();
-					output.setDice(dieCup.getDice());
-					if(dieCup.isDoubles()>0)
-						numDoubles++;
-					else
-						numDoubles = 0;
-					if(numDoubles == 3){
-						currentPlayer.setInJail(true);
-						movePlayerTo(currentPlayer, 11);
-						option = "end";
-						break;
-					}
-					movePlayer(currentPlayer, dieCup.getSum());
-					field = board.getFields()[currentPlayer.getPosition()-1];
-					field.landOnField(this);
-					output.updateBalance(currentPlayer); // For when they've payed stuff			
+				dieCup.roll();
+				output.setDice(dieCup.getDice());
+				if(dieCup.isDoubles()>0)
+					numDoubles++;
+				else
+					numDoubles = 0;
+				if(numDoubles == 3){
+					currentPlayer.setInJail(true);
+					movePlayerTo(currentPlayer, 11);
+					option = "end";
 					break;
-					
+				}
+				movePlayer(currentPlayer, dieCup.getSum());
+				field = board.getFields()[currentPlayer.getPosition()-1];
+				field.landOnField(this);
+				output.updateBalance(currentPlayer); // For when they've payed stuff			
+				break;
+
 				case("Build"):
 					//TODO
 					break;
-				
-				
+
+
 				case("Buy"):
 					currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
-					output.updateBalance(currentPlayer);
-					((AbstractOwnable) field).setOwner(currentPlayer);	
-					output.setOwner(field.getFieldID(), currentPlayer.getName());
-					output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
-					
+				output.updateBalance(currentPlayer);
+				((AbstractOwnable) field).setOwner(currentPlayer);	
+				output.setOwner(field.getFieldID(), currentPlayer.getName());
+				output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
+
 				case("End Turn"): case("end"):
 					System.out.println(currentPlayer.getName());
-					currentPlayer = getNextPlayer(currentPlayer);
-					System.out.println(currentPlayer.getName());
-					hasRolled = false;
-					this.endTurn = true;
-					break;
-					
+				currentPlayer = getNextPlayer(currentPlayer);
+				System.out.println(currentPlayer.getName());
+				hasRolled = false;
+				this.endTurn = true;
+				break;
+
 				case("Save and Exit"):
 					this.endTurn = true;
-					System.exit(0);
+				System.exit(0);
 				//TODO Database
-					break;
+				break;
 				}
 			}
 			currentPlayer.setNumDoubles(numDoubles);
 		}
 	}
-	
+
 	/**
 	 * Gets the next player in players based on a given player.
 	 * @param player The player right before the intended player.
@@ -258,7 +275,7 @@ public class MainController {
 		player.setPosition(position);
 		output.movePlayer(position, player.getName());
 	}
-	
+
 	/**
 	 * Moves a player to a specific position
 	 * @param player The player to move
@@ -268,7 +285,7 @@ public class MainController {
 		player.setPosition(position);
 		output.movePlayer(position, player.getName());
 	}
-	
+
 	/**
 	 * @return The number of broke players
 	 */
@@ -285,7 +302,7 @@ public class MainController {
 		output.showMessage(currentPlayer.getName() + " has won!");
 		System.exit(0);
 	}
-	
+
 	/**
 	 * Ends the player's turn.
 	 */
@@ -296,6 +313,7 @@ public class MainController {
 	public int getNumPlayers(){
 		return players.size();
 	}
+
 	
 }
 
