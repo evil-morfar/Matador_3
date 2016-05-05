@@ -2,6 +2,8 @@ package game_controller;
 
 import java.util.ArrayList;
 
+import cardTypes.CardCreater;
+import cardTypes.SuperCard;
 import die_classes.DieCup;
 import fields.AbstractFields;
 import fields.AbstractOwnable;
@@ -29,6 +31,8 @@ public class MainController {
 	private Player currentPlayer;
 	private Board board;
 	private Boolean endTurn = false;
+
+	private static CardCreater cardcreater;
 	
 	private Boolean debug = true; //Sets up players automatically if true
 	
@@ -38,11 +42,16 @@ public class MainController {
 		players = new ArrayList<Player>();
 		output = new GUI_boundary("");
 		board = new Board();
+		cardcreater = new CardCreater();
 	}
 	
 
 	public Player getCurrentPlayer() {
 		return currentPlayer;
+	}
+	
+	public CardCreater getCardCreater() {
+		return cardcreater;
 	}
 	
 	public Board getBoard() {

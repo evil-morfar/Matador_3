@@ -1,5 +1,6 @@
 package fields;
 
+import cardTypes.SuperCard;
 import game_controller.MainController;
 
 
@@ -10,6 +11,7 @@ import game_controller.MainController;
 public class Chance extends AbstractNonOwnables {
 
 	private static final String FIELD_TYPE = "Chance";
+
 
 	/**
 	 * Creates a NonOwnable Field of type Chance. Used to give random cards
@@ -29,8 +31,12 @@ public class Chance extends AbstractNonOwnables {
 	 */
 	@Override
 	public void landOnField(MainController controller) {
-		// TODO Draw and execute a chance card on the player
+		SuperCard drawn = controller.getCardCreater().drawCard();
+		controller.getGUI().showCard(drawn.getCardText());
+		drawn.triggerCard(controller);
 
 	}
+
+
 
 }

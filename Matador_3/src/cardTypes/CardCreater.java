@@ -9,12 +9,12 @@ public class CardCreater {
 
 	private SuperCard[] chanceCard;
 	private static final String CHANCE_FILE = "src/cardTypes/ChanceCardData.csv";
-	
+
 	public CardCreater() {
 		this.chanceCard = new SuperCard[33];
 		chanceReader();
 	}
-	
+
 
 	private void chanceReader() {
 
@@ -32,7 +32,7 @@ public class CardCreater {
 				index 2:  Card description 
 				index 3: amount 
 				index 4: move amount 
-				** for "payhouses" index 3 and 4 is both used for amount calculations **
+				 ** for "payhouses" index 3 and 4 is both used for amount calculations **
 				 */
 				switch(card[1]) {
 
@@ -63,13 +63,13 @@ public class CardCreater {
 				case "Poor":
 					chanceCard[i] = new Poor(Integer.parseInt(card[0]), card[2]);
 					break;
-					
+
 				default:
 					//First line is headers.
 					i--;
-				
+
 				}
-				
+
 				i++;
 			}
 			// inserting the cards in a random order into the array
@@ -79,7 +79,7 @@ public class CardCreater {
 				chanceCard[i] = chanceCard[j];
 				chanceCard[j] = temp;
 			}
-			
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -96,9 +96,20 @@ public class CardCreater {
 				}
 		}
 	}
-	
+
 	public SuperCard[] getCards(){
 		return this.chanceCard;
 	}
-	
+
+	//draw a chance card and put it on the bottom 
+	public SuperCard drawCard(){
+		SuperCard draw;
+		draw=chanceCard[0];
+		for(int i = 0; i < (chanceCard.length-1); i++){
+			chanceCard[i]=chanceCard[i + 1];
+		}
+		chanceCard[chanceCard.length - 1] = draw;	
+		return draw;
+	}
+
 }

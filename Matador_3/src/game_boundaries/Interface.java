@@ -82,4 +82,6 @@ public interface Interface {
 	public void showPoor(Player player);
 	
 	public void showNotPoor(Player player);
+	
+	public void showCard (String message);
 }

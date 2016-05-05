@@ -246,4 +246,10 @@ public class GUI_boundary implements Interface {
 		GUI.showMessage(String.format(GUIarray[30], player));
 		
 	}
+
+
+	@Override
+	public void showCard(String message) {
+		GUI.displayChanceCard(message);
+	}
 }
