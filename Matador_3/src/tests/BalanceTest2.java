@@ -27,7 +27,7 @@ public class BalanceTest2 {
 	@Test
 	public void negativeTest(){
 		
-		Player1.depositBalance(-4000);
+		Player1.withdrawBalance(4000);
 		
 		int expected = 0;
 		int actual = Player1.getBalance();
@@ -40,7 +40,7 @@ public class BalanceTest2 {
 	@Test
 	public void positiveTest(){
 		
-		Player1.depositBalance(-1000);
+		Player1.withdrawBalance(1000);
 	
 		int expected = 2000;
 		int actual = Player1.getBalance();
