@@ -17,10 +17,10 @@ public class CardTest {
 	public static void setUp() throws Exception {
 		cardcreater = new CardCreater();
 		chanceCard = cardcreater.getCards();
-		printFields();
+		printCards();
 	}
 	// prints all the cards to an array in order
-	public static void printFields(){
+	public static void printCards(){
 		for (SuperCard card : chanceCard)
 			System.out.println(card.toString());		
 	}
