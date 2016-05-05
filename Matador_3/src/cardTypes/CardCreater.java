@@ -72,6 +72,14 @@ public class CardCreater {
 				
 				i++;
 			}
+			// inserting the cards in a random order into the array
+			for(i = 0; i < chanceCard.length; i++) {
+				int j = (int) (Math.random()*chanceCard.length);
+				SuperCard temp = chanceCard[i];
+				chanceCard[i] = chanceCard[j];
+				chanceCard[j] = temp;
+			}
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
