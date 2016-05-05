@@ -5,17 +5,16 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import cardTypes.CardCreater;
 import cardTypes.SuperCard;
 
 public class CardTest {
 
 	private static SuperCard[] chanceCard;
-	private static CardCreater cardcreater;
+	private static CardCreaterMockClass cardcreater;
 
 	@BeforeClass
 	public static void setUp() throws Exception {
-		cardcreater = new CardCreater();
+		cardcreater = new CardCreaterMockClass();
 		chanceCard = cardcreater.getCards();
 		printCards();
 	}
