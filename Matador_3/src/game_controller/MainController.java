@@ -87,7 +87,7 @@ public class MainController {
 
 	private void namestate(){
 
-		for (int i = 0; i < 6; i++){
+		for (int i = 1; i <= 6; i++){
 			boolean error = false;
 			// Checks if the names are long enough
 			while (true){
