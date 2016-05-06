@@ -28,18 +28,12 @@ public interface Interface {
 	public void removeOwner(int fieldNumber);
 	
 	public void movePlayer(int fieldNum, String playerName);
-
-	public void showUpdateMessage(Player player, int pos);
 	
 	public void showWelcome();
 	
 	public void showStartingPlayer(Player player);
 	
 	public void showWinner(Player player);
-	
-	public void showWithdrawMessage(Player player, int amount);
-	
-	public void showDepositMessage(Player player, int bonus);
 	
 	public void showTransferMessage(Player player, String fieldName, Player owner, int amount);
 	
@@ -51,19 +45,11 @@ public interface Interface {
 	
 	public void showFieldBoughtMessage(String playerName, String fieldName, int amount);
 	
-	public void showRollingDiceForRent(Player player);
-	
 	public void showPlayerIsOwner(Player player);
 	
 	public String promptPlayerName(int playerNumber, boolean error);
 	
-	public void promptRollDice(Player player);
-	
-	public boolean promptTax();
-	
 	public boolean promptBuy(Player player, String fieldName, int price);
-	
-	public void initializeBoard();
 	
 	public void updateBalance(Player player);
 	

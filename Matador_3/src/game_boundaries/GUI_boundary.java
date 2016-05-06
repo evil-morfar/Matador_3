@@ -58,90 +58,56 @@ public class GUI_boundary implements Interface {
 				.secondaryColor(colors[5-playerID]).build();
 		GUI.addPlayer(playerName, balance, car);
 		GUI.setCar(1, playerName);
-	
 	}
 
 	@Override
 	public void removeAllOwners() {
-		// TODO Auto-generated method stub
 		int i = 0; 
 		while(i < 40){
 		
 			GUI.removeOwner(i);
 			i++;
-		}
-		
-		
+		}	
 	}
 
 	@Override
 	public void removeOwner(int fieldNumber) {
 		GUI.removeOwner(fieldNumber);
-
-	}
-
-	@Override
-	public void showUpdateMessage(Player player, int pos) {
-		// TODO Auto-generated method stub
-		
-		
-		
-		
 	}
 
 	@Override
 	public void showWelcome() {
 		GUI.showMessage(String.format(GUIarray[1]));
-
 	}
 
 	@Override
 	public void showStartingPlayer(Player player) {
 		GUI.showMessage(String.format(GUIarray[4],player));
-
 	}
 
 	@Override
 	public void showWinner(Player player) {
 		GUI.showMessage(String.format(GUIarray[5],player));
-
-	}
-
-	@Override
-	public void showWithdrawMessage(Player player, int amount) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void showDepositMessage(Player player, int bonus) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void showTransferMessage(Player player, String fieldName, Player owner, int amount) {
 		GUI.showMessage(String.format(GUIarray[12], player.getName(), fieldName, amount, owner.getName()));
-
 	}
 
 	@Override
 	public void showNotEnoughBalanceMessage(Player player) {
 		GUI.showMessage(String.format(GUIarray[14], player));
-
 	}
 
 	@Override
 	public void showBrokeMessage(Player player) {
 		GUI.showMessage(String.format(GUIarray[6], player));
-
 	}
 
 	@Override
-	
 	public void showNotBoughtMessage(Player player) {
 		GUI.showMessage(String.format(GUIarray[10], player));
-
 	}
 
 	@Override
@@ -150,15 +116,8 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showRollingDiceForRent(Player player) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void showPlayerIsOwner(Player player) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
 	@Override
@@ -175,29 +134,10 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void promptRollDice(Player player) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public boolean promptTax() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean promptBuy(Player player, String fieldName, int price) {
 		String msg = String.format(GUIarray[8], player, fieldName, price);
 		return GUI.getUserLeftButtonPressed(msg, "yes", "no");
 	}
-
-	@Override
-	public void initializeBoard() {
-		// TODO Auto-generated method stub
-
-	}
-
 
 	@Override
 	public void movePlayer(int fieldNum, String playerName) {
@@ -205,12 +145,10 @@ public class GUI_boundary implements Interface {
 		GUI.setCar(fieldNum, playerName);		
 	}
 
-
 	@Override
 	public void updateBalance(Player player) {
 		GUI.setBalance(player.getName(), player.getBalance());		
 	}
-
 
 	@Override
 	public void setOwner(int fieldNumber, String playerName) {
@@ -244,16 +182,13 @@ public class GUI_boundary implements Interface {
 
 	@Override
 	public void showPoor(Player player) {
-		GUI.showMessage(String.format(GUIarray[29], player));
-		
+		GUI.showMessage(String.format(GUIarray[29], player));	
 	}
 
 	@Override
 	public void showNotPoor(Player player) {
-		GUI.showMessage(String.format(GUIarray[30], player));
-		
+		GUI.showMessage(String.format(GUIarray[30], player));	
 	}
-
 
 	@Override
 	public void showCard(String message) {
