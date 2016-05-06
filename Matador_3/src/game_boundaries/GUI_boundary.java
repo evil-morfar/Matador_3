@@ -15,20 +15,15 @@ public class GUI_boundary implements Interface {
 	
 	public GUI_boundary (String filename){
 		BoundaryReader r = new BoundaryReader();
-		GUIarray = r.getGUIText();
-		
-		
+		GUIarray = r.getGUIText();		
 	}
-	
-	
+		
 	@Override
 	public void update(int pos, int balance, String playerName) {
 		// TODO Auto-generated method stub
 		
 		GUI.setCar(pos, playerName);
 		GUI.setBalance(playerName, balance);
-
-
 	}
 
 	/*************************************************************
@@ -120,6 +115,11 @@ public class GUI_boundary implements Interface {
 		// TODO Auto-generated method stub	
 	}
 
+	/**
+	 * returns a message. If the player has fulfilled the error condition he gets an error message 
+	 * @message the message to be displayed at the GUI
+	 * @return the message to be printed out on the GUI
+	 */
 	@Override
 	public String promptPlayerName(int playerNumber, boolean error) {
 		String message;
@@ -129,7 +129,6 @@ public class GUI_boundary implements Interface {
 			message = GUIarray[3];
 		else
 			message = String.format(GUIarray[2], playerNumber);
-
 		return GUI.getUserString(message);
 	}
 
