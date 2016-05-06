@@ -35,8 +35,6 @@ public class MainController {
 
 	private static CardCreater cardcreater;
 
-	private Boolean debug = true; //Sets up players automatically if true
-
 	//Constructor
 	public MainController(){
 		dieCup = new DieCup();
