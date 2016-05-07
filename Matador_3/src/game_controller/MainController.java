@@ -216,24 +216,24 @@ public class MainController {
 				break;
 
 				case("Build"):
-					buildableTerritory.clear();
-					for (Territory currentTerritory : candidateTerritory){
-						if (!currentTerritory.hasHotel()) {
-							if (board.getNumOwnedSameColor(currentPlayer, currentTerritory.getColor()) == board.getNumColorFields(currentTerritory.getColor()))
-								int numOfSiblings=currentTerritory.getNumOfSiblings();
-							int siblingsWithLessHouses=0;
-							for(int i = 1; i<=numOfSiblings; i++){
-								if (currentTerritory.getSibling(i).getNumHouses() < currentTerritory.getNumHouses()) {
-									siblingsWithLessHouses++;
-									}
-								if(siblingsWithLessHouses==0) {
-									if (currentPlayer.getBalance() > currentTerritory.getHousePrice()) {
-										buildableTerritory.add(currentTerritory);
-									}
-								}
-							}
-						}
-					}
+//					buildableTerritory.clear();
+//					for (Territory currentTerritory : candidateTerritory){
+//						if (!currentTerritory.hasHotel()) {
+//							if (board.getNumOwnedSameColor(currentPlayer, currentTerritory.getColor()) == board.getNumColorFields(currentTerritory.getColor()))
+//								int numOfSiblings = currentTerritory.getNumOfSiblings();
+//							int siblingsWithLessHouses=0;
+//							for(int i = 1; i<=numOfSiblings; i++){
+//								if (currentTerritory.getSibling(i).getNumHouses() < currentTerritory.getNumHouses()) {
+//									siblingsWithLessHouses++;
+//									}
+//								if(siblingsWithLessHouses==0) {
+//									if (currentPlayer.getBalance() > currentTerritory.getHousePrice()) {
+//										buildableTerritory.add(currentTerritory);
+//									}
+//								}
+//							}
+//						}
+//					}
 					
 
 				/* Her skal der laves en dropdownmenu med GUI'en, der beder spilleren om at vælge et 
