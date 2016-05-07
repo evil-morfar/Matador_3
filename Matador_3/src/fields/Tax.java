@@ -1,6 +1,8 @@
 package fields;
 
+import game_boundaries.GUI_boundary;
 import game_controller.MainController;
+import game_entities.Player;
 /**
  * The NonOwnable Field, Tax. There's normally 1 of these in a standard Monopoly game.
  * @see Tax#Tax
@@ -36,6 +38,15 @@ public class Tax extends AbstractNonOwnables {
 	public void landOnField(MainController controller) {
 		// TODO The player must choose between paying this.amount or
 		// player.getBalance() / this.percent
+		Player p = controller.getCurrentPlayer();
+		GUI_boundary out = controller.getGUI();
+		String option = out.getUserButtonPressed("Choose:", "Pay " +this.percent+"%", "Pay " + this.amount+ ",-");
+		
+		if(option.equals("Pay " +this.percent+"%")){
+			p.withdrawBalance(p.getBalance() * this.percent / 100);
+		} else {
+			p.withdrawBalance(this.amount);
+		}
 
 	}
 
