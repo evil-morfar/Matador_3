@@ -220,6 +220,7 @@ public class MainController {
 				((AbstractOwnable) field).setOwner(currentPlayer);	
 				output.setOwner(field.getFieldID(), currentPlayer.getName());
 				output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
+				break;
 
 				case("End Turn"): case("end"):
 					System.out.println(currentPlayer.getName());
