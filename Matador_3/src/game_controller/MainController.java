@@ -7,6 +7,7 @@ import cardTypes.SuperCard;
 import die_classes.DieCup;
 import fields.AbstractFields;
 import fields.AbstractOwnable;
+import fields.Territory;
 import game_boundaries.GUI_boundary;
 import game_entities.Board;
 import game_entities.Player;
@@ -35,8 +36,8 @@ public class MainController {
 	private Board board;
 	private Boolean endTurn = false;
 	private final int startingBalance = 30000;
-	private ArrayList<AbstractFields> candidateTerritory;
-	private ArrayList<AbstractFields> buildableTerritory;
+	private ArrayList<Territory> candidateTerritory;
+	private ArrayList<Territory> buildableTerritory;
 
 	private static CardCreater cardcreater;
 
@@ -48,7 +49,7 @@ public class MainController {
 		board = new Board();
 		cardcreater = new CardCreater();
 		candidateTerritory = createCandidateTerritory();
-		buildableTerritory = new ArrayList<AbstractFields>();
+		buildableTerritory = new ArrayList<Territory>();
 		
 	}
 
@@ -216,7 +217,7 @@ public class MainController {
 
 				case("Build"):
 					buildableTerritory.clear();
-					for (AbstractFields currentTerritory : candidateTerritory){
+					for (Territory currentTerritory : candidateTerritory){
 						if (!currentTerritory.hasHotel()) {
 							if (board.getNumOwnedSameColor(currentPlayer, currentTerritory.getColor()) == board.getNumColorFields(currentTerritory.getColor()))
 								int numOfSiblings=currentTerritory.getNumOfSiblings();
@@ -335,11 +336,11 @@ public class MainController {
 	/**
 	 * @return Create an ArrayList of fields of type Territory
 	 */
-	private ArrayList<AbstractFields> createCandidateTerritory(){
-		ArrayList<AbstractFields> candidateTerritory = new ArrayList<AbstractFields>();
+	private ArrayList<Territory> createCandidateTerritory(){
+		ArrayList<Territory> candidateTerritory = new ArrayList<Territory>();
 		for(AbstractFields field : board.fields){
 		if (field.getFieldType().equals("Territory")){
-			candidateTerritory.add(field);
+			candidateTerritory.add((Territory) field);
 		}
 		}
 		return candidateTerritory;
