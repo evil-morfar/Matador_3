@@ -19,31 +19,38 @@ import game_entities.Player;
 
 public class MainController {
 
-	//evt add flerer sub state under PLAY_STATE
-	public enum GameState{NAME_STATE, PLAY_STATE, WIN_STATE}; 
+	// evt add flerer sub state under PLAY_STATE
+	public enum GameState {
+		NAME_STATE, PLAY_STATE, WIN_STATE
+	};
+
 	private GameState state = GameState.NAME_STATE;
 
 	private int turnNumber;
 
-	private DieCup dieCup; 
+	private DieCup dieCup;
 	private GUI_boundary output;
 	private ArrayList<Player> players;
 	private Player currentPlayer;
 	private Board board;
 	private Boolean endTurn = false;
 	private final int startingBalance = 30000;
+	private ArrayList<AbstractFields> candidateTerritory;
+	private ArrayList<AbstractFields> buildableTerritory;
 
 	private static CardCreater cardcreater;
 
-	//Constructor
-	public MainController(){
+	// Constructor
+	public MainController() {
 		dieCup = new DieCup();
 		players = new ArrayList<Player>();
 		output = new GUI_boundary("");
 		board = new Board();
 		cardcreater = new CardCreater();
+		candidateTerritory = createCandidateTerritory();
+		buildableTerritory = new ArrayList<AbstractFields>();
+		
 	}
-
 
 	public Player getCurrentPlayer() {
 		return currentPlayer;
@@ -61,16 +68,16 @@ public class MainController {
 		return output;
 	}
 
-	public int getRoll(){
+	public int getRoll() {
 		return dieCup.getSum();
 	}
 
-	public void run(){
+	public void run() {
 		output.create(board.getGuiFields());
 		boolean running = true;
-		while(running){
+		while (running) {
 			System.out.println("New loop");
-			switch(state){
+			switch (state) {
 			case NAME_STATE:
 				namestate();
 				break;
@@ -85,30 +92,28 @@ public class MainController {
 		}
 	}
 
-	private void namestate(){
+	private void namestate() {
 
-		for (int i = 1; i <= 6; i++){
+		for (int i = 1; i <= 6; i++) {
 			boolean error = false;
 			// Checks if the names are long enough
-			while (true){
-				String name = output.promptPlayerName(i+1, error);
-				if (name.length() == 0){
-					if(i>=2){
+			while (true) {
+				String name = output.promptPlayerName(i + 1, error);
+				if (name.length() == 0) {
+					if (i >= 2) {
 						// breaks the loop and starts the game
 						i = 6;
 						break;
-					}
-					else
+					} else
 						error = true;
-				}
-				else{
+				} else {
 					players.add(new Player(name, startingBalance, "blue", 1, i));
 					// Adds the player to the GUI
 					output.addPlayer(name, startingBalance, i);
 					break;
-				}				
-			}	
-		}	
+				}
+			}
+		}
 		currentPlayer = players.get(0);
 		state = GameState.PLAY_STATE;
 	}
@@ -210,7 +215,30 @@ public class MainController {
 				break;
 
 				case("Build"):
-					//TODO
+					buildableTerritory.clear();
+					for (AbstractFields currentTerritory : candidateTerritory){
+						if (!currentTerritory.hasHotel()) {
+							if (board.getNumOwnedSameColor(currentPlayer, currentTerritory.getColor()) == board.getNumColorFields(currentTerritory.getColor()))
+								int numOfSiblings=currentTerritory.getNumOfSiblings();
+							int siblingsWithLessHouses=0;
+							for(int i = 1; i<=numOfSiblings; i++){
+								if (currentTerritory.getSibling(i).getNumHouses() < currentTerritory.getNumHouses()) {
+									siblingsWithLessHouses++;
+									}
+								if(siblingsWithLessHouses==0) {
+									if (currentPlayer.getBalance() > currentTerritory.getHousePrice()) {
+										buildableTerritory.add(currentTerritory);
+									}
+								}
+							}
+						}
+					}
+					
+
+				/* Her skal der laves en dropdownmenu med GUI'en, der beder spilleren om at vælge et 
+				 * territory at bygge hus på. Hvert territory skal være repræsenteret med en String 
+				 * af formatet "Navn på Territory, X. hus: XXX kr." Antallaet af huse på feltet stiger 
+				 * med 1 og prisen for huset trækkes fra spillers account*/
 					break;
 
 
@@ -220,7 +248,6 @@ public class MainController {
 				((AbstractOwnable) field).setOwner(currentPlayer);	
 				output.setOwner(field.getFieldID(), currentPlayer.getName());
 				output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
-				break;
 
 				case("End Turn"): case("end"):
 					System.out.println(currentPlayer.getName());
@@ -243,12 +270,15 @@ public class MainController {
 
 	/**
 	 * Gets the next player in players based on a given player.
-	 * @param player The player right before the intended player.
-	 * @return The next player. Will be the first if player was the last in line.
+	 * 
+	 * @param player
+	 *            The player right before the intended player.
+	 * @return The next player. Will be the first if player was the last in
+	 *         line.
 	 */
 	private Player getNextPlayer(Player player) {
 		Player p;
-		if(player.getPlayerID() == players.size())
+		if (player.getPlayerID() == players.size())
 			p = players.get(0);
 		else
 			p = players.get(player.getPlayerID());
@@ -257,14 +287,17 @@ public class MainController {
 	}
 
 	/**
-	 * Moves a player a number of fields. Note player position starts at 1, while
-	 * field indicies starts at 0.
-	 * @param player The player to move
-	 * @param num Number of fields to move.
+	 * Moves a player a number of fields. Note player position starts at 1,
+	 * while field indicies starts at 0.
+	 * 
+	 * @param player
+	 *            The player to move
+	 * @param num
+	 *            Number of fields to move.
 	 */
-	public void movePlayer(Player player, int num){
+	public void movePlayer(Player player, int num) {
 		int position = player.getPosition();
-		if (position + num > board.getFields().length){
+		if (position + num > board.getFields().length) {
 			position -= board.getFields().length;
 			System.out.println(player.getName() + " passed start, received 4k.");
 			player.depositBalance(4000);
@@ -277,10 +310,13 @@ public class MainController {
 
 	/**
 	 * Moves a player to a specific position
-	 * @param player The player to move
-	 * @param position The fieldID to move to
+	 * 
+	 * @param player
+	 *            The player to move
+	 * @param position
+	 *            The fieldID to move to
 	 */
-	public void movePlayerTo(Player player, int position){
+	public void movePlayerTo(Player player, int position) {
 		player.setPosition(position);
 		output.movePlayer(position, player.getName());
 	}
@@ -288,16 +324,28 @@ public class MainController {
 	/**
 	 * @return The number of broke players
 	 */
-	private int getNumNotBrokePlayers(){
+	private int getNumNotBrokePlayers() {
 		int num = 0;
-		for(Player player : players){
-			if(!(player.isBroke()))
+		for (Player player : players) {
+			if (!(player.isBroke()))
 				num++;
 		}
 		return num;
 	}
-
-	private void winstate(){
+	/**
+	 * @return Create an ArrayList of fields of type Territory
+	 */
+	private ArrayList<AbstractFields> createCandidateTerritory(){
+		ArrayList<AbstractFields> candidateTerritory = new ArrayList<AbstractFields>();
+		for(AbstractFields field : board.fields){
+		if (field.getFieldType().equals("Territory")){
+			candidateTerritory.add(field);
+		}
+		}
+		return candidateTerritory;
+	}
+	
+	private void winstate() {
 		output.showMessage(currentPlayer.getName() + " has won!");
 		System.exit(0);
 	}
@@ -305,15 +353,12 @@ public class MainController {
 	/**
 	 * Ends the player's turn.
 	 */
-	public void endTurn(){
+	public void endTurn() {
 		this.endTurn = true;
 	}
 
-	public int getNumPlayers(){
+	public int getNumPlayers() {
 		return players.size();
 	}
 
-	
 }
-
-
