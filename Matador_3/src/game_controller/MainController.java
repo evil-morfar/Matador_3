@@ -36,8 +36,8 @@ public class MainController {
 	private Board board;
 	private Boolean endTurn = false;
 	private final int startingBalance = 30000;
-	private ArrayList<Territory> candidateTerritory;
-	private ArrayList<Territory> buildableTerritory;
+	private ArrayList<Territory> candidateTerritories;
+	private ArrayList<Territory> buildableTerritories;
 
 	private static CardCreater cardcreater;
 
@@ -48,8 +48,8 @@ public class MainController {
 		output = new GUI_boundary("");
 		board = new Board();
 		cardcreater = new CardCreater();
-		candidateTerritory = createCandidateTerritory();
-		buildableTerritory = new ArrayList<Territory>();
+		candidateTerritories = createCandidateTerritory();
+		buildableTerritories = new ArrayList<Territory>();
 		
 	}
 
@@ -215,31 +215,45 @@ public class MainController {
 				output.updateBalance(currentPlayer); // For when they've payed stuff			
 				break;
 
-				case("Build"):
-//					buildableTerritory.clear();
-//					for (Territory currentTerritory : candidateTerritory){
-//						if (!currentTerritory.hasHotel()) {
-//							if (board.getNumOwnedSameColor(currentPlayer, currentTerritory.getColor()) == board.getNumColorFields(currentTerritory.getColor()))
-//								int numOfSiblings = currentTerritory.getNumOfSiblings();
-//							int siblingsWithLessHouses=0;
-//							for(int i = 1; i<=numOfSiblings; i++){
-//								if (currentTerritory.getSibling(i).getNumHouses() < currentTerritory.getNumHouses()) {
-//									siblingsWithLessHouses++;
-//									}
-//								if(siblingsWithLessHouses==0) {
-//									if (currentPlayer.getBalance() > currentTerritory.getHousePrice()) {
-//										buildableTerritory.add(currentTerritory);
-//									}
-//								}
-//							}
-//						}
-//					}
-					
+				case ("Build"):
+					buildableTerritories.clear();
+					for (Territory candidateTerritory : candidateTerritories) {
+						if (!candidateTerritory.hasHotel()) {
+							if (currentPlayer.getBalance() > candidateTerritory.getHousePrice()) {
+								int numOfTerritoryThisColor = board.getNumColorFields(candidateTerritory.getColor());
+								if (board.getNumOwnedSameColor(currentPlayer,
+										candidateTerritory.getColor()) == numOfTerritoryThisColor) {
+									int territoryWithMoreOrEqualHouses = 0;
+									for (Territory comparedTerritory : candidateTerritories) {
+										if (candidateTerritory.getColor() == comparedTerritory.getColor()) {
+											if (comparedTerritory.getNumHouses() >= candidateTerritory.getNumHouses()) {
+												territoryWithMoreOrEqualHouses++;
+											}
+										}
+										if (territoryWithMoreOrEqualHouses == numOfTerritoryThisColor) {
+											break; // No need to keep going
+													// if we've already
+													// checked all the
+													// colors in the group.
+										}
+									}
+									if (territoryWithMoreOrEqualHouses == numOfTerritoryThisColor) {
+										buildableTerritories.add(candidateTerritory);
 
-				/* Her skal der laves en dropdownmenu med GUI'en, der beder spilleren om at vælge et 
-				 * territory at bygge hus på. Hvert territory skal være repræsenteret med en String 
-				 * af formatet "Navn på Territory, X. hus: XXX kr." Antallaet af huse på feltet stiger 
-				 * med 1 og prisen for huset trækkes fra spillers account*/
+									}
+								}
+							}
+						}
+					}
+
+					/*
+					 * Her skal der laves en dropdownmenu med GUI'en, der beder
+					 * spilleren om at vælge et territory at bygge hus på. Hvert
+					 * territory skal være repræsenteret med en String af
+					 * formatet "Navn på Territory, X. hus: XXX kr." Antallaet
+					 * af huse på feltet stiger med 1 og prisen for huset
+					 * trækkes fra spillers account
+					 */
 					break;
 
 
