@@ -129,8 +129,8 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void updateBalance(Player player) {
-		GUI.setBalance(player.getName(), player.getBalance());		
+	public void updateBalance(String playerName, int playerBalance) {
+		GUI.setBalance(playerName, playerBalance);		
 	}
 
 	@Override

@@ -186,7 +186,7 @@ public class MainController {
 						currentPlayer.decreaseNumJailCards();
 					else {
 						currentPlayer.withdrawBalance(1000);
-						output.updateBalance(currentPlayer);
+						output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());
 					}
 					currentPlayer.setInJail(false);
 					currentPlayer.setNumJailRolls(0);
@@ -201,7 +201,7 @@ public class MainController {
 
 				if(option.equals("Pay 1000,-")) {
 					currentPlayer.withdrawBalance(1000);
-					output.updateBalance(currentPlayer);					
+					output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());					
 				} else
 					currentPlayer.decreaseNumJailCards();
 				currentPlayer.setInJail(false);
@@ -247,7 +247,7 @@ public class MainController {
 				movePlayer(currentPlayer, dieCup.getSum());
 				field = board.getFields()[currentPlayer.getPosition()-1];
 				field.landOnField(this);
-				output.updateBalance(currentPlayer); // For when they've payed stuff			
+				output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance()); // For when they've payed stuff			
 				break;
 
 				case ("Build"):
@@ -319,7 +319,7 @@ public class MainController {
 
 				case("Buy"):
 					currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
-				output.updateBalance(currentPlayer);
+				output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());
 				((AbstractOwnable) field).setOwner(currentPlayer);	
 				output.setOwner(field.getFieldID(), currentPlayer.getName());
 				output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());

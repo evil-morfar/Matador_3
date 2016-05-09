@@ -47,7 +47,7 @@ public interface Interface {
 	
 	public String promptPlayerName(int playerNumber, boolean error);
 	
-	public void updateBalance(Player player);
+	public void updateBalance(String playerName, int playerBalance);
 	
 	public void setOwner(int fieldNumber, String playerName);
 
