@@ -3,6 +3,7 @@ package database;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import fields.AbstractOwnable;
 import fields.Territory;
@@ -183,6 +184,48 @@ public class DatabaseAccess1 implements DatabaseAccess {
 			}
 		}
 		return 10; //Just return a few, we can't check it 
+	}
+
+	@Override
+	public ArrayList<String> getSavedGames() {
+		if(hasConnection){
+			ArrayList<String> res = new ArrayList<String>();
+			ResultSet r;
+			try {
+				r = c.doQuery("select game_name from games");
+				while(r.next()){
+					res.add(r.getString("game_name"));
+				}
+				return res;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public ArrayList<Player> getPlayersFromGame(int id) {
+		if(hasConnection){
+			ArrayList<Player> res = new ArrayList<Player>();
+			ResultSet r;
+			try {
+				r = c.doQuery("select * from players where game_id = "+ id + ";");
+				while(r.next()){
+					Player p = new Player(r.getString("player_name"), r.getInt("account"),
+							r.getString("color"), r.getInt("position"), r.getInt("player_id"));
+					p.
+					res.add(p);
+				}
+				return res;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return null;
 	}
 
 }
