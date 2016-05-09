@@ -312,7 +312,7 @@ public class MainController {
 						}
 					}
 				} else {
-					getGUI().showNotEnoughBalanceToBuild(currentPlayer.getName());
+					output.showNotEnoughBalanceToBuild(currentPlayer.getName());
 				}
 					break;
 
@@ -426,7 +426,7 @@ public class MainController {
 	}
 	
 	private void winstate() {
-		getGUI().showWinner(currentPlayer.getName());
+		output.showWinner(currentPlayer.getName());
 		System.exit(0);
 	}
 
