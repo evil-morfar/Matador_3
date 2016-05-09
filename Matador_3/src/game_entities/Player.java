@@ -33,6 +33,7 @@ public class Player {
 		this.name = name;
 		this.account = new Account(startingBalance);
 		this.isBroke = false; 
+		this.isInJail = false;
 		this.position = position;
 		this.playerID = playerID;
 		this.numJailRolls = 0;
