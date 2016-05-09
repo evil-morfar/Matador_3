@@ -40,6 +40,7 @@ public class Brewery extends AbstractOwnable {
 			int numOwned = controller.getBoard().getNumOwnedBreweries(owner);
 			int rent = (this.multiply * numOwned) * controller.getRoll();
 			player.withdrawBalance(rent);
+			owner.depositBalance(rent);
 			controller.getGUI().showTransferMessage(player.getName(), this.getName(), owner.getName(), rent);
 		} 
 	}
