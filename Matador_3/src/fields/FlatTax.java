@@ -8,7 +8,7 @@ import game_controller.MainController;
  */
 public class FlatTax extends AbstractNonOwnables {
 	
-	private static final String FIELD_TYPE = "Tax";
+	private static final String FIELD_TYPE = "FlatTax";
 	private int amount;
 
 	/**

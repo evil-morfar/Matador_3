@@ -34,4 +34,9 @@ public class CardTest {
 		assertEquals(1, chanceCard[0].getCardNumber());
 	}
 
+//	@Test
+//	public void testChance03() {
+//		assertEquals(3000,chanceCard[30].g)
+//	}
+	
 }
