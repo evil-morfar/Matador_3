@@ -368,7 +368,7 @@ public class MainController {
 
 	/**
 	 * Moves a player a number of fields. Note player position starts at 1,
-	 * while field indicies starts at 0.
+	 * while field indices starts at 0.
 	 * 
 	 * @param player
 	 *            The player to move
