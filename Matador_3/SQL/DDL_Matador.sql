@@ -10,8 +10,10 @@ drop table if exists players;
 drop table if exists games;
 drop view if exists game;
 drop procedure if exists CreatePlayer;
-drop procedure if exists CreateGame;
+drop procedure if exists CreateGame;		
 drop procedure if exists SavePlayer;
+drop procedure if exists SaveField;
+drop procedure if exists SaveGame;
 
 
 create table games(
@@ -41,7 +43,7 @@ create table player_properties(
     player_id	int,
     num_houses	int(1) check (num_houses <= 4 && num_houses >= 0),
     num_hotels	int(1) check (num_hotels = 0 || num_hotels = 1),
-    field_type	varchar(10),
+   ## field_type	varchar(10),
     primary key (field_id, game_id),
 	foreign key (player_id) references players(player_id),
     foreign key (game_id) references games(game_id )
@@ -74,7 +76,7 @@ create view game as (
         left outer join player_properties using(game_id, player_id)
         left outer join bank using(game_id)
         left outer join jail using(game_id, player_id)
-);
+);	
 
 delimiter //
 create procedure CreatePlayer(
@@ -124,6 +126,30 @@ BEGIN
 				&& jail.game_id = game_id && jail.player_id = player_id;
 END//
 
+create procedure SaveField(
+	IN field_id int,
+    IN game_id int,
+    IN player_id int,
+    IN num_houses int,
+    IN num_hotels int
+)
+BEGIN
+	insert into player_properties values(field_id, game_id, player_id, num_houses, num_hotels)	
+		on duplicate key update player_properties.player_id = player_id,
+			player_properties.num_houses = num_houses,
+			player_properties.num_hotels = num_hotels;
+END//
 
+create procedure SaveGame(
+	IN game_id int,
+	IN current_player int
+)
+BEGIN
+	UPDATE games 
+		set last_saved_time = Now(),
+			games.current_player = current_player
+		where
+			games.game_id = game_id;
+END//
 delimiter ;
 
