@@ -42,7 +42,7 @@ public class MoveField extends SuperCard {
 			controller.movePlayerTo(player, fieldNumber);
 			field = controller.getBoard().getFields()[controller.getCurrentPlayer().getPosition()-1];
 			field.landOnField(controller);
-			controller.getGUI().updateBalance(player); // For when they've payed stuff	
+			controller.getGUI().updateBalance(player.getName(), player.getBalance()); // For when they've payed stuff	
 			
 			
 		}
