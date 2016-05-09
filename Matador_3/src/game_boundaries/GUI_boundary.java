@@ -110,11 +110,6 @@ public class GUI_boundary implements Interface {
 		GUI.showMessage(String.format(GUIarray[9], playerName, fieldName, amount));
 	}
 
-	@Override
-	public void showPlayerIsOwner(Player player) {
-		// TODO Auto-generated method stub	
-	}
-
 	/**
 	 * returns a message. If the player has fulfilled the error condition he gets an error message 
 	 * @message the message to be displayed at the GUI
@@ -203,5 +198,4 @@ public class GUI_boundary implements Interface {
 	public void showNotEnoughBalanceToBuild(String playername) {
 		GUI.showMessage(String.format(GUIarray[31], playername));
 	}
-	
 }

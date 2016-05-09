@@ -47,8 +47,6 @@ public interface Interface {
 	
 	public void showFieldBoughtMessage(String playerName, String fieldName, int amount);
 	
-	public void showPlayerIsOwner(Player player);
-	
 	public String promptPlayerName(int playerNumber, boolean error);
 	
 	public boolean promptBuy(Player player, String fieldName, int price);
