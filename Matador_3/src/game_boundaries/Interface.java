@@ -35,7 +35,7 @@ public interface Interface {
 	
 	public void showWinner(String playername);
 	
-	public void showTransferMessage(Player player, String fieldName, Player owner, int amount);
+	public void showTransferMessage(String playerName, String fieldName, String ownerName, int amount);
 	
 	public void showNotEnoughBalanceMessage(Player player);
 	

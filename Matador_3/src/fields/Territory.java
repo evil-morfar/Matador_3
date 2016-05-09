@@ -102,7 +102,8 @@ public class Territory extends AbstractOwnable {
 			}
 			if (rent != 0) // Rent is due
 				player.withdrawBalance(rent);
-			controller.getGUI().showTransferMessage(player, this.getName(), this.getOwner(), rent);
+				owner.depositBalance(rent);
+			controller.getGUI().showTransferMessage(player.getName(), this.getName(), owner.getName(), rent);
 		}
 	}
 

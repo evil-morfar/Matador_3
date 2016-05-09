@@ -86,8 +86,8 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showTransferMessage(Player player, String fieldName, Player owner, int amount) {
-		GUI.showMessage(String.format(GUIarray[12], player.getName(), fieldName, amount, owner.getName()));
+	public void showTransferMessage(String playerName, String fieldName, String ownerName, int amount) {
+		GUI.showMessage(String.format(GUIarray[12], playerName, fieldName, amount, ownerName));
 	}
 
 	@Override
