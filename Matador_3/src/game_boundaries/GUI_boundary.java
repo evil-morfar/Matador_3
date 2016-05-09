@@ -193,4 +193,12 @@ public class GUI_boundary implements Interface {
 	public void showCard(String message) {
 		GUI.displayChanceCard(message);
 	}
+
+	public String getUserString(String msg) {
+		return GUI.getUserString(msg);
+	}
+	
+	public String getUserSelection(String msg, String... options){
+		return GUI.getUserSelection(msg, options);
+	}
 }

@@ -70,4 +70,8 @@ public interface Interface {
 	public void showNotPoor(Player player);
 	
 	public void showCard (String message);
+	
+	public String getUserString(String msg);
+	
+	public String getUserSelection(String msg, String... options);
 }
