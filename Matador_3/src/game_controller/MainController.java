@@ -1,9 +1,11 @@
 package game_controller;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import cardTypes.CardCreater;
 import cardTypes.SuperCard;
+import database.DatabaseAccess1;
 import die_classes.DieCup;
 import fields.AbstractFields;
 import fields.AbstractOwnable;
@@ -22,10 +24,10 @@ public class MainController {
 
 	// evt add flerer sub state under PLAY_STATE
 	public enum GameState {
-		NAME_STATE, PLAY_STATE, WIN_STATE
+		START_STATE, LOAD_STATE, NAME_STATE, PLAY_STATE, WIN_STATE
 	};
 
-	private GameState state = GameState.NAME_STATE;
+	private GameState state = GameState.START_STATE;
 
 	private int turnNumber;
 
@@ -38,6 +40,7 @@ public class MainController {
 	private final int startingBalance = 30000;
 	private ArrayList<Territory> candidateTerritories;
 	private ArrayList<Territory> buildableTerritories;
+	private DatabaseAccess1 db;
 
 	private static CardCreater cardcreater;
 
@@ -50,7 +53,7 @@ public class MainController {
 		cardcreater = new CardCreater();
 		candidateTerritories = createCandidateTerritory();
 		buildableTerritories = new ArrayList<Territory>();
-		
+		db = new DatabaseAccess1();
 	}
 
 	public Player getCurrentPlayer() {
@@ -78,7 +81,37 @@ public class MainController {
 		boolean running = true;
 		while (running) {
 			System.out.println("New loop");
+			String option = "";
 			switch (state) {
+			case START_STATE:
+				if(!db.hasConnection())
+					output.showMessage("No connection to the Database, games will be offline only.");
+				option = output.getUserButtonPressed("Welcome", "New Game", "Load Game", "Exit");
+				
+				switch(option) {
+				case("New Game"):
+					String name = output.getUserString("Enter game name:");
+					if(name.isEmpty()){
+						output.showMessage("Game name cannot be empty");
+						break;
+					}
+					db.setGameID(db.createNewGame(name, 1));
+					this.state = GameState.NAME_STATE;						
+					break;
+				case("Load Game"):
+					
+					break;
+				
+				case("Exit"):					
+				default:
+					System.exit(0);
+				}
+				break;
+				
+			case LOAD_STATE:
+				
+				break;
+			
 			case NAME_STATE:
 				namestate();
 				break;
@@ -94,7 +127,7 @@ public class MainController {
 	}
 
 	private void namestate() {
-
+		String[] colors = {"blue", "white", "magenta", "yellow", "black", "green"};
 		for (int i = 1; i <= 6; i++) {
 			boolean error = false;
 			// Checks if the names are long enough
@@ -108,9 +141,11 @@ public class MainController {
 					} else
 						error = true;
 				} else {
-					players.add(new Player(name, startingBalance, "blue", 1, i));
+					players.add(new Player(name, startingBalance, colors[i], 1, i));
 					// Adds the player to the GUI
 					output.addPlayer(name, startingBalance, i);
+					// and the db
+					db.addNewPlayer(i, name, startingBalance, 0, colors[i], 1);
 					break;
 				}
 			}
@@ -263,6 +298,7 @@ public class MainController {
 				((AbstractOwnable) field).setOwner(currentPlayer);	
 				output.setOwner(field.getFieldID(), currentPlayer.getName());
 				output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
+				db.saveField((AbstractOwnable) field);
 
 				case("End Turn"): case("end"):
 					System.out.println(currentPlayer.getName());
@@ -270,10 +306,14 @@ public class MainController {
 				System.out.println(currentPlayer.getName());
 				hasRolled = false;
 				this.endTurn = true;
+				db.savePlayer(currentPlayer);
+				db.saveGame(currentPlayer.getPlayerID(), board);
 				break;
 
 				case("Save and Exit"):
 					this.endTurn = true;
+				db.savePlayer(currentPlayer);
+				db.saveGame(currentPlayer.getPlayerID(), board);
 				System.exit(0);
 				//TODO Database
 				break;
