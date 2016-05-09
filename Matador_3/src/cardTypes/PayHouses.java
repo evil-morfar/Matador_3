@@ -32,6 +32,12 @@ public class PayHouses extends SuperCard {
 		return amountPerHotel;
 	}
 
+	/**
+	 * Method to find the amount of houses the player owns 
+	 * @param player
+	 * @return number of houses the current player owns
+	 */
+	
 	private int getNumOwnedHouses (Player player) {
 		int houses = 0;
 		for (AbstractFields field: fields)
@@ -41,6 +47,12 @@ public class PayHouses extends SuperCard {
 		return houses;
 	}
 
+	/**
+	 * Method to find the amount of hotels the player owns 
+	 * @param player
+	 * @return number of hotels the current player owns 
+	 */
+	
 	private int getNumOwnedHotels (Player player) {
 		int hotels = 0;
 		for (AbstractFields field: fields)
