@@ -49,8 +49,8 @@ public class GUI_boundary implements Interface {
 		Color[] colors = {Color.BLUE, Color.WHITE, Color.MAGENTA, Color.YELLOW, Color.BLACK, Color.GREEN};
 	
 		Car car = new Car.Builder()
-				.primaryColor(colors[playerID])
-				.secondaryColor(colors[5-playerID]).build();
+				.primaryColor(colors[playerID-1])
+				.secondaryColor(colors[5-(playerID-1)]).build();
 		GUI.addPlayer(playerName, balance, car);
 		GUI.setCar(1, playerName);
 	}

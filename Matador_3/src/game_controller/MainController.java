@@ -141,11 +141,11 @@ public class MainController {
 					} else
 						error = true;
 				} else {
-					players.add(new Player(name, startingBalance, colors[i], 1, i));
+					players.add(new Player(name, startingBalance, colors[i-1], 1, i));
 					// Adds the player to the GUI
 					output.addPlayer(name, startingBalance, i);
 					// and the db
-					db.addNewPlayer(i, name, startingBalance, 0, colors[i], 1);
+					db.addNewPlayer(i, name, startingBalance, 0, colors[i-1], 1);
 					break;
 				}
 			}
