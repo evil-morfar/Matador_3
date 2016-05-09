@@ -231,7 +231,7 @@ public class MainController {
 											territoryWithMoreOrEqualHouses++;
 										}
 									}
-									if (territoryWithMoreOrEqualHouses == numOfTerritoryThisColor)
+									if (territoryWithMoreOrEqualHouses == numOfTerritoryThisColor) 
 										break; // No need to keep going
 												// if we've already
 												// checked all the
@@ -245,7 +245,7 @@ public class MainController {
 						}
 					}
 				}
-				if (buildableTerritories.get(0) != null) { //Makes sure there are actually Territories in the array.
+				if (buildableTerritories.size() != 0) { //Makes sure there are actually Territories in the array.
 					String[] buildableStrings = new String[buildableTerritories.size()];
 					int i = 0;
 					for (Territory buildable : buildableTerritories) { //Cycles through all buildable Territories and creates strings for either buying a house or a hotel.
