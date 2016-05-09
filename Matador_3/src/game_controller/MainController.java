@@ -99,7 +99,7 @@ public class MainController {
 					this.state = GameState.NAME_STATE;						
 					break;
 				case("Load Game"):
-					
+					this.state = GameState.LOAD_STATE;
 					break;
 				
 				case("Exit"):					
@@ -109,7 +109,7 @@ public class MainController {
 				break;
 				
 			case LOAD_STATE:
-				
+				loadState();
 				break;
 			
 			case NAME_STATE:
@@ -124,6 +124,22 @@ public class MainController {
 				break;
 			}
 		}
+	}
+
+	private void loadState() {
+		ArrayList<String> load = db.getSavedGames();
+		String[] games = load.toArray(new String[0]);
+		String selection = output.getUserSelection("Select a game:", games);
+		int gameID = load.indexOf(selection) + 1; // Game index starts at 1, array index doesn't
+		System.out.println("Wants to load game #"+gameID + " - " + load.get(gameID-1));
+		db.setGameID(gameID);		
+		players = db.getPlayersFromGame(gameID);
+		//Added the players to the board
+		for(Player p : players) {
+			output.addPlayer(p.getName(), p.getBalance(), p.getPlayerID());
+			movePlayerTo(p, p.getPosition());
+		}
+		
 	}
 
 	private void namestate() {
