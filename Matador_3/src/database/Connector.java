@@ -15,15 +15,14 @@ public class Connector {
 	private final String PASSWORD = "";
 	private Connection connection;
 
-	public Connector(){
+	public Connector() throws NoDbConnectionError{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
 			connection = DriverManager.getConnection(url, USERNAME, PASSWORD);
 			System.out.println("Connected to DB");
 		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			System.exit(1);
+			throw new NoDbConnectionError();
 		}
 		
 	}
