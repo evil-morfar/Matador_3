@@ -125,6 +125,10 @@ public class Player {
 		return numJailCards;
 	}
 	
+	public void setNumJailCards(int i){
+		this.numJailCards = i;
+	}
+	
 	public void increaseNumJailCards(){
 		numJailCards++;
 	}

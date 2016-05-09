@@ -1,5 +1,7 @@
 package database;
 
+import java.util.ArrayList;
+
 import fields.AbstractOwnable;
 import game_entities.Board;
 import game_entities.Player;
@@ -18,9 +20,15 @@ public interface DatabaseAccess {
 	
 	public void updateView(int gameID);
 	
+	public void setGameID(int id);
+	
 	public void saveField(AbstractOwnable field);
 	
 	public int getNumHousesLeft();
 	
 	public int getNumHotelsLeft();
+	
+	public ArrayList<String> getSavedGames();
+	
+	public ArrayList<Player> getPlayersFromGame(int id);
 }
