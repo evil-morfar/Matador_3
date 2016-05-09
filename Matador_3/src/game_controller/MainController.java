@@ -277,7 +277,7 @@ public class MainController {
 						}
 					}
 				} else {
-					output.showMessage("Du ejer ikke nok grunde til at bygge.");
+					getGUI().showNotEnoughBalanceToBuild(currentPlayer.getName());
 				}
 					break;
 
@@ -386,7 +386,7 @@ public class MainController {
 	}
 	
 	private void winstate() {
-		output.showMessage(currentPlayer.getName() + " has won!");
+		getGUI().showWinner(currentPlayer.getName());
 		System.exit(0);
 	}
 

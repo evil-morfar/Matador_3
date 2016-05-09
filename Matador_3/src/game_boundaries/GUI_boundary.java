@@ -81,8 +81,8 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showWinner(Player player) {
-		GUI.showMessage(String.format(GUIarray[5],player));
+	public void showWinner(String playername) {
+		GUI.showMessage(String.format(GUIarray[5],playername));
 	}
 
 	@Override
@@ -197,6 +197,11 @@ public class GUI_boundary implements Interface {
 	@Override
 	public String buildSelection(String message, String... options) {
 	return GUI.getUserSelection(message, options);
+	}
+	
+	@Override
+	public void showNotEnoughBalanceToBuild(String playername) {
+		GUI.showMessage(String.format(GUIarray[31], playername));
 	}
 	
 }

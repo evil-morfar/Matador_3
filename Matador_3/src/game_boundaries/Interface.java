@@ -33,11 +33,13 @@ public interface Interface {
 	
 	public void showStartingPlayer(Player player);
 	
-	public void showWinner(Player player);
+	public void showWinner(String playername);
 	
 	public void showTransferMessage(Player player, String fieldName, Player owner, int amount);
 	
 	public void showNotEnoughBalanceMessage(Player player);
+	
+	public void showNotEnoughBalanceToBuild(String playername);
 	
 	public void showBrokeMessage(Player player);
 	
