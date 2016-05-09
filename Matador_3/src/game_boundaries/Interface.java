@@ -70,4 +70,6 @@ public interface Interface {
 	public void showNotPoor(Player player);
 	
 	public void showCard (String message);
+	
+	public String buildSelection(String message, String... options);
 }

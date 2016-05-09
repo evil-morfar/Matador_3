@@ -193,4 +193,10 @@ public class GUI_boundary implements Interface {
 	public void showCard(String message) {
 		GUI.displayChanceCard(message);
 	}
+	
+	@Override
+	public String buildSelection(String message, String... options) {
+	return GUI.getUserSelection(message, options);
+	}
+	
 }
