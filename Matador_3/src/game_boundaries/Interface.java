@@ -37,19 +37,15 @@ public interface Interface {
 	
 	public void showTransferMessage(String playerName, String fieldName, String ownerName, int amount);
 	
-	public void showNotEnoughBalanceMessage(Player player);
+	public void showNotEnoughBalanceMessage(String playerName);
 	
 	public void showNotEnoughBalanceToBuild(String playername);
 	
-	public void showBrokeMessage(Player player);
-	
-	public void showNotBoughtMessage(Player player);
+	public void showBrokeMessage(String playerName);
 	
 	public void showFieldBoughtMessage(String playerName, String fieldName, int amount);
 	
 	public String promptPlayerName(int playerNumber, boolean error);
-	
-	public boolean promptBuy(Player player, String fieldName, int price);
 	
 	public void updateBalance(Player player);
 	
@@ -65,9 +61,9 @@ public interface Interface {
 		
 	public void setHotel(int fieldNumber, boolean hasHotel);
 	
-	public void showPoor(Player player);
+	public void showPoor(String playerName);
 	
-	public void showNotPoor(Player player);
+	public void showNotPoor(String playerName);
 	
 	public void showCard (String message);
 	

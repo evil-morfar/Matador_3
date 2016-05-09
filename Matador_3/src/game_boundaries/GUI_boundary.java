@@ -81,8 +81,8 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showWinner(String player) {
-		GUI.showMessage(String.format(GUIarray[5],player));
+	public void showWinner(String playerName) {
+		GUI.showMessage(String.format(GUIarray[5],playerName));
 	}
 
 	@Override
@@ -91,18 +91,13 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showNotEnoughBalanceMessage(Player player) {
-		GUI.showMessage(String.format(GUIarray[14], player));
+	public void showNotEnoughBalanceMessage(String playerName) {
+		GUI.showMessage(String.format(GUIarray[14], playerName));
 	}
 
 	@Override
-	public void showBrokeMessage(Player player) {
-		GUI.showMessage(String.format(GUIarray[6], player));
-	}
-
-	@Override
-	public void showNotBoughtMessage(Player player) {
-		GUI.showMessage(String.format(GUIarray[10], player));
+	public void showBrokeMessage(String playerName) {
+		GUI.showMessage(String.format(GUIarray[6], playerName));
 	}
 
 	@Override
@@ -125,12 +120,6 @@ public class GUI_boundary implements Interface {
 		else
 			message = String.format(GUIarray[2], playerNumber);
 		return GUI.getUserString(message);
-	}
-
-	@Override
-	public boolean promptBuy(Player player, String fieldName, int price) {
-		String msg = String.format(GUIarray[8], player, fieldName, price);
-		return GUI.getUserLeftButtonPressed(msg, "yes", "no");
 	}
 
 	@Override
@@ -175,13 +164,13 @@ public class GUI_boundary implements Interface {
 	}
 
 	@Override
-	public void showPoor(Player player) {
-		GUI.showMessage(String.format(GUIarray[29], player));	
+	public void showPoor(String playerName) {
+		GUI.showMessage(String.format(GUIarray[29], playerName));	
 	}
 
 	@Override
-	public void showNotPoor(Player player) {
-		GUI.showMessage(String.format(GUIarray[30], player));	
+	public void showNotPoor(String playerName) {
+		GUI.showMessage(String.format(GUIarray[30], playerName));	
 	}
 
 	@Override
