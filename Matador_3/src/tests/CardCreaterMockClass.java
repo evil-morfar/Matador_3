@@ -23,7 +23,7 @@ import game.entities.cards.SuperCard;
 public class CardCreaterMockClass {
 
 	private SuperCard[] chanceCard;
-	private static final String CHANCE_FILE = "src/cardTypes/ChanceCardData.csv";
+	private static final String CHANCE_FILE = "src/game/entities/cards/ChanceCardData.csv";
 
 	public CardCreaterMockClass() {
 		this.chanceCard = new SuperCard[33];
