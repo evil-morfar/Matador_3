@@ -409,7 +409,7 @@ public class MainController {
 	}
 
 	/**
-	 * Moves a player a number of fields. Note player position starts at 1,
+	 * Moves a player a number of fields, either forwards or backwards. Note player position starts at 1,
 	 * while field indices starts at 0.
 	 * 
 	 * @param player
@@ -420,11 +420,10 @@ public class MainController {
 	public void movePlayer(Player player, int num) {
 		int position = player.getPosition();
 		if (position + num > board.getFields().length) {
-			position -= board.getFields().length;
 			System.out.println(player.getName() + " passed start, received 4k.");
 			player.depositBalance(4000);
 		}
-		position += num;
+		position = (position + num) % board.getFields().length;
 		System.out.println(player.getName() + " moved to " + position);
 		player.setPosition(position);
 		output.movePlayer(position, player.getName());
