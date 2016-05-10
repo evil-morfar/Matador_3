@@ -23,11 +23,11 @@ public class Player {
 
 	/**
 	 * Constructor for the Player class
-	 * @param name, the players name
-	 * @param startingBalance, the amount of starting credits for a player
-	 * @param color, the color type the player will display on the gameboard
-	 * @param position, what field # the player is currently on 
-	 * @param PlayerID, ID to identify the player
+	 * @param name the players name
+	 * @param startingBalance the amount of starting credits for a player
+	 * @param color the color type the player will display on the gameboard
+	 * @param position what field # the player is currently on 
+	 * @param PlayerID ID to identify the player
 	 */
 	public Player(String name, int startingBalance, String color, int position, int playerID){
 		this.name = name;
