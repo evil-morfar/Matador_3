@@ -15,10 +15,10 @@ import desktop_fields.Shipping;
 import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_fields.Tax;
-import fields.AbstractFields;
-import fields.AbstractOwnable;
-import fields.GoToJail;
-import fields.Territory;
+import game_entities.fields.AbstractFields;
+import game_entities.fields.AbstractOwnable;
+import game_entities.fields.GoToJail;
+import game_entities.fields.Territory;
 
 /**
  * Creates a Monopoly board.
@@ -84,7 +84,7 @@ public class Board {
 	public int getNumOwnedShips(Player player) {
 		int num = 0;
 		for(int i = 0; i < fields.length; i++){
-			if(fields[i] instanceof fields.Shipping)
+			if(fields[i] instanceof game_entities.fields.Shipping)
 				if(((AbstractOwnable) fields[i]).getOwner() == player)
 					num++;
 		}
@@ -99,7 +99,7 @@ public class Board {
 	public int getNumOwnedBreweries(Player player) {
 		int num = 0;
 		for(int i = 0; i < fields.length; i++)
-			if(fields[i] instanceof fields.Brewery)
+			if(fields[i] instanceof game_entities.fields.Brewery)
 				if(((AbstractOwnable) fields[i]).getOwner() == player)
 					num++;
 		return num;
@@ -193,7 +193,7 @@ public class Board {
 							.build();
 					break;
 				case "Brewery":
-					fields[i] = new fields.Brewery(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					fields[i] = new game_entities.fields.Brewery(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
 					guiFields[i] = new Brewery.Builder()
 							.setTitle(field[2])
 							.setDescription(field[2])
@@ -204,7 +204,7 @@ public class Board {
 
 					break;
 				case "Shipping":
-					fields[i] = new fields.Shipping(Integer.parseInt(field[0]), field[2],Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					fields[i] = new game_entities.fields.Shipping(Integer.parseInt(field[0]), field[2],Integer.parseInt(field[3]), Integer.parseInt(field[4]));
 					guiFields[i] = new Shipping.Builder()
 							.setTitle(field[2])
 							.setSubText("")
@@ -214,13 +214,13 @@ public class Board {
 							.build();
 					break;
 				case "Chance":
-					fields[i] = new fields.Chance(Integer.parseInt(field[0]));
+					fields[i] = new game_entities.fields.Chance(Integer.parseInt(field[0]));
 					guiFields[i] = new Chance.Builder()
 							//.setBgColor(Color.darkGray)
 							.build();
 					break;
 				case "Empty":
-					fields[i] = new fields.Empty(Integer.parseInt(field[0]), field[2]);
+					fields[i] = new game_entities.fields.Empty(Integer.parseInt(field[0]), field[2]);
 					if (i == 0) //Start needs special treatment in the GUI
 						guiFields[i] = new Start.Builder()
 						.setTitle("Start")
@@ -237,7 +237,7 @@ public class Board {
 						.build();
 					break;
 				case "FlatTax":
-					fields[i] = new fields.FlatTax(Integer.parseInt(field[0]),field[2], Integer.parseInt(field[3]));
+					fields[i] = new game_entities.fields.FlatTax(Integer.parseInt(field[0]),field[2], Integer.parseInt(field[3]));
 					guiFields[i] = new Tax.Builder()
 							.setTitle(field[2])
 							.setSubText(field[2])
@@ -245,7 +245,7 @@ public class Board {
 							.build();
 					break;
 				case "Tax":
-					fields[i] = new fields.Tax(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
+					fields[i] = new game_entities.fields.Tax(Integer.parseInt(field[0]), field[2], Integer.parseInt(field[3]), Integer.parseInt(field[4]));
 					guiFields[i] = new Tax.Builder()
 							.setTitle(field[2])
 							.setSubText(field[2])

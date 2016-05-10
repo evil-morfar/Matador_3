@@ -1,8 +1,8 @@
-package cardTypes;
+package game_entities.cards;
 
-import fields.AbstractFields;
 import game_controller.MainController;
 import game_entities.Player;
+import game_entities.fields.AbstractFields;
 
 public class MoveField extends SuperCard {
 

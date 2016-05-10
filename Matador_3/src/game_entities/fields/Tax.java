@@ -1,4 +1,4 @@
-package fields;
+package game_entities.fields;
 
 import game_boundaries.GUI_boundary;
 import game_controller.MainController;

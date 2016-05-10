@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import fields.AbstractOwnable;
-import fields.Territory;
 import game_entities.Board;
 import game_entities.Player;
+import game_entities.fields.AbstractOwnable;
+import game_entities.fields.Territory;
 
 public class DatabaseAccess1 implements DatabaseAccess {
 

@@ -10,13 +10,13 @@ import static org.junit.Assert.assertNotEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import fields.AbstractFields;
-import fields.AbstractOwnable;
-import fields.Brewery;
-import fields.Shipping;
-import fields.Territory;
 import game_entities.Board;
 import game_entities.Player;
+import game_entities.fields.AbstractFields;
+import game_entities.fields.AbstractOwnable;
+import game_entities.fields.Brewery;
+import game_entities.fields.Shipping;
+import game_entities.fields.Territory;
 
 /**
  * @author Nichlas N. Pilemand

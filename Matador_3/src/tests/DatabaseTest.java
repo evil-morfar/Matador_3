@@ -8,9 +8,9 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import database.DatabaseAccess1;
-import fields.AbstractOwnable;
 import game_entities.Board;
 import game_entities.Player;
+import game_entities.fields.AbstractOwnable;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DatabaseTest {

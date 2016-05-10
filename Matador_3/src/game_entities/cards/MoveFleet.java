@@ -1,9 +1,9 @@
-package cardTypes;
+package game_entities.cards;
 
-import fields.AbstractFields;
-import fields.AbstractOwnable;
 import game_controller.MainController;
 import game_entities.Player;
+import game_entities.fields.AbstractFields;
+import game_entities.fields.AbstractOwnable;
 
 public class MoveFleet extends SuperCard {
 

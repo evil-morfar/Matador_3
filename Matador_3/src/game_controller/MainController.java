@@ -4,16 +4,16 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import cardTypes.CardCreater;
-import cardTypes.SuperCard;
 import database.DatabaseAccess1;
 import die_classes.DieCup;
-import fields.AbstractFields;
-import fields.AbstractOwnable;
-import fields.Territory;
 import game_boundaries.GUI_boundary;
 import game_entities.Board;
 import game_entities.Player;
+import game_entities.cards.CardCreater;
+import game_entities.cards.SuperCard;
+import game_entities.fields.AbstractFields;
+import game_entities.fields.AbstractOwnable;
+import game_entities.fields.Territory;
 
 /**
  * 

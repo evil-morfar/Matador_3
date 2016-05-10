@@ -1,4 +1,4 @@
-package cardTypes;
+package game_entities.cards;
 
 import game_controller.MainController;
 

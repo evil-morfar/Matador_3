@@ -5,14 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import cardTypes.BalanceChange;
-import cardTypes.JailCard;
-import cardTypes.MoveField;
-import cardTypes.MoveFleet;
-import cardTypes.MoveJail;
-import cardTypes.PayHouses;
-import cardTypes.Poor;
-import cardTypes.SuperCard;
+import game_entities.cards.BalanceChange;
+import game_entities.cards.JailCard;
+import game_entities.cards.MoveField;
+import game_entities.cards.MoveFleet;
+import game_entities.cards.MoveJail;
+import game_entities.cards.PayHouses;
+import game_entities.cards.Poor;
+import game_entities.cards.SuperCard;
 
 /**
  * made to test if the cards are written properly, so this class doesn't shuffle the cards when inserting them into an array

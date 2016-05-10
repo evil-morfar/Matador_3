@@ -2,9 +2,9 @@ package database;
 
 import java.util.ArrayList;
 
-import fields.AbstractOwnable;
 import game_entities.Board;
 import game_entities.Player;
+import game_entities.fields.AbstractOwnable;
 
 public interface DatabaseAccess {
 	

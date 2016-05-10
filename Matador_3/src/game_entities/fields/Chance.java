@@ -1,7 +1,7 @@
-package fields;
+package game_entities.fields;
 
-import cardTypes.SuperCard;
 import game_controller.MainController;
+import game_entities.cards.SuperCard;
 
 
 /**
