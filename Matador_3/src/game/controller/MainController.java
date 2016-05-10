@@ -331,6 +331,7 @@ public class MainController {
 								output.setHotel(buildable.getFieldID(), true);	
 								output.setHouses(buildable.getFieldID(), 0);
 							}
+							db.saveField(buildable);
 							break;
 						}
 					}
