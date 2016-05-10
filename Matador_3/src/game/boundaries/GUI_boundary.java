@@ -12,9 +12,10 @@ import game.entities.Player;
 public class GUI_boundary implements Interface {
 
 	private String[] GUIarray;
+	private final static String guiFileLoc = "src/game/boundaries/GUItext.csv";
 	
-	public GUI_boundary (String filename){
-		BoundaryReader r = new BoundaryReader();
+	public GUI_boundary (){
+		BoundaryReader r = new BoundaryReader(guiFileLoc);
 		GUIarray = r.getGUIText();		
 	}
 		

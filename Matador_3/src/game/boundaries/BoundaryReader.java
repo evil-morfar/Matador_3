@@ -7,13 +7,13 @@ import java.io.IOException;
 
 public class BoundaryReader {
 
-	public BoundaryReader(){
+	private String guiFile;
+	public BoundaryReader(String file){
+		this.guiFile = file;
 		GUIreader();
 	}
 	
 	private String[] GUIline = new String[40];
-
-	private static final String GUI_FILE = "src/game/boundaries/GUItext.csv";
 
 
 	private void GUIreader() {
@@ -23,7 +23,7 @@ public class BoundaryReader {
 		BufferedReader br = null;
 
 		try {
-			br = new BufferedReader(new FileReader(GUI_FILE));
+			br = new BufferedReader(new FileReader(guiFile));
 			int i = 1;
 			while((line = br.readLine()) != null) {
 				String[] field = line.split(splitBy);

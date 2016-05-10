@@ -49,7 +49,7 @@ public class MainController {
 	public MainController() {
 		dieCup = new DieCup();
 		players = new ArrayList<Player>();
-		output = new GUI_boundary("");
+		output = new GUI_boundary();
 		board = new Board();
 		cardcreater = new CardCreater();
 		candidateTerritories = createCandidateTerritory();
