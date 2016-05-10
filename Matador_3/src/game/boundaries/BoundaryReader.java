@@ -13,7 +13,7 @@ public class BoundaryReader {
 	
 	private String[] GUIline = new String[40];
 
-	private static final String GUI_FILE = "src/game_boundaries/GUItext.csv";
+	private static final String GUI_FILE = "src/game/boundaries/GUItext.csv";
 
 
 	private void GUIreader() {

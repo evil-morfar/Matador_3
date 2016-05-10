@@ -8,7 +8,7 @@ import java.io.IOException;
 public class CardCreater {
 
 	private SuperCard[] chanceCard;
-	private static final String CHANCE_FILE = "src/cardTypes/ChanceCardData.csv";
+	private static final String CHANCE_FILE = "src/game/entities/cards/ChanceCardData.csv";
 
 	public CardCreater() {
 		this.chanceCard = new SuperCard[33];

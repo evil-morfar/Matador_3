@@ -27,7 +27,7 @@ import game.entities.fields.Territory;
  */
 public class Board {
 
-	private static final String CSV_FILE = "src/fields/fieldData.csv";
+	private static final String CSV_FILE = "src/game/entities/fields/fieldData.csv";
 	public AbstractFields[] fields; 
 	private Field[] guiFields; // TODO Create these
 
