@@ -18,8 +18,6 @@ public interface DatabaseAccess {
 	
 	public void savePlayer(Player player);
 	
-	public void updateView(int gameID);
-	
 	public void setGameID(int id);
 	
 	public void saveField(AbstractOwnable field);

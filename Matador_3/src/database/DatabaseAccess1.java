@@ -30,6 +30,10 @@ public class DatabaseAccess1 implements DatabaseAccess {
 		return hasConnection;
 	}
 
+	/**
+	 * Adds a new player to the Database
+	 * @see Player#Player Player() for param menings.
+	 */
 	@Override
 	public void addNewPlayer(int id, String name, int account, int jailcards, String color, int position) {
 		if(hasConnection){
@@ -52,6 +56,12 @@ public class DatabaseAccess1 implements DatabaseAccess {
 
 	}
 
+	/**
+	 * Creates a new game in the DB.
+	 * @param name The game's name.
+	 * @param currentPlayer The ID of the player whose turn it is.
+	 * @return The game_id of the newly created game.
+	 */
 	@Override
 	public int createNewGame(String name, int currentPlayer) {
 		if(hasConnection){
@@ -71,6 +81,11 @@ public class DatabaseAccess1 implements DatabaseAccess {
 		return -1;
 	}
 
+	/**
+	 * Extracts all relevant information from the Player and saves it 
+	 * to the Database.
+	 * @param player The player to save.
+	 */
 	@Override
 	public void savePlayer(Player player) {
 		if(hasConnection){
@@ -94,17 +109,18 @@ public class DatabaseAccess1 implements DatabaseAccess {
 		}
 	}
 
-	@Override
-	public void updateView(int gameID) {
-		// TODO Auto-generated method stub
-
-	}
-
+	/**
+	 * Updates the gameID the class should operate on
+	 */
 	public void setGameID(int id){
 		this.game_id = id;
-		updateView(id);
 	}
 
+	/**
+	 * Saves the current game.
+	 * @param currentPlayer The ID of the player whose turn it is.
+	 * @param board The game board //TODO (currently unused)
+	 */
 	@Override
 	public void saveGame(int currentPlayer, Board board) {
 		if(hasConnection){
@@ -122,6 +138,10 @@ public class DatabaseAccess1 implements DatabaseAccess {
 		}
 	}
 
+	/**
+	 * Saves all relevant information from a field to the DB.
+	 * @param field The AbstractOwnable field to save.
+	 */
 	public void saveField(AbstractOwnable field){
 		if(hasConnection){
 			try {
@@ -187,6 +207,10 @@ public class DatabaseAccess1 implements DatabaseAccess {
 		return 10; //Just return a few, we can't check it 
 	}
 
+	/**
+	 * Fetches the game names of all saved games.
+	 * @return All the game names contained in an ArrayList<String>.
+	 */
 	@Override
 	public ArrayList<String> getSavedGames() {
 		if(hasConnection){
@@ -206,6 +230,13 @@ public class DatabaseAccess1 implements DatabaseAccess {
 		return null;
 	}
 
+
+	/**
+	 * Fetches all players from the DB with game_id = id using the DB View "fullplayer".
+	 * Creates the players, and sets all their saved attributes.
+	 * @param id The game_id to fetch players from
+	 * @return ArrayList<Player> containing all the players.
+	 */
 	@Override
 	public ArrayList<Player> getPlayersFromGame(int id) {
 		if(hasConnection){
@@ -232,6 +263,9 @@ public class DatabaseAccess1 implements DatabaseAccess {
 		return null;
 	}
 
+	/**
+	 * @return The playerID of the current player in the current game.
+	 */
 	public int getCurrentPlayer() {
 		ResultSet r;
 		try {
