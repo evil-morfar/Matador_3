@@ -8,7 +8,7 @@ drop table if exists bank;
 drop table if exists jail;
 drop table if exists players;
 drop table if exists games;
-drop view if exists game;
+drop view if exists fullplayer;
 drop procedure if exists CreatePlayer;
 drop procedure if exists CreateGame;		
 drop procedure if exists SavePlayer;
@@ -69,13 +69,10 @@ create table jail(
     foreign key (game_id) references games(game_id )
 );
 
-create view game as (
+create view fullplayer as (
 	select * from 
-		games
-        join players using(game_id)
-        left outer join player_properties using(game_id, player_id)
-        left outer join bank using(game_id)
-        left outer join jail using(game_id, player_id)
+		players
+        join jail using(game_id, player_id)
 );	
 
 delimiter //
