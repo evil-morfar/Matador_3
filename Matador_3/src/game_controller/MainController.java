@@ -56,27 +56,7 @@ public class MainController {
 		buildableTerritories = new ArrayList<Territory>();
 		db = new DatabaseAccess1();
 	}
-
-	public Player getCurrentPlayer() {
-		return currentPlayer;
-	}
-
-	public CardCreater getCardCreater() {
-		return cardcreater;
-	}
-
-	public Board getBoard() {
-		return board;
-	}
-
-	public GUI_boundary getGUI() {
-		return output;
-	}
-
-	public int getRoll() {
-		return dieCup.getSum();
-	}
-
+	
 	public void run() {
 		output.create(board.getGuiFields());
 		boolean running = true;
@@ -256,6 +236,7 @@ public class MainController {
 			AbstractFields field = null;
 			while(!this.endTurn) {
 				String sPlayer = currentPlayer.getName() + "'s turn:";
+				System.out.println(sPlayer);
 				if(!option.equals("end")) // Special case
 					if(!hasRolled)
 						option = output.getUserButtonPressed(sPlayer, "Roll", "Build", "Save and Exit");
@@ -360,54 +341,70 @@ public class MainController {
 
 				case("Buy"):
 					currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
-				output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());
-				((AbstractOwnable) field).setOwner(currentPlayer);	
-				output.setOwner(field.getFieldID(), currentPlayer.getName());
-				output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
-				db.saveField((AbstractOwnable) field);
-				break;
+					output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());
+					((AbstractOwnable) field).setOwner(currentPlayer);	
+					output.setOwner(field.getFieldID(), currentPlayer.getName());
+					output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
+					db.saveField((AbstractOwnable) field);
+					break;
 
 				case("End Turn"): case("end"):
 					System.out.println("End turn for: " + currentPlayer.getName());
-				db.savePlayer(currentPlayer);
-				db.saveGame(currentPlayer.getPlayerID(), board);
-				currentPlayer = getNextPlayer(currentPlayer);
-				System.out.println(currentPlayer.getName()+"'s turn");
-				hasRolled = false;
-				this.endTurn = true;
-				break;
+					db.savePlayer(currentPlayer);
+					db.saveGame(currentPlayer.getPlayerID(), board);
+					currentPlayer = getNextPlayer(currentPlayer);
+					hasRolled = false;
+					this.endTurn = true;
+					break;
 
 				case("Save and Exit"):
 					this.endTurn = true;
-				db.savePlayer(currentPlayer);
-				db.saveGame(currentPlayer.getPlayerID(), board);
-				System.exit(0);
-				//TODO Database
-				break;
+					db.savePlayer(currentPlayer);
+					db.saveGame(currentPlayer.getPlayerID(), board);
+					System.exit(0);
+					break;
 				}
 			}
 			currentPlayer.setNumDoubles(numDoubles);
 		}
 	}
-
-	/**
-	 * Gets the next player in players based on a given player.
-	 * 
-	 * @param player
-	 *            The player right before the intended player.
-	 * @return The next player. Will be the first if player was the last in
-	 *         line.
-	 */
-	private Player getNextPlayer(Player player) {
-		Player p;
-		if (player.getPlayerID() == players.size())
-			p = players.get(0);
-		else
-			p = players.get(player.getPlayerID());
-		// Make sure we don't mark a broke player as the next player
-		return !p.isBroke() ? p : getNextPlayer(p);
+	
+	private void winstate() {
+		output.showWinner(currentPlayer.getName());
+		System.exit(0);
+	}
+	
+	public Player getCurrentPlayer() {
+		return currentPlayer;
 	}
 
+	public CardCreater getCardCreater() {
+		return cardcreater;
+	}
+
+	public Board getBoard() {
+		return board;
+	}
+
+	public GUI_boundary getGUI() {
+		return output;
+	}
+
+	public int getRoll() {
+		return dieCup.getSum();
+	}
+	
+	/**
+	 * Ends the current player's turn.
+	 */
+	public void endTurn() {
+		this.endTurn = true;
+	}
+
+	public int getNumPlayers() {
+		return players.size();
+	}
+	
 	/**
 	 * Moves a player a number of fields, either forwards or backwards. Note player position starts at 1,
 	 * while field indices starts at 0.
@@ -443,6 +440,24 @@ public class MainController {
 	}
 
 	/**
+	 * Gets the next player in players based on a given player.
+	 * 
+	 * @param player
+	 *            The player right before the intended player.
+	 * @return The next player. Will be the first if player was the last in
+	 *         line.
+	 */
+	private Player getNextPlayer(Player player) {
+		Player p;
+		if (player.getPlayerID() == players.size())
+			p = players.get(0);
+		else
+			p = players.get(player.getPlayerID());
+		// Make sure we don't mark a broke player as the next player
+		return !p.isBroke() ? p : getNextPlayer(p);
+	}
+
+	/**
 	 * @return The number of broke players
 	 */
 	private int getNumNotBrokePlayers() {
@@ -465,21 +480,4 @@ public class MainController {
 		}
 		return candidateTerritory;
 	}
-	
-	private void winstate() {
-		output.showWinner(currentPlayer.getName());
-		System.exit(0);
-	}
-
-	/**
-	 * Ends the player's turn.
-	 */
-	public void endTurn() {
-		this.endTurn = true;
-	}
-
-	public int getNumPlayers() {
-		return players.size();
-	}
-
 }
