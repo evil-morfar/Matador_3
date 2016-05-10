@@ -152,4 +152,8 @@ public class Player {
 	public int getNumJailRolls(){
 		return this.numJailRolls;
 	}
+	
+	public String toString(){
+		return "Player("+this.playerID+"), name: "+this.name+", position: "+this.position+", balance: "+ this.getBalance();
+	}
 }
