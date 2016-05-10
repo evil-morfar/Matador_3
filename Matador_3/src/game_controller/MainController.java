@@ -140,6 +140,9 @@ public class MainController {
 			movePlayerTo(p, p.getPosition());
 		}
 		
+		currentPlayer = players.get(db.getCurrentPlayer() - 1 ); //DB saves playerID, not array index
+		System.out.println("CPlayer: "+ currentPlayer);
+		this.state = GameState.PLAY_STATE;
 	}
 
 	private void namestate() {
@@ -340,15 +343,16 @@ public class MainController {
 				output.setOwner(field.getFieldID(), currentPlayer.getName());
 				output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
 				db.saveField((AbstractOwnable) field);
+				break;
 
 				case("End Turn"): case("end"):
-					System.out.println(currentPlayer.getName());
-				currentPlayer = getNextPlayer(currentPlayer);
-				System.out.println(currentPlayer.getName());
-				hasRolled = false;
-				this.endTurn = true;
+					System.out.println("End turn for: " + currentPlayer.getName());
 				db.savePlayer(currentPlayer);
 				db.saveGame(currentPlayer.getPlayerID(), board);
+				currentPlayer = getNextPlayer(currentPlayer);
+				System.out.println(currentPlayer.getName()+"'s turn");
+				hasRolled = false;
+				this.endTurn = true;
 				break;
 
 				case("Save and Exit"):

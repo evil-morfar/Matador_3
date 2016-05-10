@@ -211,11 +211,14 @@ public class DatabaseAccess1 implements DatabaseAccess {
 			ArrayList<Player> res = new ArrayList<Player>();
 			ResultSet r;
 			try {
-				r = c.doQuery("select * from players where game_id = "+ id + ";");
+				r = c.doQuery("select * from fullplayer where game_id = "+ id + ";");
 				while(r.next()){
 					Player p = new Player(r.getString("player_name"), r.getInt("account"),
 							r.getString("color"), r.getInt("position"), r.getInt("player_id"));
-					p.
+					p.setNumJailCards(r.getInt("jailcards"));
+					p.setInJail(r.getBoolean("isInJail"));
+					p.setNumDoubles(r.getInt("num_doubles"));
+					p.setNumJailRolls(r.getInt("jail_time"));
 					res.add(p);
 				}
 				return res;
@@ -226,6 +229,19 @@ public class DatabaseAccess1 implements DatabaseAccess {
 			
 		}
 		return null;
+	}
+
+	public int getCurrentPlayer() {
+		ResultSet r;
+		try {
+			r = c.doQuery("select current_player from games where game_id = " +game_id);
+			r.next();
+			return r.getInt("current_player");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 1; // default
 	}
 
 }

@@ -40,6 +40,7 @@ public class DatabaseTest {
 	public void testSavePlayer(){
 		if(hasCon) {
 			Player p = new Player("Test player", 20000, "blue", 1, 1);
+			db.setGameID(game_id);
 			db.savePlayer(p);
 		}
 	}
