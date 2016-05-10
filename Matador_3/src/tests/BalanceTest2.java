@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import game_entities.Player;
+import game.entities.Player;
 
 public class BalanceTest2 {
 

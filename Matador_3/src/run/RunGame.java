@@ -1,5 +1,5 @@
 package run;
-import game_controller.MainController;
+import game.controller.MainController;
 
 public class RunGame {
 

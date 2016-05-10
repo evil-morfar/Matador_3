@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import game_entities.cards.SuperCard;
+import game.entities.cards.SuperCard;
 
 public class CardTest {
 

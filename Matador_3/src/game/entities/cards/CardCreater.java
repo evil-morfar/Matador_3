@@ -1,31 +1,16 @@
-package tests;
+package game.entities.cards;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import game.entities.cards.BalanceChange;
-import game.entities.cards.JailCard;
-import game.entities.cards.MoveField;
-import game.entities.cards.MoveFleet;
-import game.entities.cards.MoveJail;
-import game.entities.cards.PayHouses;
-import game.entities.cards.Poor;
-import game.entities.cards.SuperCard;
-
-/**
- * made to test if the cards are written properly, so this class doesn't shuffle the cards when inserting them into an array
- * @author Henrik
- *
- */
-
-public class CardCreaterMockClass {
+public class CardCreater {
 
 	private SuperCard[] chanceCard;
 	private static final String CHANCE_FILE = "src/cardTypes/ChanceCardData.csv";
 
-	public CardCreaterMockClass() {
+	public CardCreater() {
 		this.chanceCard = new SuperCard[33];
 		chanceReader();
 	}
@@ -87,6 +72,13 @@ public class CardCreaterMockClass {
 
 				i++;
 			}
+			// inserting the cards in a random order into the array
+			for(i = 0; i < chanceCard.length; i++) {
+				int j = (int) (Math.random()*chanceCard.length);
+				SuperCard temp = chanceCard[i];
+				chanceCard[i] = chanceCard[j];
+				chanceCard[j] = temp;
+			}
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -107,6 +99,17 @@ public class CardCreaterMockClass {
 
 	public SuperCard[] getCards(){
 		return this.chanceCard;
+	}
+
+	//draw a chance card and put it on the bottom 
+	public SuperCard drawCard(){
+		SuperCard draw;
+		draw=chanceCard[0];
+		for(int i = 0; i < (chanceCard.length-1); i++){
+			chanceCard[i]=chanceCard[i + 1];
+		}
+		chanceCard[chanceCard.length - 1] = draw;	
+		return draw;
 	}
 
 }

@@ -7,10 +7,10 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import database.DatabaseAccess1;
-import game_entities.Board;
-import game_entities.Player;
-import game_entities.fields.AbstractOwnable;
+import game.database.DatabaseAccess1;
+import game.entities.Board;
+import game.entities.Player;
+import game.entities.fields.AbstractOwnable;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DatabaseTest {
