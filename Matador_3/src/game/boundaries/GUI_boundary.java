@@ -9,7 +9,7 @@ import game.entities.Player;
 
 
 
-public class GUI_boundary implements Interface {
+public class GUI_boundary implements GUI_Interface {
 
 	private String[] GUIarray;
 	private final static String guiFileLoc = "src/game/boundaries/GUItext.csv";

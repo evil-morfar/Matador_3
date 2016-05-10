@@ -15,7 +15,7 @@ import game.entities.Player;
  * 
  ********************************************************************/
 
-public interface Interface {
+public interface GUI_Interface {
 	
 	public void setDice(int[] dice);
 
