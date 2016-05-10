@@ -9,8 +9,8 @@ import game_entities.Player;
  ***************************************************/
 public abstract class AbstractOwnable extends AbstractFields {
 
-	protected int price;
-	protected Player owner;
+	private int price;
+	private Player owner;
 
 	public AbstractOwnable(int fieldID, String name, String fieldType, int price) {
 		super(fieldID, name, fieldType);
