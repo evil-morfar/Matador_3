@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import fields.AbstractOwnable;
 import fields.Territory;
@@ -242,6 +243,38 @@ public class DatabaseAccess1 implements DatabaseAccess {
 			e.printStackTrace();
 		}
 		return 1; // default
+	}
+	
+	/**
+	 * Fetches saved fields from the DB on a given game.
+	 * Example to get num_hotels from the 2 row: num_hotels = ret.get(1).get(3);
+	 * @param id The game_id in the DB to fetch saved fields from
+	 * @return A 2 dim integer List where each field is represented as the first row,
+	 * and the retrieved data in the second list, in the following order:
+	 * 		field_id,
+	 * 		player_id,
+	 * 		num_houses,
+	 * 		num_hotels.	 		
+	 */
+	public List<List<Integer>> getFieldsFromGame(int id){
+		List<List<Integer>> ret = new ArrayList<List<Integer>>();
+		int i = 0;
+		ResultSet r;
+		try {
+			r = c.doQuery("select field_id, player_id, num_houses, num_hotels from player_properties where game_id = "+id);
+			while(r.next()){
+				ret.add(i, new	ArrayList<Integer>());
+				ret.get(i).add(r.getInt("field_id"));
+				ret.get(i).add(r.getInt("player_id"));
+				ret.get(i).add(r.getInt("num_houses"));
+				ret.get(i).add(r.getInt("num_hotels"));
+				i++;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ret;		
 	}
 
 }

@@ -2,6 +2,7 @@ package game_controller;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
 import cardTypes.CardCreater;
 import cardTypes.SuperCard;
@@ -138,6 +139,27 @@ public class MainController {
 		for(Player p : players) {
 			output.addPlayer(p.getName(), p.getBalance(), p.getPlayerID());
 			movePlayerTo(p, p.getPosition());
+		}
+		// Load fields from the DB and update them
+		List<List<Integer>> loadedFields = db.getFieldsFromGame(gameID);
+		AbstractFields[] fields = board.getFields();
+		AbstractOwnable field;
+		int fieldID; Player owner; int houses; int hotels;
+		for(List<Integer> row : loadedFields){
+			fieldID = row.get(0);
+			owner = players.get(row.get(1) - 1); // - 1 as the DB operates on playerID, not indexes in players
+			houses = row.get(2);
+			hotels = row.get(3);
+			field = (AbstractOwnable) fields[fieldID - 1]; // Same as above
+			field.setOwner(owner);
+			output.setOwner(fieldID, owner.getName());
+			if (field instanceof Territory) { // only Territory has houses
+				((Territory) field).setNumHouses(houses);
+				output.setHouses(fieldID, houses);
+				((Territory) field).setHotel(hotels == 1);
+				output.setHotel(fieldID, hotels == 1);
+			}
+		
 		}
 		
 		currentPlayer = players.get(db.getCurrentPlayer() - 1 ); //DB saves playerID, not array index
