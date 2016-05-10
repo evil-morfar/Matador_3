@@ -371,7 +371,9 @@ public class MainController {
 	
 	private void winstate() {
 		output.showWinner(currentPlayer.getName());
-		System.exit(0);
+		// Return to the start Screen
+		this.state = GameState.START_STATE;
+		//TODO Should we delete the game from the DB ?
 	}
 	
 	public Player getCurrentPlayer() {
