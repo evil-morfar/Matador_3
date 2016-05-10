@@ -1,10 +1,11 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import game.entities.cards.CardCreater;
 import game.entities.cards.SuperCard;
 
 public class CardTest {
@@ -38,5 +39,11 @@ public class CardTest {
 //	public void testChance03() {
 //		assertEquals(3000,chanceCard[30].g)
 //	}
+	@Test
+	public void testCardRandomizer(){
+		SuperCard[] cards1 = new CardCreater().getCards();
+		SuperCard[] cards2 = new CardCreater().getCards();
+		assertNotEquals(cards1[0].toString(), cards2[0].toString());
+	}
 	
 }
