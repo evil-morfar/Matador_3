@@ -1,6 +1,7 @@
 package game.database;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import game.entities.Board;
 import game.entities.Player;
@@ -29,4 +30,8 @@ public interface DatabaseAccess {
 	public ArrayList<String> getSavedGames();
 	
 	public ArrayList<Player> getPlayersFromGame(int id);
+
+	public List<List<Integer>> getFieldsFromGame(int gameID);
+
+	public int getCurrentPlayer();
 }

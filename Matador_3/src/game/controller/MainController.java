@@ -1,16 +1,17 @@
 package game.controller;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import game.boundaries.GUI_Interface;
 import game.boundaries.GUI_boundary;
+import game.database.DatabaseAccess;
 import game.database.DatabaseAccess1;
 import game.entities.Board;
 import game.entities.Player;
 import game.entities.cards.CardCreater;
-import game.entities.cards.SuperCard;
 import game.entities.dice.DieCup;
+import game.entities.dice.DieCup_Interface;
 import game.entities.fields.AbstractFields;
 import game.entities.fields.AbstractOwnable;
 import game.entities.fields.Territory;
@@ -32,8 +33,8 @@ public class MainController {
 
 	private int turnNumber;
 
-	private DieCup dieCup;
-	private GUI_boundary output;
+	private DieCup_Interface dieCup;
+	private GUI_Interface output;
 	private ArrayList<Player> players;
 	private Player currentPlayer;
 	private Board board;
@@ -41,7 +42,7 @@ public class MainController {
 	private final int startingBalance = 30000;
 	private ArrayList<Territory> candidateTerritories;
 	private ArrayList<Territory> buildableTerritories;
-	private DatabaseAccess1 db;
+	private DatabaseAccess db;
 
 	private static CardCreater cardcreater;
 
@@ -388,7 +389,7 @@ public class MainController {
 		return board;
 	}
 
-	public GUI_boundary getGUI() {
+	public GUI_Interface getGUI() {
 		return output;
 	}
 

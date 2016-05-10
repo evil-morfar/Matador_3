@@ -1,5 +1,6 @@
 package game.entities.fields;
 
+import game.boundaries.GUI_Interface;
 import game.boundaries.GUI_boundary;
 import game.controller.MainController;
 import game.entities.Player;
@@ -36,10 +37,8 @@ public class Tax extends AbstractNonOwnables {
 	 */
 	@Override
 	public void landOnField(MainController controller) {
-		// TODO The player must choose between paying this.amount or
-		// player.getBalance() / this.percent
 		Player p = controller.getCurrentPlayer();
-		GUI_boundary out = controller.getGUI();
+		GUI_Interface out = controller.getGUI();
 		String option = out.getUserButtonPressed("Choose:", "Pay " +this.percent+"%", "Pay " + this.amount+ ",-");
 		
 		if(option.equals("Pay " +this.percent+"%")){

@@ -6,7 +6,7 @@ package game.entities.dice;
  * @return Simulates the Diecup with 2 dices
  *************************************************************/
 
-public class DieCup {
+public class DieCup implements DieCup_Interface{
 
 	private Die die1;
 	private Die die2;
