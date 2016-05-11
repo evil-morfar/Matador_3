@@ -10,7 +10,7 @@ import game.entities.Player;
  * @author Nichlas N. Pilemand
  */
 public class Territory extends AbstractOwnable {
-	
+
 	private static final String FIELD_TYPE = "Territory";
 	private int[] rent;
 	private int numHouses = 0;
@@ -38,7 +38,7 @@ public class Territory extends AbstractOwnable {
 		this.housePrice = housePrice;
 		this.color = color;
 	}
-	
+
 	/**
 	 * Assigns houses to the territory. Must be at least 0 and at most 4.
 	 * @param i The number of houses to assign (0-4)
@@ -50,32 +50,32 @@ public class Territory extends AbstractOwnable {
 			//TODO Throw error?			
 		}
 	}
-	
+
 	/**
 	 * @return The number of houses on the field
 	 */
 	public int getNumHouses(){
 		return this.numHouses;
 	}
-	
+
 	/**
 	 * @param b Boolean, assigns hotel to the field
 	 */
 	public void setHotel(boolean b){
 		this.hasHotel = b;
 	}
-	
+
 	/**
 	 * @return True if there's a hotel on the field, false otherwise
 	 */
 	public boolean hasHotel(){
 		return this.hasHotel;
 	}
-	
+
 	public String getColor() {
 		return this.color;
 	}
-	
+
 	/**
 	 * Controls what happens when a player lands on this type of field.
 	 * @param controller Main game controller.
@@ -86,25 +86,12 @@ public class Territory extends AbstractOwnable {
 		Player owner = this.getOwner();
 		Board board = controller.getBoard();
 		if (owner != player && this.isOwned()) {
-			int rent = 0;
-			// Calculate the rent based on number of owned fields or houses
-			if (this.hasHotel) {
-				rent = this.rent[5];
-			} else if(this.numHouses > 0) {
-				rent = this.rent[this.numHouses];
-			} else if(board.getNumColorFields(this.color) == board.getNumOwnedSameColor(owner, this.color)) {
-				rent = 2 * this.rent[0]; // Double rent
-			} else if (player != owner) {
-				rent = this.rent[0];
-			} else if(!this.isOwned()){
-				//case not owned
-				
-			}
-			if (rent != 0) // Rent is due
-				player.withdrawBalance(rent);
-				owner.depositBalance(rent);
+			int rent = this.getRent(board);
+			player.withdrawBalance(rent);
+			owner.depositBalance(rent);
 			controller.getGUI().showTransferMessage(player.getName(), this.getName(), owner.getName(), rent);
 		}
+
 	}
 
 	/**
@@ -112,6 +99,24 @@ public class Territory extends AbstractOwnable {
 	 */
 	public int getHousePrice() {
 		return housePrice;
+	}
+
+	/**
+	 *Returns the amount that needs to be payed if someone lands on the field.
+	 */
+	public int getRent(Board board){
+		int rent = 0;
+		// Calculate the rent based on number of owned fields or houses
+		if (this.hasHotel) 
+			rent = this.rent[5];
+		else if(this.numHouses > 0) 
+			rent = this.rent[this.numHouses];
+		else if(board.getNumColorFields(this.color) == board.getNumOwnedSameColor(this.getOwner(), this.color)) 
+			rent = 2 * this.rent[0]; // Double rent
+		else
+			rent = this.rent[0];
+
+		return rent;
 	}
 
 
