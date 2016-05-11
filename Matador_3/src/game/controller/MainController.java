@@ -236,6 +236,12 @@ public class MainController {
 			Boolean hasRolled = false;
 			AbstractFields field = null;
 			while(!this.endTurn) {
+				// No prompt to roll if broke!
+				if(currentPlayer.isBroke()){
+					output.removeCar(currentPlayer.getName());
+					output.showBrokeMessage(currentPlayer.getName());
+					option = "end";
+				}
 				String sPlayer = currentPlayer.getName() + "'s turn:";
 				System.out.println(sPlayer);
 				if(!option.equals("end")) // Special case

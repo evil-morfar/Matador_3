@@ -69,5 +69,9 @@ public interface GUI_Interface {
 	
 	public String getUserString(String msg);
 	
-	public String getUserSelection(String msg, String... options);	public String buildSelection(String message, String... options);
+	public String getUserSelection(String msg, String... options);
+	
+	public String buildSelection(String message, String... options);
+	
+	public void removeCar(String playername);
 }

@@ -196,4 +196,9 @@ public class GUI_boundary implements GUI_Interface {
 	public String getUserSelection(String msg, String... options){
 		return GUI.getUserSelection(msg, options);
 	}
+
+	@Override
+	public void removeCar(String playername) {
+		GUI.removeAllCars(playername);		
+	}
 }

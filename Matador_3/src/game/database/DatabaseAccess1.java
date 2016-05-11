@@ -251,6 +251,7 @@ public class DatabaseAccess1 implements DatabaseAccess {
 					p.setInJail(r.getBoolean("isInJail"));
 					p.setNumDoubles(r.getInt("num_doubles"));
 					p.setNumJailRolls(r.getInt("jail_time"));
+					p.setIsBroke(p.getBalance() == 0); // Don't forget to check if they're broke
 					res.add(p);
 				}
 				return res;
