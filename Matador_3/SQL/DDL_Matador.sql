@@ -72,7 +72,7 @@ create table jail(
 create view fullplayer as (
 	select * from 
 		players
-        join jail using(game_id, player_id)
+		left outer join jail using(game_id, player_id)
 );	
 
 delimiter //
