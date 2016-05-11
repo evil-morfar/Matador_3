@@ -21,7 +21,6 @@ create table games(
     game_name			varchar(30),
     last_saved_time		timestamp,
     current_player		int(1) check (current_player <= 6),
-    cards				binary(30),
     primary key(game_id)
 );
 
@@ -43,7 +42,6 @@ create table player_properties(
     player_id	int,
     num_houses	int(1) check (num_houses <= 4 && num_houses >= 0),
     num_hotels	int(1) check (num_hotels = 0 || num_hotels = 1),
-   ## field_type	varchar(10),
     primary key (field_id, game_id),
 	foreign key (player_id) references players(player_id),
     foreign key (game_id) references games(game_id )

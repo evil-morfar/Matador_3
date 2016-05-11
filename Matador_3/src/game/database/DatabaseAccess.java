@@ -28,9 +28,8 @@ public interface DatabaseAccess {
 	/**
 	 * Saves the current game.
 	 * @param currentPlayer The ID of the player whose turn it is.
-	 * @param board The game board //TODO (currently unused)
 	 */
-	public void saveGame(int currentPlayer, Board board);
+	public void saveGame(int currentPlayer);
 
 	/**
 	 * Extracts all relevant information from the Player and saves it 

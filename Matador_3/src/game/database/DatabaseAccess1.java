@@ -122,7 +122,7 @@ public class DatabaseAccess1 implements DatabaseAccess {
 	 * @param board The game board //TODO (currently unused)
 	 */
 	@Override
-	public void saveGame(int currentPlayer, Board board) {
+	public void saveGame(int currentPlayer) {
 		if(hasConnection){
 			try {
 				CallableStatement stmt = c.getConnection().prepareCall(
