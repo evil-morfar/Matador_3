@@ -362,7 +362,7 @@ public class MainController {
 				case("End Turn"): case("end"):
 					System.out.println("End turn for: " + currentPlayer.getName());
 					db.savePlayer(currentPlayer);
-					db.saveGame(currentPlayer.getPlayerID(), board);
+					db.saveGame(currentPlayer.getPlayerID());
 					currentPlayer = getNextPlayer(currentPlayer);
 					hasRolled = false;
 					this.endTurn = true;
@@ -371,7 +371,7 @@ public class MainController {
 				case("Save and Exit"):
 					this.endTurn = true;
 					db.savePlayer(currentPlayer);
-					db.saveGame(currentPlayer.getPlayerID(), board);
+					db.saveGame(currentPlayer.getPlayerID());
 					System.exit(0);
 					break;
 				}
