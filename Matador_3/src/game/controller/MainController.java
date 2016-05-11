@@ -419,12 +419,15 @@ public class MainController {
 	 *            Number of fields to move.
 	 */
 	public void movePlayer(Player player, int num) {
-		int position = player.getPosition();
-		if (position + num > board.getFields().length) {
+		int position = player.getPosition() + num;
+		int boardLen = board.getFields().length;
+		if (position > boardLen) {
 			System.out.println(player.getName() + " passed start, received 4k.");
 			player.depositBalance(4000);
-		}
-		position = (position + num) % board.getFields().length;
+			position -= boardLen;
+			
+		} else if (position < 1)
+			position += boardLen;
 		System.out.println(player.getName() + " moved to " + position);
 		player.setPosition(position);
 		output.movePlayer(position, player.getName());
