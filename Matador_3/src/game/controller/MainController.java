@@ -427,6 +427,7 @@ public class MainController {
 		if (position > boardLen) {
 			System.out.println(player.getName() + " passed start, received 4k.");
 			player.depositBalance(4000);
+			output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance()); // Show them right away the got the money
 			position -= boardLen;
 			
 		} else if (position < 1)
