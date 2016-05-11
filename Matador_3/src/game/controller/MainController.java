@@ -291,7 +291,8 @@ public class MainController {
 								int territoryWithMoreOrEqualHouses = 0;
 								for (Territory comparedTerritory : candidateTerritories) { //This block then cycles through all the Territories in the game again, comparing them all to the candidate territory
 									if (candidateTerritory.getColor().equals(comparedTerritory.getColor())) { // If it hits another Territory in the same color group
-										if (comparedTerritory.getNumHouses() >= candidateTerritory.getNumHouses()) { //It compares houses, and verifies that the candidate Territory has houses less than or equal to the current Territory in the cycle.
+										if (comparedTerritory.getNumHouses() >= candidateTerritory.getNumHouses()
+												|| (comparedTerritory.hasHotel() && candidateTerritory.getNumHouses() == 4)) { //It compares houses, and verifies that the candidate Territory has houses less than or equal to the current Territory in the cycle.
 											territoryWithMoreOrEqualHouses++;
 										}
 									}
@@ -310,8 +311,9 @@ public class MainController {
 					}
 				}
 				if (buildableTerritories.size() != 0) { //Makes sure there are actually Territories in the array.
-					String[] buildableStrings = new String[buildableTerritories.size()];
-					int i = 0;
+					String[] buildableStrings = new String[buildableTerritories.size() + 1];
+					buildableStrings[0] = "Annulér"; // Will not trigger in the loop below
+					int i = 1;
 					for (Territory buildable : buildableTerritories) { //Cycles through all buildable Territories and creates strings for either buying a house or a hotel.
 						int numberOfHouses = buildable.getNumHouses();
 						if (numberOfHouses < 4) {
@@ -333,7 +335,6 @@ public class MainController {
 								buildable.setHotel(true);
 								buildable.setNumHouses(0);
 								output.setHotel(buildable.getFieldID(), true);	
-								output.setHouses(buildable.getFieldID(), 0);
 							}
 							currentPlayer.withdrawBalance(buildable.getHousePrice());
 							output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());
