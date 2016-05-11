@@ -290,7 +290,7 @@ public class MainController {
 									candidateTerritory.getColor()) == numOfTerritoryThisColor) { //This verifies that the number of Territories of this color owned by the player is the same as the number above
 								int territoryWithMoreOrEqualHouses = 0;
 								for (Territory comparedTerritory : candidateTerritories) { //This block then cycles through all the Territories in the game again, comparing them all to the candidate territory
-									if (candidateTerritory.getColor() == comparedTerritory.getColor()) { // If it hits another Territory in the same color group
+									if (candidateTerritory.getColor().equals(comparedTerritory.getColor())) { // If it hits another Territory in the same color group
 										if (comparedTerritory.getNumHouses() >= candidateTerritory.getNumHouses()) { //It compares houses, and verifies that the candidate Territory has houses less than or equal to the current Territory in the cycle.
 											territoryWithMoreOrEqualHouses++;
 										}
@@ -327,16 +327,16 @@ public class MainController {
 					for (Territory buildable : buildableTerritories) {
 						if (buildChoice.contains(buildable.getName())) { //Checks which Territory Name is appears in the returned string, then adds a house or hotel based on the number of houses already present.
 							if(buildable.getNumHouses()<4){
-								buildable.setNumHouses(buildable.getNumHouses()+1);
-								currentPlayer.withdrawBalance(buildable.getHousePrice());
-								output.setHouses(buildable.getFieldID(), buildable.getNumHouses()+1);
+								buildable.setNumHouses(buildable.getNumHouses()+1);								
+								output.setHouses(buildable.getFieldID(), buildable.getNumHouses());
 							}else {
 								buildable.setHotel(true);
 								buildable.setNumHouses(0);
-								currentPlayer.withdrawBalance(buildable.getHousePrice());
 								output.setHotel(buildable.getFieldID(), true);	
 								output.setHouses(buildable.getFieldID(), 0);
 							}
+							currentPlayer.withdrawBalance(buildable.getHousePrice());
+							output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());
 							db.saveField(buildable);
 							break;
 						}
@@ -490,11 +490,9 @@ public class MainController {
 	 */
 	private ArrayList<Territory> createCandidateTerritory(){
 		ArrayList<Territory> candidateTerritory = new ArrayList<Territory>();
-		for(AbstractFields field : board.fields){
-		if (field.getFieldType().equals("Territory")){
-			candidateTerritory.add((Territory) field);
-		}
-		}
+		for(AbstractFields field : board.fields)
+			if (field.getFieldType().equals("Territory"))
+				candidateTerritory.add((Territory) field);
 		return candidateTerritory;
 	}
 }
