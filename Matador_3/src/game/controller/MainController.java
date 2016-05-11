@@ -342,12 +342,15 @@ public class MainController {
 
 
 				case("Buy"):
-					currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
-					output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());
-					((AbstractOwnable) field).setOwner(currentPlayer);	
-					output.setOwner(field.getFieldID(), currentPlayer.getName());
-					output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
-					db.saveField((AbstractOwnable) field);
+					if (((AbstractOwnable) field).getPrice() < currentPlayer.getBalance()){
+						currentPlayer.withdrawBalance(((AbstractOwnable) field).getPrice());
+						output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());
+						((AbstractOwnable) field).setOwner(currentPlayer);	
+						output.setOwner(field.getFieldID(), currentPlayer.getName());
+						output.showFieldBoughtMessage(currentPlayer.getName(), field.getName(), ((AbstractOwnable)field).getPrice());
+						db.saveField((AbstractOwnable) field);
+					} else
+						output.showNotEnoughBalanceMessage(currentPlayer.getName());
 					break;
 
 				case("End Turn"): case("end"):
