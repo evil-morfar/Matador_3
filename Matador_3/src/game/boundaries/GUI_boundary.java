@@ -156,7 +156,7 @@ public class GUI_boundary implements GUI_Interface {
 	
 	@Override
 	public void setHouses(int fieldNumber, int houseCount){
-		GUI.setHouses( fieldNumber, houseCount);
+		GUI.setHouses(fieldNumber, houseCount);
 	}
 	
 	@Override

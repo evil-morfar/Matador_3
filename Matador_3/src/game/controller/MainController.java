@@ -60,8 +60,7 @@ public class MainController {
 	
 	public void run() {
 		output.create(board.getGuiFields());
-		boolean running = true;
-		while (running) {
+		while (true) {
 			System.out.println("New loop");
 			String option = "";
 			switch (state) {
@@ -102,7 +101,6 @@ public class MainController {
 				break;
 			case WIN_STATE:
 				winstate();
-				running = false;
 				break;
 			}
 		}
@@ -178,6 +176,8 @@ public class MainController {
 
 	private void playstate(){
 		if(getNumNotBrokePlayers() == 1){
+			//Make sure current player is actually the winner (getNextPLayer will handle that)
+			currentPlayer = getNextPlayer(currentPlayer);
 			state = GameState.WIN_STATE;
 			return;
 		}
