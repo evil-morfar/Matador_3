@@ -41,6 +41,8 @@ public interface GUI_Interface {
 	
 	public void showNotEnoughBalanceToBuild(String playername);
 	
+	public void showNoBuildableTerritoriesMessage(String playername);
+	
 	public void showBrokeMessage(String playerName);
 	
 	public void showFieldBoughtMessage(String playerName, String fieldName, int amount);

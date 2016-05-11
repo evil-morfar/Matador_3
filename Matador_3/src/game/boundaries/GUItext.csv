@@ -1,13 +1,13 @@
-Velkommen til Matador, indtast navne på 2-6 spillere, lad feltet være tomt for at begynde spillet §§§§ velkommen besked 
-Indtast navn, lad feltet være tomt for at begynde spillet 
-Indtast mindst 2 navne før du starter spillet
-%s starter, kast med terningerne §§§ når den som starter er blevet valgt og skal slå
+Velkommen til Matador, indtast navne p� 2-6 spillere, lad feltet v�re tomt for at begynde spillet §§§§ velkommen besked 
+Indtast navn, lad feltet v�re tomt for at begynde spillet 
+Indtast mindst 2 navne f�r du starter spillet
+%s starter, kast med terningerne §§§ n�r den som starter er blevet valgt og skal sl�
 %s har vundet spillet, tillykke §§§§ en spiller har vundet spillet
 %s er gået falit og er ude af spillet, alle hans grunde er nu frisat §§§ en spiller er ude af spillet 
 §
-%s har landet på %s vil du købe det for %d? §§§ felt, pris. når en spiller lander på ledigt felt 
-%s har købt feltet %s for %d
-%s har ikke råd til at købe feltet 
+%s har landet p� %s vil du k�be det for %d? §§§ felt, pris. n�r en spiller lander p� ledigt felt 
+%s har k�bt feltet %s for %d
+%s har ikke r�d til at k�be feltet 
 %s har landet på %s, du ejer det selv §§§§ %s er henholdvis spiller og feltet som han lander på, kaldes når han lander på eget felt 
 %s har landet på %s, du skal betale %d i leje til %s §§§ navn, felt, leje.
 §
@@ -29,3 +29,4 @@ Indtast mindst 2 navne før du starter spillet
 %s har under 15000 i total værdi og modtager derfor 15 000 §§§ en spiller modtager en bonus 
 %s har ikke under 15000 i total værdi og modtager derfor ikke 15 000 §§§ en spiller modtager ikke en bonus 
 %s har ikke råd til at bygge
+%s har ikke mulighed for at bygge nogle steder

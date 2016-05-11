@@ -284,30 +284,29 @@ public class MainController {
 				buildableTerritories.clear(); // which territories to be sent to the array on the drop down menu has to be cleared 
 				for (Territory candidateTerritory : candidateTerritories) { //This block cycles through all Territories in the game and makes sure they meet all criteria for building a house
 					if (!candidateTerritory.hasHotel()) {
-						if (currentPlayer.getBalance() > candidateTerritory.getHousePrice()) {
-							int numOfTerritoryThisColor = board.getNumColorFields(candidateTerritory.getColor()); //This sets the number of Territories in the color group
-							if (board.getNumOwnedSameColor(currentPlayer,
-									candidateTerritory.getColor()) == numOfTerritoryThisColor) { //This verifies that the number of Territories of this color owned by the player is the same as the number above
-								int territoryWithMoreOrEqualHouses = 0;
-								for (Territory comparedTerritory : candidateTerritories) { //This block then cycles through all the Territories in the game again, comparing them all to the candidate territory
-									if (candidateTerritory.getColor().equals(comparedTerritory.getColor())) { // If it hits another Territory in the same color group
-										if (comparedTerritory.getNumHouses() >= candidateTerritory.getNumHouses()
-												|| (comparedTerritory.hasHotel() && candidateTerritory.getNumHouses() == 4)) { //It compares houses, and verifies that the candidate Territory has houses less than or equal to the current Territory in the cycle.
-											territoryWithMoreOrEqualHouses++;
-										}
+						int numOfTerritoryThisColor = board.getNumColorFields(candidateTerritory.getColor()); //This sets the number of Territories in the color group
+						if (board.getNumOwnedSameColor(currentPlayer,
+								candidateTerritory.getColor()) == numOfTerritoryThisColor) { //This verifies that the number of Territories of this color owned by the player is the same as the number above
+							int territoryWithMoreOrEqualHouses = 0;
+							for (Territory comparedTerritory : candidateTerritories) { //This block then cycles through all the Territories in the game again, comparing them all to the candidate territory
+								if (candidateTerritory.getColor().equals(comparedTerritory.getColor())) { // If it hits another Territory in the same color group
+									if (comparedTerritory.getNumHouses() >= candidateTerritory.getNumHouses()
+											|| (comparedTerritory.hasHotel() && candidateTerritory.getNumHouses() == 4)) { //It compares houses, and verifies that the candidate Territory has houses less than or equal to the current Territory in the cycle.
+										territoryWithMoreOrEqualHouses++;
 									}
-									if (territoryWithMoreOrEqualHouses == numOfTerritoryThisColor) 
-										break; // No need to keep going
-												// if we've already
-												// checked all the
-												// colors in the group.
 								}
-								if (territoryWithMoreOrEqualHouses == numOfTerritoryThisColor) { //This verifies that all the Territories in the color group has houses less than or equal to the candidate Territory.
-									buildableTerritories.add(candidateTerritory);
+								if (territoryWithMoreOrEqualHouses == numOfTerritoryThisColor) 
+									break; // No need to keep going
+											// if we've already
+											// checked all the
+											// colors in the group.
+							}
+							if (territoryWithMoreOrEqualHouses == numOfTerritoryThisColor) { //This verifies that all the Territories in the color group has houses less than or equal to the candidate Territory.
+								buildableTerritories.add(candidateTerritory);
 
-								}
 							}
 						}
+						
 					}
 				}
 				if (buildableTerritories.size() != 0) { //Makes sure there are actually Territories in the array.
@@ -328,22 +327,27 @@ public class MainController {
 					buildChoice = output.buildSelection("Vælg grund til at bygge på", buildableStrings);
 					for (Territory buildable : buildableTerritories) {
 						if (buildChoice.contains(buildable.getName())) { //Checks which Territory Name is appears in the returned string, then adds a house or hotel based on the number of houses already present.
-							if(buildable.getNumHouses()<4){
-								buildable.setNumHouses(buildable.getNumHouses()+1);								
-								output.setHouses(buildable.getFieldID(), buildable.getNumHouses());
-							}else {
-								buildable.setHotel(true);
-								buildable.setNumHouses(0);
-								output.setHotel(buildable.getFieldID(), true);	
+							if(buildable.getHousePrice() < currentPlayer.getBalance()){
+								if(buildable.getNumHouses()<4){
+									buildable.setNumHouses(buildable.getNumHouses()+1);								
+									output.setHouses(buildable.getFieldID(), buildable.getNumHouses());
+								}else {
+									buildable.setHotel(true);
+									buildable.setNumHouses(0);
+									output.setHotel(buildable.getFieldID(), true);	
+								}
+								currentPlayer.withdrawBalance(buildable.getHousePrice());
+								output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());
+								db.saveField(buildable);
+								break;
+							} else {
+								output.showNotEnoughBalanceToBuild(currentPlayer.getName());
+								break;
 							}
-							currentPlayer.withdrawBalance(buildable.getHousePrice());
-							output.updateBalance(currentPlayer.getName(), currentPlayer.getBalance());
-							db.saveField(buildable);
-							break;
 						}
 					}
 				} else {
-					output.showNotEnoughBalanceToBuild(currentPlayer.getName());
+					output.showNoBuildableTerritoriesMessage(currentPlayer.getName());
 				}
 					break;
 

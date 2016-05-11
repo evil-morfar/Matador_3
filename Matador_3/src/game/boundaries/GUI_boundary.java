@@ -201,4 +201,10 @@ public class GUI_boundary implements GUI_Interface {
 	public void removeCar(String playername) {
 		GUI.removeAllCars(playername);		
 	}
+
+	@Override
+	public void showNoBuildableTerritoriesMessage(String playername) {
+		GUI.showMessage(String.format(GUIarray[32], playername));
+		
+	}
 }
