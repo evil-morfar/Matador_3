@@ -77,7 +77,7 @@ public class DatabaseTest {
 	
 	@Test
 	public void testSaveGame(){
-		db.saveGame(2, board);
+		db.saveGame(2);
 		assertEquals(2, db.getCurrentPlayer());
 	}
 
