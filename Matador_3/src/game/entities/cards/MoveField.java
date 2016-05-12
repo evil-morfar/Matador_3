@@ -4,11 +4,10 @@ import game.controller.MainController;
 import game.entities.Player;
 import game.entities.fields.AbstractFields;
 
-public class MoveField extends SuperCard {
-
-	/**
-	 * @author Henrik
-	 */
+/**
+ * @author Henrik
+ */
+public class MoveField extends SuperCard {	
 
 	private int fieldNumber;
 	private final static String CARD_TYPE = "MoveField";
