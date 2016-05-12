@@ -444,6 +444,10 @@ public class MainController {
 		return players.size();
 	}
 	
+	public List<Player> getPlayers(){
+		return this.players;
+	}
+	
 	/**
 	 * Moves a player a number of fields, either forwards or backwards. Note player position starts at 1,
 	 * while field indices starts at 0.

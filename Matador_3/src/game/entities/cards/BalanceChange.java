@@ -1,5 +1,7 @@
 package game.entities.cards;
 
+import java.util.List;
+
 import game.controller.MainController;
 import game.entities.Player;
 
@@ -35,7 +37,13 @@ public class BalanceChange extends SuperCard {
 		}
 		else if (amount==0) {
 			// has to withdraw 200 from every player except card drawer and give it to card drawer 
-			
+			List<Player> players = controller.getPlayers();
+			int deposit = 0;
+			for(Player p : players){
+				deposit += p.withdrawBalance(200);
+				controller.getGUI().updateBalance(p.getName(), p.getBalance());
+			}
+			player.depositBalance(deposit);
 			
 		}
 		else player.depositBalance(amount);
