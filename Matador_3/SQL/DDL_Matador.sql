@@ -94,7 +94,7 @@ create procedure CreateGame(
     OUT id int
 )
 BEGIN
-	insert into games values (null, game_name, CURTIME(), current_player, 1);
+	insert into games values (null, game_name, CURTIME(), current_player);
     select LAST_INSERT_ID() into id;
     insert into bank values (id, 32, 12);
 END//

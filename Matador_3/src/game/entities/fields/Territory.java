@@ -86,9 +86,10 @@ public class Territory extends AbstractOwnable {
 		Player owner = this.getOwner();
 		if (owner != player && this.isOwned()) {
 			int rent = this.getRent(controller.getBoard());
+			controller.getGUI().showTransferMessage(player.getName(), this.getName(), owner.getName(), rent);
 			player.withdrawBalance(rent);
 			owner.depositBalance(rent);
-			controller.getGUI().showTransferMessage(player.getName(), this.getName(), owner.getName(), rent);
+			super.landOnField(controller);
 		}
 
 	}
