@@ -64,7 +64,7 @@ public class MainController {
 			switch (state) {
 			case START_STATE:
 				if(!db.hasConnection())
-					output.showMessage("No connection to the Database, games will be offline only.");
+					output.showNoDbConnectionMessage();
 				option = output.getUserButtonPressed("Welcome", "New Game", "Load Game", "Exit");
 				
 				switch(option) {

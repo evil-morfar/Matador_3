@@ -84,4 +84,5 @@ public interface GUI_Interface {
 	public void playerStaysInJailMessage(String name);
 	public void playerIsFreedFromJailMessage(String name);
 	public void showJailedDueToDoublesMessage(String name);
+	public void showNoDbConnectionMessage();
 }

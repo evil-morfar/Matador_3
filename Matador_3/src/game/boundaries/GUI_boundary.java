@@ -228,4 +228,9 @@ public class GUI_boundary implements GUI_Interface {
 	public void showJailedDueToDoublesMessage(String name) {
 		GUI.showMessage(String.format(GUIarray[23], name));
 	}
+
+	@Override
+	public void showNoDbConnectionMessage() {
+		GUI.showMessage(GUIarray[34]);
+	}
 }
