@@ -204,7 +204,11 @@ public class GUI_boundary implements GUI_Interface {
 
 	@Override
 	public void showNoBuildableTerritoriesMessage(String playername) {
-		GUI.showMessage(String.format(GUIarray[32], playername));
-		
+		GUI.showMessage(String.format(GUIarray[32], playername));		
+	}
+
+	@Override
+	public void showChanceMoveMessage(String name) {
+		GUI.showMessage(String.format(GUIarray[33], name));		
 	}
 }

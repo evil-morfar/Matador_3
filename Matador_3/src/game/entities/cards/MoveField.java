@@ -25,28 +25,20 @@ public class MoveField extends SuperCard {
 	@Override
 	public void triggerCard(MainController controller) {
 		Player player = controller.getCurrentPlayer();
+		controller.getGUI().showChanceMoveMessage(player.getName());
 		switch(fieldNumber) {
-		case -3: // only one chance card moves the player a fixed number of spaces back
-			if(player.getPosition()==3) {
-				controller.movePlayerTo(player, 40); // if on space 3 he would land on space 40 going 3 back
-			}else 
-				controller.movePlayer(player, -3);			
-
+		case (-3): 
+			controller.movePlayer(player, -3);			
+			break;
 		default:
-			if (player.getPosition()>fieldNumber) {
-				player.depositBalance(4000);
-			}
-			else {
-			}
-			AbstractFields field = null;
-			controller.movePlayerTo(player, fieldNumber);
-			field = controller.getBoard().getFields()[controller.getCurrentPlayer().getPosition()-1];
-			field.landOnField(controller);
-			controller.getGUI().updateBalance(player.getName(), player.getBalance()); // For when they've payed stuff	
-			
-			
+			if (player.getPosition()>fieldNumber) 
+				player.depositBalance(4000);			
+			controller.movePlayerTo(player, fieldNumber);			
 		}
-
+		AbstractFields field = null;
+		field = controller.getBoard().getFields()[player.getPosition() - 1];
+		field.landOnField(controller);
+		controller.getGUI().updateBalance(player.getName(), player.getBalance()); // For when they've payed stuff
 	}
 
 }
