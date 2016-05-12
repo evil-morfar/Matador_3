@@ -79,7 +79,7 @@ public interface GUI_Interface {
 	
 	public void showChanceMoveMessage(String name);
 	
-	public String getTaxFieldText();
+	public String getTaxFieldText(String name);
 	
 	public void playerStaysInJailMessage(String name);
 	public void playerIsFreedFromJailMessage(String name);

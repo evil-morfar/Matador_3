@@ -210,8 +210,8 @@ public class GUI_boundary implements GUI_Interface {
 		GUI.showMessage(String.format(GUIarray[33], name));		
 	}
 	
-	public String getTaxFieldText(){
-		return GUIarray[25];
+	public String getTaxFieldText(String name){
+		return String.format(GUIarray[24], name);
 	}
 
 	@Override

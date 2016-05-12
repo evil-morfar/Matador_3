@@ -40,7 +40,7 @@ public class Tax extends AbstractNonOwnables {
 		Player p = controller.getCurrentPlayer();
 		GUI_Interface out = controller.getGUI();
 		
-		String option = out.getUserButtonPressed(out.getTaxFieldText(), "Pay " +this.percent+"%", "Pay " + this.amount+ ",-");
+		String option = out.getUserButtonPressed(out.getTaxFieldText(p.getName()), "Pay " +this.percent+"%", "Pay " + this.amount+ ",-");
 		
 		if(option.equals("Pay " +this.percent+"%")){
 			p.withdrawBalance(p.getBalance() * this.percent / 100);
