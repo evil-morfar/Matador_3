@@ -258,6 +258,19 @@ public class MainController {
 					output.removeCar(currentPlayer.getName());
 					output.showBrokeMessage(currentPlayer.getName());
 					option = "end";
+					//Remove ownership from the broke player's properties
+					for(AbstractFields f : board.getFields()){
+						if(f instanceof AbstractOwnable)
+							if(((AbstractOwnable) f).getOwner() == currentPlayer){
+								((AbstractOwnable) f).clearOwner();
+								output.removeOwner(f.getFieldID());
+								if(f instanceof Territory){
+									output.setHotel(f.getFieldID(), false);
+									((Territory) f).setNumHouses(0);
+									((Territory) f).setHotel(false);
+								}
+							}
+					}
 				}
 				String sPlayer = currentPlayer.getName() + "'s turn:";
 				System.out.println(sPlayer);
