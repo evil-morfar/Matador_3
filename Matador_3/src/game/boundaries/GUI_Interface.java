@@ -78,4 +78,6 @@ public interface GUI_Interface {
 	public void removeCar(String playername);
 	
 	public void showChanceMoveMessage(String name);
+	
+	public String getTaxFieldText();
 }
