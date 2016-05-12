@@ -38,9 +38,10 @@ public class Shipping extends AbstractOwnable {
 		if(player != owner && this.isOwned()){
 			int owned = controller.getBoard().getNumOwnedShips(owner);
 			int rent = this.rent * 2 ^ owned;
+			controller.getGUI().showTransferMessage(player.getName(), this.getName(), owner.getName(), rent);
 			player.withdrawBalance(rent); 
 			owner.depositBalance(rent);
-			controller.getGUI().showTransferMessage(player.getName(), this.getName(), owner.getName(), rent);
+			super.landOnField(controller);
 		}
 	}
 

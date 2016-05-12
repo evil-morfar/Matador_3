@@ -26,20 +26,8 @@ public abstract class AbstractOwnable extends AbstractFields {
 	 */
 	@Override 
 	public void landOnField(MainController controller) {
-
-//		if(this.owner==null){
-//
-//			if(player.getBalance()>price) {
-//
-//				if(//player accepts on gui))
-//						)player.withdrawBalance(price);
-//				owner = player;
-//				// buy successful message				
-//
-//			} else // not bought message S
-//
-//		} else // not enough balance message 
-
+		//Update the owners balance incase he got some rent
+		controller.getGUI().updateBalance(this.owner.getName(), this.owner.getBalance());
 	}
 
 	public void clearOwner() {

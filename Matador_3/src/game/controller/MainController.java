@@ -107,6 +107,11 @@ public class MainController {
 	}
 
 	private void loadState() {
+		if(!db.hasConnection()){
+			// We can't load anything without a connection
+			state = GameState.START_STATE;
+			return;
+		}
 		ArrayList<String> load = db.getSavedGames();
 		String[] games = load.toArray(new String[0]);
 		String selection = output.getUserSelection("Select a game:", games);
@@ -133,10 +138,12 @@ public class MainController {
 			field.setOwner(owner);
 			output.setOwner(fieldID, owner.getName());
 			if (field instanceof Territory) { // only Territory has houses
-				((Territory) field).setNumHouses(houses);
-				output.setHouses(fieldID, houses);
 				((Territory) field).setHotel(hotels == 1);
-				output.setHotel(fieldID, hotels == 1);
+				if(hotels == 1) // Either set removes the other
+					output.setHotel(fieldID, hotels == 1);
+				else
+					output.setHouses(fieldID, houses);
+				((Territory) field).setNumHouses(houses);
 			}
 		
 		}
@@ -170,7 +177,9 @@ public class MainController {
 				}
 			}
 		}
-		currentPlayer = players.get(0);
+		//Randomize starting player
+		currentPlayer = players.get((int) Math.random() * players.size() + 1);
+		output.showStartingPlayer(currentPlayer.getName());
 		state = GameState.PLAY_STATE;
 	}
 

@@ -77,7 +77,7 @@ public class GUI_boundary implements GUI_Interface {
 	}
 
 	@Override
-	public void showStartingPlayer(Player player) {
+	public void showStartingPlayer(String player) {
 		GUI.showMessage(String.format(GUIarray[4],player));
 	}
 

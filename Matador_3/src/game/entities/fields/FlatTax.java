@@ -30,7 +30,6 @@ public class FlatTax extends AbstractNonOwnables {
 	 */
 	public void landOnField(MainController controller) {
 		controller.getCurrentPlayer().withdrawBalance(this.amount);
-		//TODO consider error handling.
 	}
 
 }

@@ -31,7 +31,7 @@ public interface GUI_Interface {
 	
 	public void showWelcome();
 	
-	public void showStartingPlayer(Player player);
+	public void showStartingPlayer(String player);
 	
 	public void showWinner(String playername);
 	
