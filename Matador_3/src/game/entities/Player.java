@@ -8,7 +8,7 @@ package game.entities;
 
 
 public class Player {
-	
+
 	private String name;
 	private int position;
 	private boolean isBroke;
@@ -40,7 +40,7 @@ public class Player {
 		this.numJailCards = 0;
 		this.numDoubles = 0;
 	}
-	
+
 	public int getNumDoubles() {
 		return numDoubles;
 	}
@@ -64,52 +64,55 @@ public class Player {
 	public void setPosition(int position){
 		this.position = position;		
 	}
-	
+
 	public void setBalance(int value){
 		this.account.setBalance(value);
 	}
-	
+
 	public void depositBalance(int value){
 		this.account.deposit(value);
-		
+
 	}
-	
+
 	/**
 	 * Withdraws an amount from the players balance. If under 0, player is set to broke
 	 * @param value The amount to withdraw.
 	 * @param setisBroke sets the player broke status to true or false 
 	 * @see Player#depositBalance(int)
 	 */
-	public void withdrawBalance(int value){
-		 try {
+	public int withdrawBalance(int value){
+		try {
 			this.account.withdraw(value);
+			return value;
 		} catch (NotEnoughMoneyException e) {
+			int rest = this.account.getBalance();
 			this.account.setBalance(0);
 			this.isBroke = true;
+			return rest;
 		}
 	}
-	
+
 	/**
 	 * Tells if a player has lost the game 
 	 * @param isBroke, true/false
 	 */
-	
+
 	public void setIsBroke(boolean isBroke){
 		this.isBroke = isBroke;
 	}
-	
+
 	public boolean isBroke(){
 		return this.isBroke;
 	}
-	
+
 	public String getColor(){
 		return color;
 	}
-	
+
 	public int getPlayerID(){
 		return playerID;
 	}
-	
+
 	public boolean isInJail() {
 		return isInJail;
 	}
@@ -121,22 +124,22 @@ public class Player {
 	public int getPosition() {
 		return position;
 	}
-	
+
 	public int getNumJailCards(){
 		return numJailCards;
 	}
-	
+
 	public void setNumJailCards(int i){
 		this.numJailCards = i;
 	}
-	
+
 	public void increaseNumJailCards(){
 		numJailCards++;
 	}
 	public void decreaseNumJailCards() {
 		numJailCards--;
 	}
-	
+
 	/**
 	 * Moves the player.
 	 * @param places The number of places to move. Can be negative.
@@ -144,15 +147,15 @@ public class Player {
 	public void move(int places){
 		this.position += places;
 	}
-	
+
 	public void setNumJailRolls(int i){
 		this.numJailRolls = i;
 	}
-	
+
 	public int getNumJailRolls(){
 		return this.numJailRolls;
 	}
-	
+
 	public String toString(){
 		return "Player("+this.playerID+"), name: "+this.name+", position: "+this.position+", balance: "+ this.getBalance();
 	}
