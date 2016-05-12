@@ -1,0 +1,8 @@
+game.boundaries
+game.controller
+game.database
+game.entities
+game.entities.cards
+game.entities.dice
+game.entities.fields
+run
