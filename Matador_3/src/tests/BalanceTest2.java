@@ -7,6 +7,12 @@ import org.junit.Test;
 
 import game.entities.Player;
 
+/**
+ * 
+ * @author William
+ *
+ */
+
 public class BalanceTest2 {
 
 	private Player Player1;

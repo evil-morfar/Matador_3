@@ -3,7 +3,7 @@ package game.database;
 public class NoDbConnectionError extends Exception {
 
 	/**
-	 * 
+	 * @author Nichlas
 	 */
 	private static final long serialVersionUID = 1L;
 	

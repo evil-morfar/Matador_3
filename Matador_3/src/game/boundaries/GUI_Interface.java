@@ -3,7 +3,7 @@ package game.boundaries;
 import desktop_fields.Field;
 
 /**
- * @author Henrik
+ * @author Alle
  */
 
 // udkast til hvilke metoder vi skal have til vores GUI boundary 

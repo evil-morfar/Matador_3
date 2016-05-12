@@ -9,6 +9,12 @@ import org.junit.Test;
 import game.entities.cards.CardCreater;
 import game.entities.cards.SuperCard;
 
+/**
+ * 
+ * @author Henrik
+ *
+ */
+
 public class CardTest {
 
 	private static SuperCard[] chanceCard;

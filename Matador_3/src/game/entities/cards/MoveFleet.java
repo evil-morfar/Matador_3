@@ -5,6 +5,12 @@ import game.entities.Player;
 import game.entities.fields.AbstractFields;
 import game.entities.fields.AbstractOwnable;
 
+/**
+ * 
+ * @author Valdemar, Nichlas
+ *
+ */
+
 public class MoveFleet extends SuperCard {
 
 	private final static String CARD_TYPE = "MoveFleet";

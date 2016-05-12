@@ -5,6 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * class to read the gui text file 
+ * @author Henrik
+ *
+ */
+
 public class BoundaryReader {
 
 	private String guiFile;
@@ -12,7 +18,7 @@ public class BoundaryReader {
 		this.guiFile = file;
 		GUIreader();
 	}
-	
+
 	private String[] GUIline = new String[40];
 
 
@@ -47,10 +53,10 @@ public class BoundaryReader {
 					e.printStackTrace();
 				}
 		}
-//		String test = String.format("%s har købt %s for %d","Bo","Cola",200);
-//		System.out.println(test);
+		//		String test = String.format("%s har købt %s for %d","Bo","Cola",200);
+		//		System.out.println(test);
 	}
-	
+
 	public String[] getGUIText() {
 		return GUIline;
 	}

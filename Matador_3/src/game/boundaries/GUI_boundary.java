@@ -6,7 +6,11 @@ import desktop_codebehind.Car;
 import desktop_fields.Field;
 import desktop_resources.GUI;
 
-
+/**
+ * 
+ * @author Henrik, Valdemar
+ *
+ */
 
 public class GUI_boundary implements GUI_Interface {
 

@@ -5,6 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Reading cards from document and putting them into an array then shuffleling them 
+ * @author Henrik
+ *
+ */
+
 public class CardCreater {
 
 	private SuperCard[] chanceCard;

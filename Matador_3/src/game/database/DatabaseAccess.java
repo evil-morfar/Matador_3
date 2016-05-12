@@ -6,8 +6,14 @@ import java.util.List;
 import game.entities.Player;
 import game.entities.fields.AbstractOwnable;
 
+
+/**
+ * @author Alle
+****/
+
+
 public interface DatabaseAccess {
-	
+
 	public boolean hasConnection();
 
 	/**

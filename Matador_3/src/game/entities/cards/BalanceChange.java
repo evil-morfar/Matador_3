@@ -5,6 +5,12 @@ import java.util.List;
 import game.controller.MainController;
 import game.entities.Player;
 
+/**
+ * 
+ * @author Henrik, Nichlas
+ *
+ */
+
 public class BalanceChange extends SuperCard {
 
 	

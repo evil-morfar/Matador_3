@@ -3,7 +3,7 @@ package game.entities.fields;
 import game.controller.MainController;
 /**
  * An Empty NonOwnable Field for a Monopoly game.
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  */
 public class Empty extends AbstractNonOwnables {
 	

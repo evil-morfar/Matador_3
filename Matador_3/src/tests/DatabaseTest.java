@@ -16,6 +16,12 @@ import game.entities.Board;
 import game.entities.Player;
 import game.entities.fields.Territory;
 
+/**
+ * 
+ * @author Nichlas
+ *
+ */
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DatabaseTest {
 	

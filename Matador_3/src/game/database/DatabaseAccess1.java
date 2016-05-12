@@ -10,6 +10,12 @@ import game.entities.Player;
 import game.entities.fields.AbstractOwnable;
 import game.entities.fields.Territory;
 
+/**
+ * 
+ * @author Nichlas
+ *
+ */
+
 public class DatabaseAccess1 implements DatabaseAccess {
 
 	private int game_id;

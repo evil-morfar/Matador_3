@@ -6,7 +6,7 @@ import game.entities.cards.SuperCard;
 
 /**
  * The NonOwnable Field, Chance. Several of these exists in a standard Monopoly game.
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  */
 public class Chance extends AbstractNonOwnables {
 

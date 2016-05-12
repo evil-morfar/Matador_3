@@ -2,7 +2,7 @@ package game.entities;
 
 /**
  * Exception for when an Account balance goes below 0.
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  *
  */
 public class NotEnoughMoneyException extends Exception {

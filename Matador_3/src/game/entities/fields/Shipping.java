@@ -5,7 +5,7 @@ import game.entities.Player;
 
 /**
  * The Ownable Field of type Shipping. There's 4 of these in a standard Monopoly game.
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  */
 public class Shipping extends AbstractOwnable {
 	

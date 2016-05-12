@@ -2,7 +2,7 @@ package game.entities.dice;
 
 /**************************************************************
  * 
- * @author Henrik
+ * @author William
  * @return Simulates the Diecup with 2 dices
  *************************************************************/
 

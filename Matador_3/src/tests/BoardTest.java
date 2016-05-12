@@ -19,7 +19,7 @@ import game.entities.fields.Shipping;
 import game.entities.fields.Territory;
 
 /**
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  *
  */
 public class BoardTest {

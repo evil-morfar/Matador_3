@@ -4,7 +4,7 @@ import game.controller.MainController;
 
 /**
  * The NonOwnable Field, FlatTax. There's only 1 of these on a standard Monopoly game.
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  */
 public class FlatTax extends AbstractNonOwnables {
 	

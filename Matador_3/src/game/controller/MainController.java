@@ -18,7 +18,7 @@ import game.entities.fields.Territory;
 
 /**
  * 
- * @author PC / Valdemar
+ * @author Alle
  *
  */
 

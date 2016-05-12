@@ -5,6 +5,12 @@ import game.entities.Player;
 import game.entities.fields.AbstractFields;
 import game.entities.fields.Territory;
 
+/**
+ * 
+ * @author Henrik, Nichlas
+ *
+ */
+
 public class PayHouses extends SuperCard {
 	
 	private AbstractFields[] fields;

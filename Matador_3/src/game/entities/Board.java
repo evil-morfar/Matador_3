@@ -22,7 +22,7 @@ import game.entities.fields.Territory;
 
 /**
  * Creates a Monopoly board.
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  *
  */
 public class Board {

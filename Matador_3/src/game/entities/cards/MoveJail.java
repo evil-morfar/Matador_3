@@ -3,6 +3,12 @@ package game.entities.cards;
 import game.controller.MainController;
 import game.entities.Player;
 
+/**
+ * 
+ * @author Henrik, Nichlas
+ *
+ */
+
 public class MoveJail extends SuperCard {
 
 	private final static String CARD_TYPE = "MoveJail";

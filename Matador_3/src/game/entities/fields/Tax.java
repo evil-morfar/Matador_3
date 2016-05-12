@@ -6,7 +6,7 @@ import game.entities.Player;
 /**
  * The NonOwnable Field, Tax. There's normally 1 of these in a standard Monopoly game.
  * @see Tax#Tax
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  */
 public class Tax extends AbstractNonOwnables {
 	

@@ -7,7 +7,7 @@ import game.entities.Player;
 /**
  * The Ownable Field of type Territory - the common buyable field in a Monopoly game.
  * @see Territory#Territory(String, int, int[])
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  */
 public class Territory extends AbstractOwnable {
 

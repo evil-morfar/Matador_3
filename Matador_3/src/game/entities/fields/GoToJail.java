@@ -5,7 +5,7 @@ import game.entities.Player;
 
 /**
  * NonOwnable Field that moves a player to the jail when landed on.
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  */
 public class GoToJail extends AbstractNonOwnables {
 	

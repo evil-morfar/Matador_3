@@ -5,7 +5,7 @@ import game.entities.Player;
 
 /**
  * Ownable Field of the brewery type. Normally 2 of these in a standard Monopoly game.
- * @author Nichlas N. Pilemand
+ * @author Nichlas
  */
 public class Brewery extends AbstractOwnable {
 	
