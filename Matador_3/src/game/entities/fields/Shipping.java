@@ -37,7 +37,7 @@ public class Shipping extends AbstractOwnable {
 		Player owner = this.getOwner();
 		if(player != owner && this.isOwned()){
 			int owned = controller.getBoard().getNumOwnedShips(owner);
-			int rent = this.rent * 2 ^ owned;
+			int rent = this.rent * (int) Math.pow(2, owned - 1);
 			controller.getGUI().showTransferMessage(player.getName(), this.getName(), owner.getName(), rent);
 			player.withdrawBalance(rent); 
 			owner.depositBalance(rent);
