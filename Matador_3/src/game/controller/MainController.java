@@ -107,6 +107,11 @@ public class MainController {
 	}
 
 	private void loadState() {
+		if(!db.hasConnection()){
+			// We can't load anything without a connection
+			state = GameState.START_STATE;
+			return;
+		}
 		ArrayList<String> load = db.getSavedGames();
 		String[] games = load.toArray(new String[0]);
 		String selection = output.getUserSelection("Select a game:", games);
