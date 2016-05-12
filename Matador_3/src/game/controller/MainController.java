@@ -256,7 +256,7 @@ public class MainController {
 				String sPlayer = currentPlayer.getName() + "'s turn:";
 				System.out.println(sPlayer);
 				ArrayList<String> s = new ArrayList<String>();
-				if(!option.equals("end")) // Special case
+				if(!option.equals("end")) {// Special case
 					s.add("Build"); // always there
 					if(!hasRolled || numDoubles != 0){
 						s.add(0, "Roll");
@@ -264,23 +264,10 @@ public class MainController {
 							s.add("Save and Exit");
 					}else
 						s.add("End Turn");
+					// Only show the buy button if the field is purchasable
 					if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
 							s.add(1,"Buy");
-					
-					option = output.getUserButtonPressed(sPlayer, s.toArray(new String[s.size()]));
-//					if(!hasRolled)
-//						option = output.getUserButtonPressed(sPlayer, "Roll", "Build", "Save and Exit");
-//				// Only show the "Buy" option if it's possible to buy the field
-//					else if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
-//						if (numDoubles != 0) // Can't end turn when one still have a roll
-//							option = output.getUserButtonPressed(sPlayer, "Roll", "Buy", "Build");
-//						else
-//							option = output.getUserButtonPressed(sPlayer, "Buy", "Build", "End Turn");
-//					else if (numDoubles != 0)
-//						option = output.getUserButtonPressed(sPlayer, "Roll", "Build");
-//					else
-//						option = output.getUserButtonPressed(sPlayer, "Build", "End Turn");
-
+				}	
 				switch(option) {
 				case("Roll"):
 					hasRolled = true;
@@ -291,6 +278,7 @@ public class MainController {
 				else
 					numDoubles = 0;
 				if(numDoubles == 3){
+					output.showJailedDueToDoublesMessage(currentPlayer.getName());
 					currentPlayer.setInJail(true);
 					movePlayerTo(currentPlayer, 11);
 					option = "end";

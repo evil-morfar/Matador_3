@@ -223,4 +223,9 @@ public class GUI_boundary implements GUI_Interface {
 	public void playerIsFreedFromJailMessage(String name) {
 		GUI.showMessage(String.format(GUIarray[18], name));		
 	}
+
+	@Override
+	public void showJailedDueToDoublesMessage(String name) {
+		GUI.showMessage(String.format(GUIarray[23], name));
+	}
 }
