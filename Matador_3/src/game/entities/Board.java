@@ -187,7 +187,7 @@ public class Board {
 					guiFields[i] = new Street.Builder()
 							.setTitle(field[2])
 							.setDescription(field[2])
-							.setRent(field[3]+",-")
+							.setRent(field[4]+",-")
 							.setSubText(field[3]+",-")
 							.setBgColor(color)
 							.build();
@@ -198,7 +198,7 @@ public class Board {
 							.setTitle(field[2])
 							.setDescription(field[2])
 							.setSubText(field[3]+",-")
-							.setRent(field[3]+",-")
+							.setRent(field[4]+",-")
 							.setBgColor(Color.darkGray)
 							.build();
 
@@ -210,7 +210,7 @@ public class Board {
 							.setSubText("")
 							.setSubText(field[3]+",-")
 							.setDescription(field[2])
-							.setRent(field[3])
+							.setRent(field[4])
 							.build();
 					break;
 				case "Chance":
