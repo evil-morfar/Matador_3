@@ -1,34 +1,34 @@
 Kortnummer;Kort type ;Felt beskrivelse;amount;move
 1;BalanceChange;De modtager Deres aktieudbytte. Modtag kr. 1000 af banken.;1000;
 2;MoveField;Ryk frem til start. ;;1
-3;MoveJail;Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start, indkassere de ikke kr. 4000 ;;
-4;MoveJail;Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start, indkassere de ikke kr. 4000 ;;
-5;BalanceChange;De har været en tur i udlandet og haft for mange cigaretter med hjem. Betal told kr. 200;-200;
-6;BalanceChange;De har modtaget Deres tandlægeregning. Betal kr. 2000 ;-2000;
-7;BalanceChange;De havde en række med elleve rigtige i tipning. Modtag kr. 1000 ;1000;
-8;BalanceChange;Deres præmieobligation er kommet ud. De modtager kr. 1000 af banken.;1000;
-9;BalanceChange;Deres præmieobligation er kommet ud. De modtager kr. 1000 af banken.;1000;
-10;BalanceChange;Det er Deres fødselsdag. Modtag af hver medspiller kr. 200;0;
-11;BalanceChange;Værdien af egen avl fra nyttehaven udgør kr. 200, som De modtager af banken. ;200;
+3;MoveJail;GÃ¥ i fÃ¦ngsel. Ryk direkte til fÃ¦ngslet. Selv om De passerer Start, indkasserer de ikke kr. 4000 ;;
+4;MoveJail;GÃ¥ i fÃ¦ngsel. Ryk direkte til fÃ¦ngslet. Selv om De passerer Start, indkasserer de ikke kr. 4000 ;;
+5;BalanceChange;De har vÃ¦ret en tur i udlandet og haft for mange cigaretter med hjem. Betal told kr. 200;-200;
+6;BalanceChange;De har modtaget Deres tandlÃ¦geregning. Betal kr. 2000 ;-2000;
+7;BalanceChange;De havde en rÃ¦kke med elleve rigtige i tipning. Modtag kr. 1000 ;1000;
+8;BalanceChange;Deres prÃ¦mieobligation er kommet ud. De modtager kr. 1000 af banken.;1000;
+9;BalanceChange;Deres prÃ¦mieobligation er kommet ud. De modtager kr. 1000 af banken.;1000;
+10;BalanceChange;Det er Deres fÃ¸dselsdag. Modtag af hver medspiller kr. 200;0;
+11;BalanceChange;VÃ¦rdien af egen avl fra nyttehaven udgÃ¸r kr. 200, som De modtager af banken. ;200;
 12;BalanceChange;Betal Deres bilforsikring kr. 1000 ;-1000;
 13;PayHouses;Ejendomsskatterne er steget, ekstraudgifterne er:  kr 800 pr. hus, kr 2300 pr. hotel. ;800;2300
-14;MoveField;Ryk frem til Grønningen. Hvis De passerer Start inkasser da kr. 4.000;;25
-15;MoveFleet;Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen kan De købe det af banken. ;;
-16;MoveFleet;Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen kan De købe det af banken. ;;
-17;MoveField;Tag med LB-færgerne --- flyt brikken frem, og hvis De passerer Start inkasser da kr. 4000;;6
-18;JailCard;I anledning af kongens fødselsdag benådes De herved for fængsel. Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.;1;
-19;JailCard;I anledning af kongens fødselsdag benådes De herved for fængsel. Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.;1;
-20;BalanceChange;Grundet dyrtiden har De fået gageforhøjelse. Modtag kr. 1000;1000;
+14;MoveField;Ryk frem til GrÃ¸nningen. Hvis De passerer Start inkasser da kr. 4.000;;25
+15;MoveFleet;Ryk brikken frem til det nÃ¦rmeste rederi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen kan De kÃ¸be det af banken. ;;
+16;MoveFleet;Ryk brikken frem til det nÃ¦rmeste rederi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen kan De kÃ¸be det af banken. ;;
+17;MoveField;Tag med LB-fÃ¦rgerne --- flyt brikken frem, og hvis De passerer Start inkasser da kr. 4000;;6
+18;JailCard;I anledning af kongens fÃ¸dselsdag benÃ¥des De herved for fÃ¦ngsel. Dette kort kan opbevares, indtil De fÃ¥r brug for det, eller De kan sÃ¦lge det.;1;
+19;JailCard;I anledning af kongens fÃ¸dselsdag benÃ¥des De herved for fÃ¦ngsel. Dette kort kan opbevares, indtil De fÃ¥r brug for det, eller De kan sÃ¦lge det.;1;
+20;BalanceChange;Grundet dyrtiden har De fÃ¥et gageforhÃ¸jelse. Modtag kr. 1000;1000;
 21;MoveField;Ryk frem til Frederiksberg Alle. Hvis De passerer Start inkasser kr. 4.000;;38
 22;BalanceChange;De har vundet i Klasselotteriet. Modtag kr. 500;500;
-23;MoveField;Tag ind på Rådhuspladsen.;;40
+23;MoveField;Tag ind pÃ¥ RÃ¥dhuspladsen.;;40
 24;MoveField;Ryk tre felter tilbage. ;;-3
 25;PayHouses;Oliepriserne er steget, og De skal betale:  kr. 500 pr. hus, kr. 2000 pr. hotel.;500;2000
 26;BalanceChange;Betal kr. 3000 for reparation af Deres vogn. ;-3000;
 27;BalanceChange;Betal kr. 3000 for reparation af Deres vogn. ;-3000;
-28;Poor;De modtager Matador-legatet for værdigt trængende, stort kr. 40000 Ved værdigt trængende forstås, at Deres formue, dvs. Deres kontante penge + skøder + bygninger ikke overstiger kr. 15.000;;
-29;BalanceChange;Kommunen har eftergivet et kvartals skat. Hæv i banken kr. 3000 ;3000;
+28;Poor;De modtager Matador-legatet for vÃ¦rdigt trÃ¦ngende, stort kr. 40000 Ved vÃ¦rdigt trÃ¦ngende forstÃ¥s, at Deres formue, dvs. Deres kontante penge + skÃ¸der + bygninger ikke overstiger kr. 15.000;;
+29;BalanceChange;Kommunen har eftergivet et kvartals skat. HÃ¦v i banken kr. 3000 ;3000;
 30;BalanceChange;Modtag udbytte af Deres aktier kr. 1000 ;1000;
 31;BalanceChange;Modtag udbytte af Deres aktier kr. 1000 ;1000;
-32;BalanceChange;De har kørt frem for Fuld Stop. Betal kr. 1000 i bøde. ;-1000;
-33;BalanceChange;De har måttet vedtage en parkeringsbøde. Betal kr. 200 i bøde.;-200;
+32;BalanceChange;De har kÃ¸rt frem for Fuld Stop. Betal kr. 1000 i bÃ¸de. ;-1000;
+33;BalanceChange;De har mÃ¥ttet vedtage en parkeringsbÃ¸de. Betal kr. 200 i bÃ¸de.;-200;
