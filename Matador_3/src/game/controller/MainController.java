@@ -177,7 +177,9 @@ public class MainController {
 				}
 			}
 		}
-		currentPlayer = players.get(0);
+		//Randomize starting player
+		currentPlayer = players.get((int) Math.random() * players.size() + 1);
+		output.showStartingPlayer(currentPlayer.getName());
 		state = GameState.PLAY_STATE;
 	}
 
