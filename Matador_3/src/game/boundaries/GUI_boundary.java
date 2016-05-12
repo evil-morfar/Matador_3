@@ -5,7 +5,6 @@ import java.awt.Color;
 import desktop_codebehind.Car;
 import desktop_fields.Field;
 import desktop_resources.GUI;
-import game.entities.Player;
 
 
 

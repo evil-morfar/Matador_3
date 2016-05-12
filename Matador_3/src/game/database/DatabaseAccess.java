@@ -3,7 +3,6 @@ package game.database;
 import java.util.ArrayList;
 import java.util.List;
 
-import game.entities.Board;
 import game.entities.Player;
 import game.entities.fields.AbstractOwnable;
 

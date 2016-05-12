@@ -1,7 +1,6 @@
 package game.boundaries;
 
 import desktop_fields.Field;
-import game.entities.Player;
 
 /**
  * @author Henrik

@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import game.entities.Board;
 import game.entities.Player;
 import game.entities.fields.AbstractOwnable;
 import game.entities.fields.Territory;
