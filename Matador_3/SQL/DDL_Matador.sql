@@ -42,7 +42,7 @@ create table player_properties(
     player_id	int,
     num_houses	int(1) check (num_houses <= 4 && num_houses >= 0),
     num_hotels	int(1) check (num_hotels = 0 || num_hotels = 1),
-    primary key (field_id, game_id),
+    primary key (field_id, game_id, player_id),
 	foreign key (player_id) references players(player_id),
     foreign key (game_id) references games(game_id )
 
