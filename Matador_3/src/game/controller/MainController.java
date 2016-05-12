@@ -31,8 +31,6 @@ public class MainController {
 
 	private GameState state = GameState.START_STATE;
 
-	private int turnNumber;
-
 	private DieCup_Interface dieCup;
 	private GUI_Interface output;
 	private ArrayList<Player> players;
