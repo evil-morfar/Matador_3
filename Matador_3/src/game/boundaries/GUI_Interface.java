@@ -2,9 +2,7 @@ package game.boundaries;
 
 import desktop_fields.Field;
 
-/**
- * @author Alle
- */
+
 
 // udkast til hvilke metoder vi skal have til vores GUI boundary 
 
@@ -13,7 +11,9 @@ import desktop_fields.Field;
  * Interface defining methods for input output to screen from game
  * 
  ********************************************************************/
-
+/**
+ * @author Alle
+ */
 public interface GUI_Interface {
 	
 	public void setDice(int[] dice);
