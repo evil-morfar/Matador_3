@@ -47,6 +47,7 @@ public class DatabaseAccess1 implements DatabaseAccess {
 				stmt.setString(6, color);
 				stmt.setInt(7,position);
 				stmt.executeUpdate();
+				stmt.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -71,7 +72,9 @@ public class DatabaseAccess1 implements DatabaseAccess {
 				stmt.setInt(2, currentPlayer);
 				stmt.registerOutParameter(3, java.sql.Types.INTEGER);
 				stmt.executeUpdate();
-				return stmt.getInt(3);
+				int ret = stmt.getInt(3);
+				stmt.close();
+				return ret;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -100,7 +103,7 @@ public class DatabaseAccess1 implements DatabaseAccess {
 				stmt.setInt(7, player.getNumJailRolls());
 				stmt.setBoolean(8, player.isInJail());
 				stmt.executeUpdate();
-
+				stmt.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -129,7 +132,7 @@ public class DatabaseAccess1 implements DatabaseAccess {
 				stmt.setInt(1, this.game_id);
 				stmt.setInt(2, currentPlayer);
 				stmt.executeUpdate();
-
+				stmt.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -160,9 +163,8 @@ public class DatabaseAccess1 implements DatabaseAccess {
 					stmt.setNull(5, 1);
 				}
 				stmt.executeUpdate();
-
+				stmt.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
