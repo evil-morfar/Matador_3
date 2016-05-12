@@ -88,6 +88,7 @@ public class DatabaseTest {
 			db.setGameID(game_id);
 			Territory field =  (Territory) board.getFields()[1];
 			field.setNumHouses(1);
+			field.setOwner(new Player("Test", 30, "blue", 1, 1));
 			db.saveField(field);
 			List<List<Integer>> fieldList = db.getFieldsFromGame(game_id);
 			assertEquals(field.getFieldID(), (int)(fieldList.get(0)).get(0));
