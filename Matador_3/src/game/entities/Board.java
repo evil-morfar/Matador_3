@@ -207,7 +207,6 @@ public class Board {
 					fields[i] = new game.entities.fields.Shipping(Integer.parseInt(field[0]), field[2],Integer.parseInt(field[3]), Integer.parseInt(field[4]));
 					guiFields[i] = new Shipping.Builder()
 							.setTitle(field[2])
-							.setSubText("")
 							.setSubText(field[3]+",-")
 							.setDescription(field[2])
 							.setRent(field[4])
