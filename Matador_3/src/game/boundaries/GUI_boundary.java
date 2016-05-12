@@ -21,8 +21,6 @@ public class GUI_boundary implements GUI_Interface {
 		
 	@Override
 	public void update(int pos, int balance, String playerName) {
-		// TODO Auto-generated method stub
-		
 		GUI.setCar(pos, playerName);
 		GUI.setBalance(playerName, balance);
 	}
@@ -214,5 +212,15 @@ public class GUI_boundary implements GUI_Interface {
 	
 	public String getTaxFieldText(){
 		return GUIarray[25];
+	}
+
+	@Override
+	public void playerStaysInJailMessage(String name) {
+		GUI.showMessage(String.format(GUIarray[17], name));		
+	}
+
+	@Override
+	public void playerIsFreedFromJailMessage(String name) {
+		GUI.showMessage(String.format(GUIarray[18], name));		
 	}
 }

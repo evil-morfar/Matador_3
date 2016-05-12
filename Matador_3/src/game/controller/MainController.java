@@ -153,6 +153,7 @@ public class MainController {
 
 	private void namestate() {
 		String[] colors = {"blue", "white", "magenta", "yellow", "black", "green"};
+		output.showWelcome();
 		for (int i = 1; i <= 6; i++) {
 			boolean error = false;
 			// Checks if the names are long enough
@@ -201,13 +202,16 @@ public class MainController {
 					dieCup.roll();
 				output.setDice(dieCup.getDice());
 				if(dieCup.isDoubles() != 0 ) { // Player is freed
+					output.playerIsFreedFromJailMessage(currentPlayer.getName());
 					currentPlayer.setInJail(false);
 					currentPlayer.setNumJailRolls(0);
 					movePlayer(currentPlayer, dieCup.getSum());
 					AbstractFields field = board.getFields()[currentPlayer.getPosition()-1];
 					field.landOnField(this);
-				} else
+				} else {
 					currentPlayer.setNumJailRolls(currentPlayer.getNumJailRolls() + 1);
+					output.playerStaysInJailMessage(currentPlayer.getName());
+				}
 				break;
 
 				default: // It actually saves lines doing it this way ;)
