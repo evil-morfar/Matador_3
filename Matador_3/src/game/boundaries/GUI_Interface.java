@@ -76,4 +76,6 @@ public interface GUI_Interface {
 	public String buildSelection(String message, String... options);
 	
 	public void removeCar(String playername);
+	
+	public void showChanceMoveMessage(String name);
 }
