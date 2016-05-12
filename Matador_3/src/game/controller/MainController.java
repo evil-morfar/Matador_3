@@ -267,6 +267,7 @@ public class MainController {
 					// Only show the buy button if the field is purchasable
 					if(field instanceof AbstractOwnable && !((AbstractOwnable) field).isOwned())
 							s.add(1,"Buy");
+					option = output.getUserButtonPressed(sPlayer, s.toArray(new String[s.size()]));
 				}	
 				switch(option) {
 				case("Roll"):
