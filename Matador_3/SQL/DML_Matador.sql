@@ -19,3 +19,13 @@ call SaveField(15,@id,2,0,0);
 
 call SaveField(38,@id,3,0,true);
 call SaveField(40,@id,3,0,true);
+
+-- Create a starting game
+call CreateGame("Simple setup", 1, @id);
+
+insert into players values(1,@id, "Player one", 30000, 0, "blue", 1);
+insert into jail values(1,@id, 0,0,false);
+insert into players values(2,@id, "Player two", 30000, 0, "white", 1);
+insert into jail values(2,@id,0,0,false);
+insert into players values(3,@id, "Player three", 30000, 0, "magenta", 1);
+insert into jail values(3,@id,0,0,false);
