@@ -111,6 +111,12 @@ public class MainController {
 			return;
 		}
 		ArrayList<String> load = db.getSavedGames();
+		if(load.size() == 0){
+			// We can't load a game if there's nothing saved!
+			output.showMessage("Couldn't find any saved games.");
+			state = GameState.START_STATE;
+			return;
+		}
 		String[] games = load.toArray(new String[0]);
 		String selection = output.getUserSelection("Select a game:", games);
 		int gameID = load.indexOf(selection) + 1; // Game index starts at 1, array index doesn't
