@@ -43,8 +43,7 @@ create table player_properties(
     num_houses	int(1) check (num_houses <= 4 && num_houses >= 0),
     num_hotels	int(1) check (num_hotels = 0 || num_hotels = 1),
     primary key (field_id, game_id, player_id),
-	foreign key (player_id) references players(player_id),
-    foreign key (game_id) references games(game_id )
+	foreign key (player_id, game_id) references players(player_id, game_id)
 
 );
 
@@ -63,8 +62,7 @@ create table jail(
     jail_time		int(1) check(jail_time <= 3),
     isInJail		boolean,
     primary key (player_id, game_id),
-    foreign key (player_id) references players(player_id),
-    foreign key (game_id) references games(game_id )
+    foreign key (player_id, game_id) references players(player_id, game_id)
 );
 
 create view fullplayer as (
